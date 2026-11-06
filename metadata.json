@@ -1,0 +1,6 @@
+{
+  "name": "NdaY'Radoko",
+  "description": "Physician-supervised, AI-assisted young-infant outreach prototype by NdaY' Enterprise. Demonstration only — not a medical device and not clinically validated.",
+  "requestFramePermissions": ["camera"],
+  "themeColor": "#2563EB"
+}

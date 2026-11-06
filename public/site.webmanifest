@@ -1,0 +1,13 @@
+{
+  "name": "NdaY’Radoko — physician-supervised young-infant outreach",
+  "short_name": "NdaY’Radoko",
+  "description": "Demonstration prototype. Not a medical device.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FFFFFF",
+  "theme_color": "#2563EB",
+  "icons": [
+    { "src": "/brand/favicon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/brand/favicon-512.png", "sizes": "512x512", "type": "image/png" }
+  ]
+}

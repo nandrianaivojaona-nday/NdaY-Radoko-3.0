@@ -1,0 +1,147 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: light;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-brand-background text-brand-text-primary antialiased;
+    font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+    min-height: 100vh;
+  }
+
+  ::selection {
+    @apply bg-brand-primary/20 text-brand-text-primary;
+  }
+
+  *:focus-visible {
+    @apply outline-none ring-2 ring-brand-primary ring-offset-2 ring-offset-brand-background;
+  }
+
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-brand-background;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply rounded-full bg-brand-text-secondary/25;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-brand-text-secondary/40;
+  }
+}
+
+@layer components {
+  .surface-card {
+    @apply rounded-2xl border border-brand-secondary/15 bg-brand-surface shadow-card;
+  }
+
+  .surface-muted {
+    @apply rounded-xl border border-brand-secondary/15 bg-brand-background;
+  }
+
+  .eyebrow {
+    @apply text-xs font-semibold uppercase tracking-[0.18em] text-brand-primary;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl bg-brand-primary px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-brand-secondary focus-visible:ring-brand-primary disabled:cursor-not-allowed disabled:opacity-50;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl border border-brand-secondary/30 bg-brand-surface px-5 py-2.5 text-sm font-semibold text-brand-text-primary transition-colors hover:border-brand-primary/50 hover:bg-brand-raised disabled:cursor-not-allowed disabled:opacity-50;
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl px-3 py-2 text-sm font-semibold text-brand-text-secondary transition-colors hover:bg-brand-raised hover:text-brand-text-primary disabled:cursor-not-allowed disabled:opacity-50;
+  }
+
+  .btn-danger {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl bg-status-red px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-red-700 disabled:cursor-not-allowed disabled:opacity-50;
+  }
+
+  .input-field {
+    @apply w-full rounded-lg border border-brand-secondary/25 bg-brand-surface px-3 py-2.5 text-sm text-brand-text-primary placeholder:text-brand-text-secondary/60 focus:border-brand-primary focus:outline-none focus:ring-2 focus:ring-brand-primary/30;
+  }
+
+  .label-field {
+    @apply mb-1.5 block text-xs font-semibold uppercase tracking-wide text-brand-text-secondary;
+  }
+
+  .badge {
+    @apply inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-xs font-semibold;
+  }
+
+  .prose-report {
+    @apply text-sm leading-relaxed text-brand-text-secondary;
+  }
+  .prose-report strong {
+    @apply text-brand-text-primary;
+  }
+  .prose-report h1,
+  .prose-report h2,
+  .prose-report h3 {
+    @apply mt-4 font-semibold text-brand-text-primary;
+  }
+  .prose-report ul {
+    @apply my-2 list-disc pl-5;
+  }
+  .prose-report ol {
+    @apply my-2 list-decimal pl-5;
+  }
+  .prose-report p {
+    @apply my-2;
+  }
+  .prose-report table {
+    @apply my-3 w-full border-collapse text-left text-xs;
+  }
+  .prose-report th,
+  .prose-report td {
+    @apply border border-brand-secondary/20 px-2 py-1.5 align-top;
+  }
+  .prose-report th {
+    @apply bg-brand-background text-brand-text-primary;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .bg-grid {
+    background-image:
+      linear-gradient(to right, rgba(15, 23, 42, 0.05) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(15, 23, 42, 0.05) 1px, transparent 1px);
+    background-size: 42px 42px;
+  }
+
+  .bg-radial-brand {
+    background-image: radial-gradient(circle at 20% 0%, rgba(37, 99, 235, 0.12), transparent 45%),
+      radial-gradient(circle at 85% 10%, rgba(22, 163, 74, 0.08), transparent 40%);
+  }
+}
+
+@media print {
+  body {
+    background: #ffffff !important;
+    color: #111827 !important;
+  }
+  .no-print {
+    display: none !important;
+  }
+  .surface-card {
+    border-color: #d1d5db !important;
+    background: #ffffff !important;
+    box-shadow: none !important;
+  }
+}
