@@ -22,7 +22,8 @@ export const loadData = (): AppData => {
       ...clone(SEED_DATA),
       ...parsed,
       users: parsed.users?.length ? parsed.users : clone(SEED_DATA.users),
-      facilities: parsed.facilities?.length ? parsed.facilities : clone(SEED_DATA.facilities),
+      facilities: [...new Map([...(SEED_DATA.facilities ?? []), ...(parsed.facilities ?? [])].map((facility) => [facility.id, facility])).values()],
+      administrativeAreas: [...new Map([...(parsed.administrativeAreas ?? []), ...(SEED_DATA.administrativeAreas ?? [])].map((area) => [area.id, area])).values()],
     };
   } catch (error) {
     console.error('Could not read the local demonstration store; using seed data.', error);
@@ -30,12 +31,17 @@ export const loadData = (): AppData => {
   }
 };
 
-export const saveData = (data: AppData): void => {
-  if (!isBrowser) return;
+export const saveData = (data: AppData): boolean => {
+  if (!isBrowser) return false;
   try {
     window.localStorage.setItem(DATA_KEY, JSON.stringify({ ...data, schemaVersion: DATA_SCHEMA_VERSION }));
+    const saved = window.localStorage.getItem(DATA_KEY);
+    if (!saved) return false;
+    const parsed = JSON.parse(saved) as AppData;
+    return parsed.schemaVersion === DATA_SCHEMA_VERSION && parsed.encounters.length === data.encounters.length;
   } catch (error) {
     console.error('Could not persist the local demonstration store.', error);
+    return false;
   }
 };
 

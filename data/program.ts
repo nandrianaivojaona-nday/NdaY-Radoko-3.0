@@ -365,7 +365,7 @@ export const APPLICATION_CHECKLIST = [
 
 export const CALL_FACTS = [
   'UNICEF Femtech Ventures: up to US$100,000 and 12 months of mentorship.',
-  'Applications due 4 November 2026 (as stated in the call summary used for this prototype).',
+  'Applications due 11 November 2026 at 11:59 PM CET, according to UNICEF’s official call page.',
   'The first pillar includes antenatal and postnatal support, newborn and child health, and primary/community care.',
   'The call seeks registered companies in UNICEF programme countries, functional prototypes, and a commitment to open-source licensing.',
   'This prototype does not assert eligibility; legal and programme eligibility must be verified with UNICEF.',

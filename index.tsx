@@ -1,8 +1,9 @@
-
+// src/index.tsx
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
 import { LanguageProvider } from './LanguageContext';
+import './index.css'; // Add this line here to trigger automatic Tailwind processing
 
 const rootElement = document.getElementById('root');
 if (!rootElement) {

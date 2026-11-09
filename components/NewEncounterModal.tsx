@@ -1,5 +1,6 @@
 import React, { useMemo, useState } from 'react';
 import {
+  AdministrativeArea,
   ConsentRecord,
   Country,
   Encounter,
@@ -9,7 +10,8 @@ import {
   Patient,
   UserAccount,
 } from '../types';
-import { createEmptyObservations } from '../data/observations';
+import { createEmptyObservations, OBSERVATION_BY_ID } from '../data/observations';
+import { getConcernRecommendations, REPORTED_CONCERN_OPTIONS } from '../data/reportedConcerns';
 import {
   createEncounterRecord,
   createMotherRecord,
@@ -23,6 +25,7 @@ interface NewEncounterModalProps {
   onCreate: (mother: Mother, patient: Patient, encounter: Encounter) => void;
   user: UserAccount;
   facilities: Facility[];
+  administrativeAreas?: AdministrativeArea[];
   countries: Country[];
 }
 
@@ -35,6 +38,7 @@ const NewEncounterModal: React.FC<NewEncounterModalProps> = ({
   onCreate,
   user,
   facilities,
+  administrativeAreas = [],
   countries,
 }) => {
   const pilotCountry = countries.find((c) => c.isImplemented) ?? countries[0];
@@ -46,10 +50,7 @@ const NewEncounterModal: React.FC<NewEncounterModalProps> = ({
       ),
     [facilities, pilotCountry],
   );
-  const defaultFacility =
-    clinicalFacilities.find((f) => f.id === user.facilityId)?.id ??
-    clinicalFacilities[0]?.id ??
-    '';
+  const defaultCsbs = clinicalFacilities.filter((f) => f.level === 'CSB I' || f.level === 'CSB II');
 
   // ------------------------------------------------------------------
   // ALL hooks must run unconditionally, BEFORE any early return.
@@ -58,10 +59,23 @@ const NewEncounterModal: React.FC<NewEncounterModalProps> = ({
   const [ageDays, setAgeDays] = useState('14');
   const [sex, setSex] = useState<Patient['sex']>('Female');
   const [village, setVillage] = useState('');
+  const [fokontany, setFokontany] = useState('');
+  const [villageAreaId, setVillageAreaId] = useState('');
+  const [fokontanyAreaId, setFokontanyAreaId] = useState('');
+  const [communeAreaId, setCommuneAreaId] = useState('');
+  const [faritanyAreaId, setFaritanyAreaId] = useState('');
+  const [regionAreaId, setRegionAreaId] = useState('');
+  const [districtAreaId, setDistrictAreaId] = useState('');
+  const [commune, setCommune] = useState('');
   const [district, setDistrict] = useState('');
-  const [concerns, setConcerns] = useState('');
+  const [region, setRegion] = useState('');
+  const [faritany, setFaritany] = useState('');
+  const [districtReferralFacilityId, setDistrictReferralFacilityId] = useState('');
+  const [selectedConcerns, setSelectedConcerns] = useState<string[]>([]);
+  const [otherConcern, setOtherConcern] = useState('');
   const [externalRef, setExternalRef] = useState('');
-  const [facilityId, setFacilityId] = useState(defaultFacility);
+  // A CSB is selected only after the household commune is known.
+  const [facilityId, setFacilityId] = useState('');
   const [equipmentMode, setEquipmentMode] =
     useState<EquipmentMode>('Community teleconsultation');
   const [consent, setConsent] = useState(false);
@@ -76,11 +90,30 @@ const NewEncounterModal: React.FC<NewEncounterModalProps> = ({
   const [otherCaregiverRelationship, setOtherCaregiverRelationship] =
     useState('Father');
   const [maternalNeeds, setMaternalNeeds] = useState('');
+  const [localFacilityDirectory, setLocalFacilityDirectory] = useState<Facility[]>([]);
 
   if (!isOpen) return null;
 
   const age = Number(ageDays);
   const ageInvalid = !Number.isFinite(age) || age < 0 || age > 59;
+  const csbs = clinicalFacilities.filter((facility) => facility.level === 'CSB I' || facility.level === 'CSB II');
+  const areaById = new Map(administrativeAreas.map((area) => [area.id, area]));
+  const faritanyOptions = administrativeAreas.filter((area) => area.level === 'Faritany');
+  const regionOptions = administrativeAreas.filter((area) => area.level === 'Faritra' && area.parentId === faritanyAreaId);
+  const districtOptions = administrativeAreas.filter((area) => area.level === 'Distrika' && area.parentId === regionAreaId);
+  const currentDistrictArea = administrativeAreas.find((area) => area.id === districtAreaId);
+  const availableCommunes = administrativeAreas.filter((area) => area.level === 'Kaominina' && area.parentId === currentDistrictArea?.id);
+  const availableFokontany = administrativeAreas.filter((area) => area.level === 'Fokontany' && area.parentId === communeAreaId);
+  const availableVillages = administrativeAreas.filter((area) => area.level === 'Vohitra/Kartie' && area.parentId === fokontanyAreaId);
+  const communeFacilities = [...csbs, ...localFacilityDirectory].filter((facility) => facility.communeAreaId === communeAreaId);
+  const selectedCommuneCsB = communeFacilities.find((facility) => facility.id === facilityId) ?? null;
+  const selectedCsB = selectedCommuneCsB;
+  const districtReferral = clinicalFacilities.find((facility) => facility.id === `FAC-CHD/CHRD-${districtAreaId}` && facility.level === 'CHD/CHRD');
+  const regionalReferral = clinicalFacilities.find((facility) => facility.id === `FAC-CHR/CHRR-REG-${faritany}-${region}` && facility.level === 'CHR/CHRR');
+  const provincialReferral = clinicalFacilities.find((facility) => facility.id === `FAC-CHU-FAR-${faritany}` && facility.level === 'CHU');
+  const selectedConcernOptions = REPORTED_CONCERN_OPTIONS.filter((option) => selectedConcerns.includes(option.id));
+  const selectedUrgentConcern = selectedConcernOptions.some((option) => option.urgentCareCue);
+  const concernRecommendations = getConcernRecommendations(selectedConcernOptions.map((option) => option.label));
 
   // Single source of truth for the patient's caregiver.
   const effectiveCaregiverName = (
@@ -108,10 +141,15 @@ const NewEncounterModal: React.FC<NewEncounterModalProps> = ({
       setError('Consent is required before an encounter can be created.');
       return;
     }
-    if (!name.trim() || !village.trim() || !facilityId) {
+    if (!name.trim() || !village.trim() || !fokontany.trim() || !district.trim() || !commune.trim() || !communeAreaId || !facilityId) {
       setError(
         'Complete the infant name, village, and receiving facility fields.',
       );
+      return;
+    }
+    const selectedFacility = communeFacilities.find((facility) => facility.id === facilityId);
+    if (!selectedFacility || selectedFacility.communeAreaId !== communeAreaId || !districtAreaId) {
+      setError('Choose a commune CSB that matches the selected commune and district.');
       return;
     }
     if (!motherName.trim()) {
@@ -129,7 +167,17 @@ const NewEncounterModal: React.FC<NewEncounterModalProps> = ({
       name: motherName.trim(),
       ageYears: motherAge ? Number(motherAge) : null,
       village: village.trim(),
+      villageAreaId,
+      fokontany: fokontany.trim(),
+      fokontanyAreaId,
+      commune: commune.trim(),
+      communeAreaId,
       district: district.trim(),
+      districtAreaId,
+      region: region.trim(),
+      regionAreaId,
+      faritany: faritany.trim(),
+      faritanyAreaId,
       countryId: pilotCountry.id,
       reportedNeeds: maternalNeeds
         .split(',')
@@ -155,12 +203,22 @@ const NewEncounterModal: React.FC<NewEncounterModalProps> = ({
       caregiverName: effectiveCaregiverName,
       caregiverRelationship: effectiveCaregiverRelationship,
       village: village.trim(),
+      villageAreaId,
+      fokontany: fokontany.trim(),
+      fokontanyAreaId,
+      commune: commune.trim(),
+      communeAreaId,
       district: district.trim(),
+      districtAreaId,
+      region: region.trim(),
+      regionAreaId,
+      faritany: faritany.trim(),
+      faritanyAreaId,
       countryId: pilotCountry.id,
-      reportedConcerns: concerns
-        .split(',')
-        .map((c) => c.trim())
-        .filter(Boolean),
+      reportedConcerns: [
+        ...selectedConcernOptions.map((option) => option.label),
+        ...(selectedConcerns.includes('other') && otherConcern.trim() ? [otherConcern.trim()] : []),
+      ],
       createdBy: user.id,
       externalRecordRef: externalRef.trim() || undefined,
     });
@@ -170,6 +228,10 @@ const NewEncounterModal: React.FC<NewEncounterModalProps> = ({
       patientId: patient.id,
       countryId: pilotCountry.id,
       facilityId,
+      communeFacilityId: selectedFacility.id,
+      districtReferralFacilityId: districtReferral?.id,
+      regionalReferralFacilityId: regionalReferral?.id,
+      provincialReferralFacilityId: provincialReferral?.id,
       createdBy: user.id,
       equipmentMode,
       observationTemplate: createEmptyObservations(),
@@ -254,29 +316,34 @@ const NewEncounterModal: React.FC<NewEncounterModalProps> = ({
                   <option>Unknown</option>
                 </select>
               </div>
-              <div>
-                <label className="label-field" htmlFor="village">
-                  Village
-                </label>
-                <input
-                  id="village"
-                  className="input-field"
-                  value={village}
-                  onChange={(e) => setVillage(e.target.value)}
-                  required
-                />
+              <div><label className="label-field" htmlFor="faritany">Level 1 · Faritany</label><select id="faritany" className="input-field" value={faritanyAreaId} onChange={(e) => { const area=areaById.get(e.target.value); setFaritanyAreaId(e.target.value); setFaritany(area?.name ?? ''); setRegionAreaId(''); setRegion(''); setDistrictAreaId(''); setDistrict(''); setCommuneAreaId(''); setCommune(''); setFacilityId(''); setFokontanyAreaId(''); setVillageAreaId(''); }} required><option value="">Choose Faritany</option>{faritanyOptions.map(a=><option key={a.id} value={a.id}>{a.name}</option>)}</select></div>
+              <div><label className="label-field" htmlFor="region">Level 2 · Faritra / Region</label><select id="region" className="input-field" value={regionAreaId} onChange={(e) => { const area=areaById.get(e.target.value); setRegionAreaId(e.target.value); setRegion(area?.name ?? ''); setDistrictAreaId(''); setDistrict(''); setCommuneAreaId(''); setCommune(''); setFacilityId(''); setFokontanyAreaId(''); setVillageAreaId(''); }} required disabled={!faritanyAreaId}><option value="">Choose Region</option>{regionOptions.map(a=><option key={a.id} value={a.id}>{a.name}</option>)}</select></div>
+              <div><label className="label-field" htmlFor="district">Level 3 · Distrika</label><select id="district" className="input-field" value={districtAreaId} onChange={(e) => { const area=areaById.get(e.target.value); setDistrictAreaId(e.target.value); setDistrict(area?.name ?? ''); setCommuneAreaId(''); setCommune(''); setFacilityId(''); setFokontanyAreaId(''); setVillageAreaId(''); }} required disabled={!regionAreaId}><option value="">Choose District</option>{districtOptions.map(a=><option key={a.id} value={a.id}>{a.name}</option>)}</select></div>
+              <div><label className="label-field" htmlFor="commune">Level 4 · Kaominina / Commune</label>
+                <select id="commune" className="input-field" value={communeAreaId} onChange={(e) => {
+                  const nextId = e.target.value;
+                  const area = areaById.get(nextId);
+                  setCommuneAreaId(nextId); setCommune(area?.name ?? ''); setFokontanyAreaId(''); setFokontany(''); setVillageAreaId(''); setVillage(''); setFacilityId('');
+                }} required>
+                  <option value="">Select commune</option>
+                  {availableCommunes.map((area) => <option key={area.id} value={area.id}>{area.name} {area.sourceStatus === 'Demo placeholder' ? '(demo)' : ''}</option>)}
+                </select>
               </div>
-              <div>
-                <label className="label-field" htmlFor="district">
-                  District
-                </label>
-                <input
-                  id="district"
-                  className="input-field"
-                  value={district}
-                  onChange={(e) => setDistrict(e.target.value)}
-                  required
-                />
+              <div><label className="label-field" htmlFor="fokontany">Level 5 · Fokontany</label>
+                {availableFokontany.length ? <select id="fokontany" className="input-field" value={fokontanyAreaId} onChange={(e) => {
+                  const area = areaById.get(e.target.value); setFokontanyAreaId(e.target.value); setFokontany(area?.name ?? ''); setVillageAreaId(''); setVillage('');
+                }} required disabled={!communeAreaId}>
+                  <option value="">Select fokontany</option>
+                  {availableFokontany.map((area) => <option key={area.id} value={area.id}>{area.name}</option>)}
+                </select> : <input id="fokontany" className="input-field" value={fokontany} onChange={(e) => setFokontany(e.target.value)} placeholder="Enter fokontany name" required disabled={!communeAreaId} />}
+              </div>
+              <div><label className="label-field" htmlFor="village">Level 6 · Vohitra / Village / Kartie</label>
+                {availableVillages.length ? <select id="village" className="input-field" value={villageAreaId} onChange={(e) => {
+                  const area = areaById.get(e.target.value); setVillageAreaId(e.target.value); setVillage(area?.name ?? '');
+                }} required disabled={!fokontanyAreaId}>
+                  <option value="">Select village</option>
+                  {availableVillages.map((area) => <option key={area.id} value={area.id}>{area.name}</option>)}
+                </select> : <input id="village" className="input-field" value={village} onChange={(e) => setVillage(e.target.value)} placeholder="Enter village or neighborhood name" required disabled={!communeAreaId} />}
               </div>
               <div className="md:col-span-2">
                 <label className="label-field" htmlFor="external-ref">
@@ -295,16 +362,52 @@ const NewEncounterModal: React.FC<NewEncounterModalProps> = ({
                 </p>
               </div>
               <div className="md:col-span-2">
-                <label className="label-field" htmlFor="concerns">
-                  Reported concerns (comma separated)
-                </label>
-                <input
-                  id="concerns"
-                  className="input-field"
-                  value={concerns}
-                  onChange={(e) => setConcerns(e.target.value)}
-                  placeholder="e.g. fever, poor feeding, fast breathing"
-                />
+                <p className="label-field">Reported concerns (select all that apply)</p>
+                <p className="mb-2 text-[11px] text-brand-text-secondary/80">
+                  A selection prioritizes a proposed observation checklist. It does not classify the infant or decide treatment.
+                </p>
+                <div className="grid gap-2 sm:grid-cols-2">
+                  {REPORTED_CONCERN_OPTIONS.map((option) => (
+                    <label key={option.id} className="flex items-start gap-2 rounded-lg border border-brand-secondary/20 bg-brand-background/30 p-2 text-xs text-brand-text-secondary">
+                      <input
+                        type="checkbox"
+                        checked={selectedConcerns.includes(option.id)}
+                        onChange={(e) => setSelectedConcerns((current) => e.target.checked
+                          ? [...current, option.id]
+                          : current.filter((id) => id !== option.id))}
+                        className="mt-0.5"
+                      />
+                      <span>{option.label}{option.urgentCareCue && <strong className="ml-1 text-status-red">· urgent cue</strong>}</span>
+                    </label>
+                  ))}
+                </div>
+                {selectedConcerns.includes('other') && (
+                  <input
+                    id="other-concern"
+                    className="input-field mt-2"
+                    value={otherConcern}
+                    onChange={(e) => setOtherConcern(e.target.value)}
+                    placeholder="Record the caregiver’s words"
+                    aria-label="Describe other reported concern"
+                  />
+                )}
+                {selectedUrgentConcern && (
+                  <Notice tone="critical" title="Potential danger sign reported">
+                    Arrange same-day in-person care now using the urgent-care pathway. Do not wait for the AI draft or a drone. A clinician must assess and decide; this prompt is not an automated classification.
+                  </Notice>
+                )}
+                {selectedConcernOptions.length > 0 && (
+                  <div className="mt-2 rounded-lg border border-brand-primary/25 bg-brand-primary/5 p-3">
+                    <p className="text-xs font-semibold text-brand-text-primary">After registration, prioritize these observations</p>
+                    <div className="mt-2 flex flex-wrap gap-1.5">
+                      {concernRecommendations.prioritizedObservationIds.map((id) => {
+                        const observation = OBSERVATION_BY_ID.get(id);
+                        return observation ? <span key={id} className="badge bg-brand-background text-brand-primary">{observation.label}</span> : null;
+                      })}
+                    </div>
+                    <p className="mt-2 text-[10px] text-brand-text-secondary">Core danger-sign checks remain included. This checklist is a proposed navigation aid pending clinical review.</p>
+                  </div>
+                )}
               </div>
             </section>
 
@@ -405,21 +508,23 @@ const NewEncounterModal: React.FC<NewEncounterModalProps> = ({
 
             <section className="grid gap-4 md:grid-cols-2">
               <div>
-                <label className="label-field" htmlFor="facility">
-                  Receiving facility for physician review
-                </label>
-                <select
-                  id="facility"
-                  className="input-field"
-                  value={facilityId}
-                  onChange={(e) => setFacilityId(e.target.value)}
-                >
-                  {clinicalFacilities.map((facility) => (
-                    <option key={facility.id} value={facility.id}>
-                      {facility.name} — {facility.level}
-                    </option>
-                  ))}
+                <label className="label-field" htmlFor="facility">Commune CSB for initial care</label>
+                <select id="facility" className="input-field" value={facilityId} onChange={(e) => setFacilityId(e.target.value)} required disabled={!communeAreaId}>
+                  <option value="">Choose registered CSB for commune</option>
+                  {communeFacilities.map((facility) => <option key={facility.id} value={facility.id}>{facility.name} — {facility.level}</option>)}
                 </select>
+                {!communeFacilities.length && <p className="mt-1 text-xs text-brand-text-secondary">No CSB is mapped for this commune in the current directory. You can record the household location, but a receiving facility must be added before encounter creation.</p>}
+              </div>
+              <div className="md:col-span-2 rounded-xl border border-brand-secondary/25 bg-brand-background/40 p-4">
+                <p className="eyebrow">Referral pathway (directory/demo)</p>
+                <ol className="mt-2 space-y-1 text-sm text-brand-text-secondary">
+                  <li>Community health site: {fokontany ? `Fokontany ${fokontany} (facility not listed)` : 'select household fokontany'}</li>
+                  <li>Commune: {selectedCsB?.name ?? 'select commune CSB'}</li>
+                  <li>District: {districtReferral?.name ?? 'no district referral facility configured'}</li>
+                  <li>Region: {regionalReferral?.name ?? 'regional referral destination requires verification'}</li>
+                  <li>Faritany: {provincialReferral?.name ?? 'CHU option is unconfirmed for this pathway'}</li>
+                </ol>
+                <p className="mt-2 text-[11px] text-brand-text-secondary/80">Do not use the displayed draft referral chain for real care until the facility directory and referral agreements are verified.</p>
               </div>
               <div>
                 <label className="label-field" htmlFor="equipment">

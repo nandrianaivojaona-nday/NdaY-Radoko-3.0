@@ -11,6 +11,7 @@ import {
   ObservationQuality,
   Patient,
   UserAccount,
+  AdministrativeArea,
 } from '../types';
 import {
   createEmptyMaternalObservations,
@@ -18,12 +19,34 @@ import {
   deriveSource,
   fingerprintObservations,
 } from './observations';
-import { MADAGASCAR_YOUNG_INFANT_SOURCES } from './protocoleSources';
+import { MADAGASCAR_YOUNG_INFANT_SOURCES, WHO_UNICEF_YOUNG_INFANT_SOURCES } from './protocoleSources';
+import administrativeCsv from '../docs/madagascar_administrative_structure_1695_communes.csv?raw';
+import { WHO_YOUNG_INFANT_CLASSIFICATION_RULES } from './whoYoungInfantClassificationRules';
 
 const daysAgo = (days: number, hours = 0): string =>
   new Date(Date.now() - days * 24 * 60 * 60 * 1000 - hours * 60 * 60 * 1000).toISOString();
 const inDays = (days: number): string =>
   new Date(Date.now() + days * 24 * 60 * 60 * 1000).toISOString();
+
+const parseAdministrativeCsv = (csv: string): AdministrativeArea[] => {
+  const rows = csv.trim().split(/\r?\n/).slice(1).map((line) => {
+    const [communeId, faritany, region, district, commune, type] = line.split(',').map((part) => part.trim());
+    return { communeId, faritany, region, district, commune, type: type as 'URBAN' | 'RURAL' };
+  });
+  const areas = new Map<string, AdministrativeArea>();
+  for (const row of rows) {
+    const faritanyId = `FAR-${row.faritany}`;
+    const regionId = `REG-${row.faritany}-${row.region}`;
+    const districtId = `DIST-${row.faritany}-${row.region}-${row.district}`;
+    areas.set(faritanyId, { id: faritanyId, name: row.faritany, level: 'Faritany', parentId: null, sourceStatus: 'Verified reference' });
+    areas.set(regionId, { id: regionId, name: row.region, level: 'Faritra', parentId: faritanyId, sourceStatus: 'Verified reference' });
+    areas.set(districtId, { id: districtId, name: row.district, level: 'Distrika', parentId: regionId, sourceStatus: 'Verified reference' });
+    areas.set(row.communeId, { id: row.communeId, name: row.commune, level: 'Kaominina', parentId: districtId, sourceStatus: 'Verified reference', type: row.type });
+  }
+  return [...areas.values()];
+};
+
+export const ADMINISTRATIVE_AREAS: AdministrativeArea[] = parseAdministrativeCsv(administrativeCsv);
 
 const buildObservations = (
   values: Record<string, { value: string; quality: ObservationQuality; notes?: string }>,
@@ -44,89 +67,110 @@ const buildObservations = (
     };
   });
 
-const MADAGASCAR_YOUNG_INFANT_PROTOCOL = `PRISE EN CHARGE INTEGREE DES MALADIES DU NOUVEAU-NE ET DE L'ENFANT (PCIMNE)
-NOURRISSON DE 0 A 2 MOIS — EVALUER, CLASSER ET TRAITER
-
-A. RECHERCHER UNE POSSIBLE INFECTION BACTERIENNE OU UNE MALADIE TRES GRAVE
-Evaluation (systematique chez tout nourrisson de 0-2 mois) :
-- Demander : le nourrisson a-t-il eu des convulsions ? Tete-t-il / boit-il mal ? Vomit-il tout ce qu'il avale ?
-- Regarder, ecouter, palper :
-  * Compter les mouvements respiratoires pendant une minute. Si 60/min ou plus, recommencer le comptage (respiration rapide).
-  * Tirage sous-costal (respiration difficile).
-  * Battement des ailes du nez.
-  * Geignement expiratoire.
-  * Bombement de la fontanelle.
-  * Pus s'ecoulant de l'oreille.
-  * Ombilic : rougeur s'etendant a la peau de l'abdomen, ou ecoulement de pus.
-  * Pustules cutanees (nombreuses ou etendues).
-  * Le nourrisson est-il lethargique ou inconscient ? Bouge-t-il seulement quand on le stimule ?
-  * Fievre (37,5 °C ou plus) ou hypothermie (moins de 35,5 °C).
-Classifier :
-- MALADIE TRES GRAVE (referer d'urgence) : convulsions, incapacite de boire/teter, vomit tout, tirage sous-costal, battement des ailes du nez, geignement, bombement de la fontanelle, fievre ou hypothermie, pustules nombreuses/etendues, rougeur ombilicale etendue a la peau, lethargique ou inconscient.
-- INFECTION BACTERIENNE LOCALE : ombilic rouge ou suintant de pus, moins de 10 pustules, pus de l'oreille — sans signe de danger.
-- INFECTION BACTERIENNE PEU PROBABLE : aucun des signes ci-dessus.
-
-B. RECHERCHER L'ICTERE
-Evaluation : presence d'ictere (yeux ou peau jaunes), age d'apparition, localisation (face / poitrine-abdomen / paumes-plantes).
-Classifier :
-- ICTERE SEVERE (referer d'urgence) : ictere apparaissant dans les premieres 24 heures, ou ictere des paumes/plantes a tout age.
-- PAS D'ICTERE.
-
-C. DIARRHEE
-Evaluation : diarrhee (oui/non), duree, sang dans les selles ; etat general (lethargique/inconscient, agite/irritable), incapacite de boire ou teter, yeux enfonces, pli cutane (s'efface lentement ou tres lentement). NB : « boit avec avidite » n'est pas evalue chez le jeune nourrisson.
-Classifier (au moins 2 signes pour la deshydratation) :
-- DESHYDRATATION SEVERE.
-- SIGNES EVIDENTS DE DESHYDRATATION.
-- PAS DE DESHYDRATATION.
-- DIARRHEE PERSISTANTE SEVERE (duree 14 jours ou plus).
-- SANG DANS LES SELLES.
-
-D. PROBLEMES D'ALIMENTATION OU INSUFFISANCE PONDERALE
-Pour 0-2 mois, le seul mode d'alimentation est l'allaitement maternel exclusif.
-Evaluation : bonne prise du sein (menton touche le sein, bouche grande ouverte, levre inferieure retroussee vers l'exterieur, areole plus visible au-dessus qu'au-dessous), bon positionnement (nuque droite ou legerement flechie, corps tourne vers la mere, corps proche, tout le corps soutenu), succion efficace, poids faible pour l'age.
-Classifier : probleme d'alimentation / faible poids.
-
-E. VACCINATION
-Verifier le statut vaccinal selon le PEV ; noter la date de la prochaine vaccination.
-
-F. AUTRES PROBLEMES
-Evaluer et enregistrer tout autre probleme.
-
-CONTEXTE NUTRITION (Madagascar) : malnutrition chronique 39,8 % chez les moins de 5 ans (EDSMD-V 2021) ; les 1 000 premiers jours sont determinants ; integrer l'ANJE / allaitement maternel exclusif (AME) et le suivi de la croissance.`;
-
-export const FACILITIES: Facility[] = [
+const DEMO_FACILITIES: Facility[] = [
   {
-    id: 'FAC-CSB-AMB',
-    name: 'Demo Primary Health Centre',
-    level: 'Primary health centre',
-    district: 'Demo District',
+    id: 'FAC-COMMUNITY-IFANADIANA-DEMO',
+    name: 'Community health site — Ifanadiana (fokontany-specific site to verify)',
+    level: 'Community health site',
+    district: 'Ifanadiana',
+    region: 'Vatovavy',
+    faritany: 'Fianarantsoa',
     countryId: 'madagascar',
-    contactNote: 'Synthetic demonstration facility. No pilot site is selected or committed.',
+    contactNote: 'Community health sites are associated with fokontany, but the exact site and catchment are not selected.',
   },
   {
-    id: 'FAC-CHU-FIA',
-    name: 'Demo Referral Hospital',
-    level: 'Referral hospital',
-    district: 'Demo Region',
+    id: 'FAC-CSB2-IFANADIANA-DEMO',
+    name: 'CSB II — Ifanadiana (demonstration record)',
+    level: 'CSB II',
+    commune: 'Demo Commune — Ifanadiana District',
+    district: 'Ifanadiana',
+    region: 'Vatovavy',
+    faritany: 'Fianarantsoa',
     countryId: 'madagascar',
-    contactNote: 'Synthetic demonstration referral facility.',
+    referralFacilityId: 'FAC-CHRD-IFANADIANA-DEMO',
+    contactNote: 'Facility type and locality are based on public references; named-facility operation and participation are unverified. Demonstration record only.',
   },
   {
-    id: 'FAC-CSB-IKA',
-    name: 'Demo District Hospital',
-    level: 'District hospital',
-    district: 'Demo District',
+    id: 'FAC-CHRD-IFANADIANA-DEMO',
+    name: 'CHRD Ifanadiana (demonstration record)',
+    level: 'CHD/CHRD',
+    commune: 'Ifanadiana (district capital commune)',
+    district: 'Ifanadiana',
+    region: 'Vatovavy',
+    faritany: 'Fianarantsoa',
     countryId: 'madagascar',
-    contactNote: 'Synthetic demonstration facility. Referral arrangements are not confirmed.',
+    referralFacilityId: 'FAC-CHR-FIANARANTSOA-DEMO',
+    contactNote: 'CHRD Ifanadiana is documented in the national list; referral agreement and current receiving hospital are unverified. Demonstration record only.',
+  },
+  {
+    id: 'FAC-CHR-FIANARANTSOA-DEMO',
+    name: 'Regional referral hospital — Fianarantsoa (name to verify)',
+    level: 'CHR/CHRR',
+    commune: 'Fianarantsoa',
+    district: 'Fianarantsoa I',
+    region: 'Haute Matsiatra',
+    faritany: 'Fianarantsoa',
+    countryId: 'madagascar',
+    contactNote: 'Ifanadiana referral literature describes a regional hospital in Fianarantsoa; exact current institution/name and referral arrangement must be verified.',
+  },
+  {
+    id: 'FAC-CHU-FIANARANTSOA-DEMO',
+    name: 'CHU Tambohobe Fianarantsoa (demonstration tertiary option)',
+    level: 'CHU',
+    commune: 'Fianarantsoa',
+    district: 'Fianarantsoa I',
+    region: 'Haute Matsiatra',
+    faritany: 'Fianarantsoa',
+    countryId: 'madagascar',
+    contactNote: 'CHU Tambohobe is listed by the Ministry of Health; no direct Ifanadiana referral route or agreement is established.',
   },
   {
     id: 'FAC-OUTREACH',
     name: "NdaY'Radoko demo outreach team",
     level: 'Community outreach team',
-    district: 'Demo District',
+    district: 'Ifanadiana',
+    region: 'Vatovavy',
+    faritany: 'Fianarantsoa',
     countryId: 'madagascar',
     contactNote: 'Synthetic demonstration account; no field team or pilot locality is confirmed.',
   },
+];
+
+export const FACILITIES: Facility[] = [
+  ...DEMO_FACILITIES,
+  ...ADMINISTRATIVE_AREAS.filter((area) => ['Distrika', 'Faritra', 'Faritany'].includes(area.level)).map((area): Facility => {
+    const level = area.level === 'Distrika' ? 'CHD/CHRD' : area.level === 'Faritra' ? 'CHR/CHRR' : 'CHU';
+    const parent = ADMINISTRATIVE_AREAS.find((item) => item.id === area.parentId);
+    const upper = parent?.parentId ? ADMINISTRATIVE_AREAS.find((item) => item.id === parent.parentId) : undefined;
+    return {
+      id: `FAC-${level}-${area.id}`,
+      name: `${level} directory placeholder — ${area.name}`,
+      level,
+      district: area.level === 'Distrika' ? area.name : parent?.name ?? '',
+      region: area.level === 'Faritra' ? area.name : area.level === 'Distrika' ? parent?.name : upper?.name,
+      faritany: area.level === 'Faritany' ? area.name : area.level === 'Faritra' ? parent?.name : upper?.name,
+      countryId: 'madagascar',
+      contactNote: `Administrative directory placeholder for ${area.level}; actual named health facility and referral pathway require verification.`,
+    };
+  }),
+  ...ADMINISTRATIVE_AREAS.filter((area) => area.level === 'Kaominina').map((area): Facility => {
+    const district = ADMINISTRATIVE_AREAS.find((parent) => parent.id === area.parentId);
+    const region = ADMINISTRATIVE_AREAS.find((parent) => parent.id === district?.parentId);
+    const faritany = ADMINISTRATIVE_AREAS.find((parent) => parent.id === region?.parentId);
+    return {
+      id: `FAC-CSB-${area.id}`,
+      name: `CSB directory placeholder — ${area.name}`,
+      level: 'CSB II',
+      commune: area.name,
+      communeAreaId: area.id,
+      district: district?.name ?? '',
+      region: region?.name,
+      faritany: faritany?.name,
+      countryId: 'madagascar',
+      referralFacilityId: `FAC-CHD/CHRD-${district?.id}`,
+      contactNote: `Administrative directory only (${area.type ?? 'type unspecified'}). Named CSB, operating status and catchment not verified.`,
+    };
+  }),
 ];
 
 export const USERS: UserAccount[] = [
@@ -134,7 +178,7 @@ export const USERS: UserAccount[] = [
     id: 'U-DR-VOA',
     name: 'Dr. Voahangy Rakoto',
     role: 'Physician',
-    facilityId: 'FAC-CHU-FIA',
+    facilityId: 'FAC-CHR-FIANARANTSOA-DEMO',
     title: 'Paediatrician — clinical lead (demo role)',
     demoCredential: 'demo-physician-1',
     professionalRegistration: 'DEMO-REG-0001',
@@ -144,8 +188,8 @@ export const USERS: UserAccount[] = [
     id: 'U-DR-HERY',
     name: 'Dr. Hery Randriamahazo',
     role: 'Physician',
-    facilityId: 'FAC-CSB-AMB',
-    title: 'Medical officer, Demo Primary Health Centre CSB II (demo role)',
+    facilityId: 'FAC-OUTREACH',
+    title: 'Medical officer, Ifanadiana CSB II (demo role)',
     demoCredential: 'demo-physician-2',
     professionalRegistration: 'DEMO-REG-0002',
     isDemo: true,
@@ -154,7 +198,7 @@ export const USERS: UserAccount[] = [
     id: 'U-FO-LOVA',
     name: 'Lova Randrianasolo',
     role: 'Field Officer',
-    facilityId: 'FAC-OUTREACH',
+    facilityId: 'FAC-CSB2-IFANADIANA-DEMO',
     title: 'Field operations lead (demo role)',
     demoCredential: 'demo-field-1',
     isDemo: true,
@@ -258,11 +302,32 @@ export const MOTHERS: Mother[] = [
   },
 ];
 
+const whoUnicefYoungInfantReference = {
+  id: 'PROTO-WHO-UNICEF-SYI-2019',
+  countryId: 'madagascar',
+  ageProtocol: 'Young Infant' as const,
+  scope: 'International reference — not nationally adopted' as const,
+  title: 'WHO/UNICEF international reference — sick young infant aged 0–59 days',
+  version: 'WHO/UNICEF young-infant IMCI chart 2019; WHO serious bacterial infection guideline 2024; WHO IYCF model chapter 2025',
+  sourceTitle: 'Management of the sick young infant aged up to 2 months: IMCI chart booklet',
+  sourceOrganisation: 'World Health Organization and UNICEF',
+  sourceDate: '2019-07-22',
+  sourceUrl: 'https://www.who.int/publications/i/item/9789241516365',
+  sources: WHO_UNICEF_YOUNG_INFANT_SOURCES,
+  contextualizations: [],
+  classificationRules: WHO_YOUNG_INFANT_CLASSIFICATION_RULES,
+  clinicalApproval: 'Draft — not reviewed' as const,
+  notes: 'International source-mapped chart classes are loaded for a synthetic demonstrator only. The 2019 chart supersedes the 2014 chart; WHO 2024 SBI guidance is supplementary and differs on fever threshold and fast-breathing age scope. The 2025 IYCF model chapter supports feeding counselling only. No source establishes Madagascar adoption. Display swatches approximate chart colour families; rules and actions require qualified clinical reconciliation, local protocol review and approval before any care use.',
+  importedAt: daysAgo(1),
+  importedBy: 'NdaY’Radoko reference register',
+};
+
 const madagascarYoungInfantProtocol = {
   id: 'PROTO-MG-YI-0.1',
   countryId: 'madagascar',
   ageProtocol: 'Young Infant' as const,
-  title: 'Young infant (0–59 days) — PCIMNE 0–2 months, Madagascar context',
+  scope: 'Madagascar national draft' as const,
+  title: 'Madagascar PCIMNE young-infant draft — secondary / edition unverified',
   version: 'Madagascar workshop edition — not yet identified',
   sourceTitle: 'Madagascar PCIMNE young-infant chart — workshop version pending',
   sourceOrganisation: 'Madagascar Ministry of Public Health',
@@ -309,9 +374,9 @@ export const COUNTRIES: Country[] = [
     localLanguage: 'fr',
     isImplemented: true,
     role: 'National design context',
-    protocols: [madagascarYoungInfantProtocol, madagascarChildProtocol],
+    protocols: [whoUnicefYoungInfantReference, madagascarYoungInfantProtocol, madagascarChildProtocol],
     protocolText: {
-      'Young Infant': MADAGASCAR_YOUNG_INFANT_PROTOCOL,
+      'Young Infant': 'Prototype default: WHO/UNICEF 2019 young-infant IMCI chart booklet (0–59 days), supplemented by WHO 2024 serious bacterial infection recommendations and WHO 2025 infant and young child feeding guidance. Source-mapped classes are draft demonstration content, not approved Madagascar policy or for patient care; reconcile the 2019/2024 infection criteria and obtain clinical review before use.',
       Child: 'Default Madagascar child protocol — not used in the young-infant pilot.',
     },
   },
@@ -646,7 +711,7 @@ export const ENCOUNTERS: Encounter[] = [
     motherId: 'MO-001',
     patientId: 'PT-001',
     countryId: 'madagascar',
-    facilityId: 'FAC-CSB-AMB',
+    facilityId: 'FAC-OUTREACH',
     createdBy: 'U-FO-LOVA',
     createdAt: daysAgo(1, 4),
     status: 'Awaiting physician review',
@@ -708,7 +773,7 @@ export const ENCOUNTERS: Encounter[] = [
     motherId: 'MO-002',
     patientId: 'PT-002',
     countryId: 'madagascar',
-    facilityId: 'FAC-CSB-IKA',
+    facilityId: 'FAC-CHRD-IFANADIANA-DEMO',
     createdBy: 'U-FO-MIALY',
     createdAt: daysAgo(1, 9),
     status: 'Evidence collected',
@@ -763,7 +828,7 @@ export const ENCOUNTERS: Encounter[] = [
     motherId: 'MO-003',
     patientId: 'PT-003',
     countryId: 'madagascar',
-    facilityId: 'FAC-CSB-AMB',
+    facilityId: 'FAC-CSB2-IFANADIANA-DEMO',
     createdBy: 'U-FO-LOVA',
     createdAt: daysAgo(0, 7),
     status: 'Referral in progress',
@@ -824,7 +889,7 @@ export const ENCOUNTERS: Encounter[] = [
     motherId: 'MO-004',
     patientId: 'PT-004',
     countryId: 'madagascar',
-    facilityId: 'FAC-CSB-AMB',
+    facilityId: 'FAC-CSB2-IFANADIANA-DEMO',
     createdBy: 'U-FO-MIALY',
     createdAt: daysAgo(4, 2),
     status: 'Follow-up scheduled',
@@ -843,7 +908,7 @@ export const ENCOUNTERS: Encounter[] = [
       id: 'DEC-1004',
       physicianId: 'U-DR-HERY',
       physicianName: 'Dr. Hery Randriamahazo',
-      facilityId: 'FAC-CSB-AMB',
+      facilityId: 'FAC-CSB2-IFANADIANA-DEMO',
       facilityName: 'Demo Primary Health Centre CSB II',
       disposition: 'Home follow-up',
       workingAssessment:
@@ -904,7 +969,7 @@ export const ENCOUNTERS: Encounter[] = [
     motherId: 'MO-005',
     patientId: 'PT-005',
     countryId: 'madagascar',
-    facilityId: 'FAC-CSB-AMB',
+    facilityId: 'FAC-CSB2-IFANADIANA-DEMO',
     createdBy: 'U-FO-LOVA',
     createdAt: daysAgo(0, 2),
     status: 'Assessment initiated',
@@ -1053,6 +1118,7 @@ export const SEED_DATA: AppData = {
   countries: COUNTRIES,
   drones: DRONES,
   facilities: FACILITIES,
+  administrativeAreas: ADMINISTRATIVE_AREAS,
   users: USERS,
   mothers: MOTHERS
 };

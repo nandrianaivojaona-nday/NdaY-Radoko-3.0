@@ -10,12 +10,15 @@ import {
 } from '../data/observations';
 import { Notice, QualityBadge } from './Badges';
 import {MADAGASCAR_YOUNG_INFANT_SOURCES} from '@/data/protocoleSources';
+import { getConcernRecommendations } from '../data/reportedConcerns';
 
 interface ObservationPanelProps {
   observations: Observation[];
   onChange: (observations: Observation[]) => void;
   onSave: () => void;
   user: UserAccount;
+  reportedConcerns: string[];
+  onUrgentPathway: () => void;
   disabled?: boolean;
 }
 
@@ -53,6 +56,14 @@ const feasibilityStyle = (feasibility: ObservationDefinition['remoteFeasibility'
     default:
       return 'bg-status-red/10 text-status-red';
   }
+};
+
+const assessmentAction = (definition: ObservationDefinition): string => {
+  if (definition.method === 'Caregiver report') return 'ASK · caregiver report';
+  if (definition.method === 'Device measurement') return 'MEASURE · trained assistant/device';
+  if (definition.method === 'Trained in-person assessment') return 'FEEL / TOUCH · trained health worker, in person';
+  if (['grunting', 'stridor'].includes(definition.id)) return 'LOOK / LISTEN · trained observation';
+  return 'LOOK · trained visual observation';
 };
 
 const ObservationRow: React.FC<{
@@ -98,13 +109,14 @@ const ObservationRow: React.FC<{
     });
 
   return (
-    <div className="rounded-xl border border-brand-secondary/20 bg-brand-background/30 p-3">
+  <div id={`observation-${definition.id}`} className="rounded-xl border border-brand-secondary/20 bg-brand-background/30 p-3">
       <div className="flex flex-wrap items-start justify-between gap-2">
         <div className="min-w-0">
           <p className="text-sm font-semibold text-brand-text-primary">
             {definition.label}
             {definition.requiredForReview && <span className="ml-1 text-brand-accent">*</span>}
           </p>
+          <span className="mt-1 inline-flex badge bg-brand-primary/10 text-[10px] text-brand-primary">{assessmentAction(definition)}</span>
           <div className="mt-1 flex flex-wrap items-center gap-1.5">
   <span className="text-[10px] text-brand-text-secondary/70">
     Working reference label: {definition.protocolReference}
@@ -223,11 +235,13 @@ const ObservationRow: React.FC<{
   );
 };
 
-const ObservationPanel: React.FC<ObservationPanelProps> = ({ observations, onChange, onSave, user, disabled = false }) => {
+const ObservationPanel: React.FC<ObservationPanelProps> = ({ observations, onChange, onSave, user, reportedConcerns, onUrgentPathway, disabled = false }) => {
   const [showAll, setShowAll] = useState(false);
   const [showMissingOnly, setShowMissingOnly] = useState(false);
   const byId = useMemo(() => new Map(observations.map((o) => [o.definitionId, o])), [observations]);
   const summary = useMemo(() => summariseCompleteness(observations), [observations]);
+  const concernRecommendations = useMemo(() => getConcernRecommendations(reportedConcerns), [reportedConcerns]);
+  const priorityRank = useMemo(() => new Map(concernRecommendations.prioritizedObservationIds.map((id, index) => [id, index])), [concernRecommendations.prioritizedObservationIds]);
 
   const updateOne = (next: Observation) => {
     onChange(observations.map((o) => (o.definitionId === next.definitionId ? next : o)));
@@ -242,8 +256,71 @@ const ObservationPanel: React.FC<ObservationPanelProps> = ({ observations, onCha
     return true;
   });
 
+  const orderedCategories = [...OBSERVATION_CATEGORIES].sort((a, b) => {
+    const firstA = Math.min(...visibleDefinitions.filter((definition) => definition.category === a).map((definition) => priorityRank.get(definition.id) ?? Number.MAX_SAFE_INTEGER));
+    const firstB = Math.min(...visibleDefinitions.filter((definition) => definition.category === b).map((definition) => priorityRank.get(definition.id) ?? Number.MAX_SAFE_INTEGER));
+    return firstA - firstB;
+  });
+
   return (
     <div className="space-y-4">
+      <section className="rounded-xl border border-brand-secondary/25 bg-brand-background/40 p-4">
+        <h3 className="text-sm font-bold text-brand-text-primary">Young-infant assessment sequence</h3>
+        <ol className="mt-3 grid gap-2 sm:grid-cols-2 lg:grid-cols-5">
+          <li className="rounded-lg bg-brand-surface p-3 text-xs"><strong>1 · ASK</strong><p className="mt-1 text-brand-text-secondary">Caregiver concerns and history are recorded first.</p></li>
+          <li className="rounded-lg bg-brand-surface p-3 text-xs"><strong>2 · LOOK / LISTEN</strong><p className="mt-1 text-brand-text-secondary">A trained user records visual and audible findings. Camera/microphone analysis is not implemented.</p></li>
+          <li className="rounded-lg bg-brand-surface p-3 text-xs"><strong>3 · FEEL / TOUCH</strong><p className="mt-1 text-brand-text-secondary">In-person checks only, by a trained health worker. Do not ask a caregiver to perform them remotely.</p></li>
+          <li className="rounded-lg bg-brand-surface p-3 text-xs"><strong>4 · MEASURE</strong><p className="mt-1 text-brand-text-secondary">A trained assistant records device measurements and their quality.</p></li>
+          <li className="rounded-lg bg-brand-surface p-3 text-xs"><strong>5 · COMPARE / PLAN</strong><p className="mt-1 text-brand-text-secondary">A clinician compares findings with the approved protocol, classifies, then selects treatment, referral, or counselling.</p></li>
+        </ol>
+        <p className="mt-2 text-[10px] text-brand-text-secondary">This prototype supports structured capture and clinician documentation. It does not yet run an automated protocol comparison or treatment rule engine.</p>
+      </section>
+      <section className="rounded-xl border border-brand-primary/25 bg-brand-primary/5 p-4">
+        <div className="flex flex-wrap items-start justify-between gap-3">
+          <div>
+            <h3 className="text-sm font-bold text-brand-text-primary">Next steps from reported concerns</h3>
+            <p className="mt-1 text-xs text-brand-text-secondary">
+              Proposed navigation only — complete the full required assessment. This is not an approved Madagascar protocol, diagnosis, or treatment recommendation.
+            </p>
+          </div>
+          {concernRecommendations.urgentCareCue && (
+            <button type="button" className="btn-danger text-xs" onClick={onUrgentPathway}>
+              Open urgent-care pathway
+            </button>
+          )}
+        </div>
+        {concernRecommendations.urgentCareCue && (
+          <Notice tone="critical" title="Potential danger sign reported">
+            Arrange same-day in-person care now. Do not wait for this checklist, an AI draft, or a drone. Use the urgent-care pathway to record the intended action; it does not contact a facility.
+          </Notice>
+        )}
+        {!concernRecommendations.urgentCareCue && concernRecommendations.sameDayReviewCue && (
+          <Notice tone="warning" title="Prompt clinical review">
+            Record the focused observations below and seek same-day clinician review according to the locally approved protocol. This prompt does not classify severity.
+          </Notice>
+        )}
+        <div className="mt-3">
+          <p className="text-xs font-semibold text-brand-text-primary">Prioritized observations</p>
+          <div className="mt-2 flex flex-wrap gap-2">
+            {concernRecommendations.prioritizedObservationIds.map((id) => {
+              const definition = OBSERVATION_BY_ID.get(id);
+              if (!definition) return null;
+              const observation = byId.get(id);
+              const done = Boolean(observation && isUsableObservation(observation));
+              return (
+                <button
+                  key={id}
+                  type="button"
+                  className={`badge border ${done ? 'border-brand-mint/30 bg-brand-mint/10 text-brand-mint' : 'border-brand-primary/25 bg-brand-background text-brand-primary'}`}
+                  onClick={() => document.getElementById(`observation-${id}`)?.scrollIntoView({ behavior: 'smooth', block: 'center' })}
+                >
+                  {done ? '✓ ' : ''}{definition.label}
+                </button>
+              );
+            })}
+          </div>
+        </div>
+      </section>
       <div className="rounded-xl border border-brand-secondary/25 bg-brand-background/40 p-4">
         <div className="flex flex-wrap items-center justify-between gap-3">
           <div>
@@ -298,8 +375,10 @@ const ObservationPanel: React.FC<ObservationPanelProps> = ({ observations, onCha
         </button>
       </div>
 
-      {OBSERVATION_CATEGORIES.map((category) => {
-        const definitions = visibleDefinitions.filter((d) => d.category === category);
+      {orderedCategories.map((category) => {
+        const definitions = visibleDefinitions
+          .filter((d) => d.category === category)
+          .sort((a, b) => (priorityRank.get(a.id) ?? Number.MAX_SAFE_INTEGER) - (priorityRank.get(b.id) ?? Number.MAX_SAFE_INTEGER));
         if (definitions.length === 0) return null;
         const missingInCategory = definitions.filter((d) => {
           const obs = byId.get(d.id);

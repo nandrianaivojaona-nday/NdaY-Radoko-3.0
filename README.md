@@ -14,6 +14,7 @@ This repository documents the software prototype (package version 0.3.0). The in
 
 - [Technology and requirements](#technology-and-requirements)
 - [Current implementation](#current-implementation)
+- [Demo feature status](#demo-feature-status)
 - [Getting started](#getting-started)
 - [Reviewer walkthrough](#reviewer-walkthrough)
 - [Architecture](#architecture)
@@ -52,21 +53,25 @@ The manifest declares no `test` or `lint` script, and no runtime dependency for 
 
 ## Current implementation
 
-This status describes the supplied source snapshot. It is a source-level description, not a report that all functions have been executed or independently tested. Update it when implementation or evidence changes.
+This status reflects a synthetic browser walkthrough and the existing TypeScript check and production build completed on 8 November 2026 for the current local working tree (HEAD `7a8a234`, with uncommitted changes). It is not a clinical evaluation, pilot, or release record.
 
 | Component | Status in supplied source | Important boundary |
 | --- | --- | --- |
-| Infant registration | Form for infants aged 0-59 days, caregiver details, receiving facility and consent | Synthetic records only |
-| Encounter workflow | Encounter selection, queue and action wiring | Full runtime verification requires the complete repository |
-| Observations | Structured entry, quality labels and completeness indicators | Entries are not proof that a clinical measurement was performed correctly |
-| AI assistance | Draft-preparation service call and review workflow | Confirm whether the build uses live generation or simulated output |
-| Physician decisions | Facility/role checks, decision recording and amendments | Demonstration controls, not verified professional identity |
+| Infant and encounter registration | Synthetic encounter saved with caregiver consent and separate image-capture choice; location cascade and commune-linked CSB placeholder exercised | Synthetic records only; facility directory must be verified before operational use |
+| Encounter workflow | Local queue, assessment state, evidence tab, draft tab and physician-review path are present | Demo state machine and roles only; no production authentication or facility transmission |
+| Observations | Structured catalogue, concern navigation, evidence-quality controls and completeness counter | Exact protocol citations are pending; no automated protocol comparison/classification or rule-based action list |
+| AI assistance | Current browser build prepares a deterministic local documentation template and labels it simulated | Provider key injection is disabled in Vite; no live model integration in this build |
+| Physician decisions | Demonstration decision, review and outcome controls are present | Not verified professional identity, clinical sign-off, or an external referral network |
 | Referral and follow-up | Outcome recording and urgent-escalation workflow | Not evidence of a functioning external referral network |
 | Data persistence | Browser-local demonstration store | No demonstrated facility sharing or secure offline synchronisation |
 | Governance | Protocol metadata, review information and demonstration approval control | A demo approval action is not real clinical or Ministry approval |
 | Equipment | Readiness records and simulated checks | Not airworthiness, flight or clinical-device evidence |
 | Integrated onboard system | Not demonstrated by the supplied components | Embedded execution and device acquisition need separate evidence |
 | Maternal-needs and counselling modules | Part of the development roadmap | Not presented as completed |
+
+## Demo feature status
+
+The detailed verified feature list and safe walkthrough are in [docs/DEMO_FEATURE_STATUS.md](docs/DEMO_FEATURE_STATUS.md).
 
 ## Getting started
 
@@ -79,8 +84,8 @@ This status describes the supplied source snapshot. It is a source-level descrip
 ### 1. Get the project
 
 ```sh
-git clone <REPOSITORY_URL>
-cd <REPOSITORY_DIRECTORY>
+git clone https://github.com/nandrianaivojaona-nday/NdaY-Radoko-3.0.git
+cd NdaY-Radoko-3.0
 ```
 
 ### 2. Install dependencies
@@ -93,13 +98,9 @@ npm ci
 
 If there is no lockfile, use `npm install` and commit the generated `package-lock.json` so installs are reproducible. If the repository holds `pnpm-lock.yaml` or `yarn.lock`, use that package manager instead. Do not mix lockfiles.
 
-### 3. Configure environment (only if the AI draft needs it)
+### 3. AI draft behavior
 
-The project depends on `@google/genai`, so the AI-draft service may call the Google Gen AI API. The service implementation was not supplied, so the variable name, where the call runs and what the app does without a key are not documented here.
-
-Check `services/aiDraft` and `vite.config.*`, then record the exact variable names in a committed `.env.example` with placeholder values only. Never commit a real key.
-
-> Caution: Vite bundles code that runs in the browser. A key read by browser code can be extracted by any visitor. For anything beyond a synthetic-data demo, move the call to a server-side function and keep the key there.
+No API key is needed. The current browser build always uses a deterministic local documentation template and labels it simulated. Vite intentionally injects empty provider-key values into the client bundle. Do not restore a provider secret to browser code; any future live model integration must use a protected server-side endpoint and undergo privacy and clinical-safety review.
 
 ### 4. Run the scripts
 
@@ -110,7 +111,7 @@ Check `services/aiDraft` and `vite.config.*`, then record the exact variable nam
 | `npm run typecheck` | `tsc --noEmit` | Run the TypeScript type check |
 | `npm run preview` | `vite preview` | Serve the production build locally |
 
-Open the address printed by `npm run dev`. Vite's default is `http://localhost:5173`, but `vite.config.*` may change it.
+Open `http://localhost:4000/NdaY-Radoko-3.0/` for the local development server.
 
 Suggested verification before sharing the repository:
 
@@ -120,21 +121,17 @@ npm run typecheck
 npm run build
 ```
 
-Record the actual outcome and date in the testing section. No result is claimed here because these commands have not been run for this README.
+On 8 November 2026, `npm run typecheck` and `npm run build` passed with the provider key unset. The build reported a stale Browserslist database and a JavaScript chunk above 500 kB; these warnings did not stop the build. This does not establish clinical safety or production readiness.
 
 ## Reviewer walkthrough
 
-1. Start the app and read the prototype/synthetic-data notice.
-2. Select a field-officer demonstration account, if one is seeded.
-3. Open a synthetic encounter or register a synthetic infant aged 0-59 days. Record caregiver consent and image permission separately.
-4. Enter observations and inspect the quality states (not assessed, reported-unverified, measured, remotely observed, in person, unusable).
-5. Save and inspect completeness. A missing or unusable finding must not be read as normal.
-6. Prepare an AI draft if the build supports it, and check whether it is labelled as simulated.
-7. Sign out and select the facility-matched physician demonstration account.
-8. Review the evidence and draft, and request more information if needed.
-9. Record a demonstration decision, then a referral or follow-up outcome.
-10. Review the encounter history, protocol governance and equipment status. Simulated readiness is not flight evidence.
-11. Use the reset control to restore the seeded synthetic cases.
+1. Start the app and read the synthetic-data and prototype notices.
+2. Select the Field Officer demonstration account.
+3. Register a synthetic infant. Try Faritany Fianarantsoa → Region Vatovavy → District Ifanadiana → Commune Ifanadiana; note that the CSB is a directory placeholder. Record consent and image permission separately.
+4. Open the new encounter and review the concern prompts and evidence catalogue. Missing observations should remain “not assessed,” not be interpreted as normal.
+5. Prepare the draft. It should identify a deterministic local template, list missing evidence, state that no approved protocol is attached, and say it does not diagnose, classify, score, or recommend treatment.
+6. Observe that the interface does not run protocol comparison or a treatment rule engine. No real-care decision should be made from this prototype.
+7. Use the reset control to restore the seeded synthetic cases. Do not enter real names, dates of birth, contacts, household locations, images, or health records.
 
 Report problems with the build identifier, steps, expected result and actual result. Screenshots must contain synthetic data only.
 

@@ -184,7 +184,7 @@ const ProgramPage: React.FC<ProgramPageProps> = ({ countries }) => {
           </div>
 
           <div className="surface-card p-5">
-            <p className="eyebrow">Commitment package to seek before 4 November</p>
+            <p className="eyebrow">Commitment package to seek before 11 November</p>
             <div className="mt-3 space-y-2">
               {COMMITMENT_PACKAGE.map((item) => (
                 <div key={item.document} className="rounded-lg border border-brand-secondary/20 bg-brand-background p-3 text-xs">

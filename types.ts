@@ -23,10 +23,25 @@ export type UserRole = 'Physician' | 'Field Officer' | 'Program Admin';
 export interface Facility {
   id: string;
   name: string;
-  level: 'Primary health centre' | 'District hospital' | 'Referral hospital' | 'Community outreach team';
+  level: 'Community health site' | 'CSB I' | 'CSB II' | 'CHD/CHRD' | 'CHR/CHRR' | 'CHU' | 'Community outreach team';
+  commune?: string;
+  communeAreaId?: string;
   district: string;
+  region?: string;
+  faritany?: string;
+  referralFacilityId?: string;
   countryId: string;
   contactNote?: string;
+}
+
+/** Territorial administration and health referral are related but distinct hierarchies. */
+export interface AdministrativeArea {
+  id: string;
+  name: string;
+  level: 'Faritany' | 'Faritra' | 'Distrika' | 'Kaominina' | 'Fokontany' | 'Vohitra/Kartie';
+  parentId: string | null;
+  sourceStatus: 'Verified reference' | 'Demo placeholder';
+  type?: 'URBAN' | 'RURAL';
 }
 
 export interface UserAccount {
@@ -140,6 +155,40 @@ export interface ProtocolRuleCitation {
 }
 
 /**
+ * A locally reviewed handling of one rule in the international baseline.
+ * Pending or undocumented entries must never silently replace the baseline.
+ */
+export interface ProtocolContextualization {
+  id: string;
+  baselineRuleId: string;
+  handling: 'Confirmed unchanged' | 'Modified locally' | 'Additional local rule' | 'Not adopted locally' | 'Under review';
+  localRuleText?: string;
+  rationale: string;
+  citations: ProtocolRuleCitation[];
+  reviewedBy?: string;
+  reviewedAt?: string;
+  version?: string;
+}
+
+/** Chart-derived classification and its linked management actions. */
+export interface ProtocolClassificationRule {
+  id: string;
+  label: string;
+  /** Exact chart colour label, e.g. the wording used in the source. */
+  chartColourLabel: string;
+  /** Approximate UI swatch for the chart colour family; not a sampled source-pixel value. */
+  chartColourHex?: string;
+  criteriaSummary: string;
+  actions: Array<{
+    id: string;
+    label: string;
+    detail: string;
+    category: 'Treatment' | 'Referral' | 'Counselling' | 'Follow-up' | 'Other action';
+  }>;
+  citations: ProtocolRuleCitation[];
+}
+
+/**
  * Observation quality flags. `Unavailable` is intentionally distinct from
  * `Not assessed` and `Unusable`: a caregiver may decline, a device may not be
  * present, or an image may be unusable. None of those may be recorded as normal.
@@ -184,7 +233,17 @@ export interface Mother {
   name: string;
   ageYears: number | null;
   village: string;
+  villageAreaId?: string;
+  fokontany?: string;
+  fokontanyAreaId?: string;
+  commune?: string;
+  communeAreaId?: string;
   district: string;
+  districtAreaId?: string;
+  region?: string;
+  regionAreaId?: string;
+  faritany?: string;
+  faritanyAreaId?: string;
   countryId: string;
   observations: Observation[];
   reportedNeeds: string[];
@@ -208,7 +267,17 @@ export interface Patient {
   caregiverName: string;
   caregiverRelationship: string;
   village: string;
+  villageAreaId?: string;
+  fokontany?: string;
+  fokontanyAreaId?: string;
+  commune?: string;
+  communeAreaId?: string;
   district: string;
+  districtAreaId?: string;
+  region?: string;
+  regionAreaId?: string;
+  faritany?: string;
+  faritanyAreaId?: string;
   countryId: string;
   reportedConcerns: string[];
   createdAt: string;
@@ -264,6 +333,12 @@ export interface PhysicianDecision {
   facilityId: string;
   facilityName: string;
   disposition: Disposition;
+  /** Classification entered by the physician after comparing findings to the cited protocol. */
+  protocolClassification?: string;
+  /** Physician-entered protocol plan: treatment, referral, counselling, or follow-up. */
+  protocolPlan?: string;
+  protocolId?: string | null;
+  protocolVersion?: string | null;
   workingAssessment: string;
   instructionsForCaregiver: string;
   safetyNetting: string;
@@ -355,6 +430,10 @@ export interface Encounter {
   patientId: string;
   countryId: string;
   facilityId: string;
+  communeFacilityId?: string;
+  districtReferralFacilityId?: string;
+  regionalReferralFacilityId?: string;
+  provincialReferralFacilityId?: string;
   createdBy: string;
   createdAt: string;
   status: EncounterStatus;
@@ -494,6 +573,8 @@ export interface ProtocolRecord {
   id: string;
   countryId: string;
   ageProtocol: AgeProtocol;
+  /** Clarifies that an international reference is not automatically adopted nationally. */
+  scope?: 'International reference — not nationally adopted' | 'Madagascar national draft';
   title: string;
   version: string;
   sourceTitle: string;
@@ -509,6 +590,10 @@ export interface ProtocolRecord {
   notes: string;
   demoReview?: ProtocolDemoReview;
   sources?: ProtocolSource[];
+  /** Explicit national adaptations linked to international baseline rule IDs. */
+  contextualizations?: ProtocolContextualization[];
+  /** Source-mapped chart classes with their matching colour and action list. */
+  classificationRules?: ProtocolClassificationRule[];
   validationEvent?: ValidationEventRecord;
 }
 
@@ -580,6 +665,7 @@ export interface AppData {
   countries: Country[];
   drones: Drone[];
   facilities: Facility[];
+  administrativeAreas?: AdministrativeArea[];
   users: UserAccount[];
 }
 

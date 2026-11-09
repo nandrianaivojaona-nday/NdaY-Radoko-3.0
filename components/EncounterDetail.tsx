@@ -31,9 +31,10 @@ import {
   updateLogistics,
   validateDecision,
 } from '../services/clinicalWorkflow';
-import { summariseCompleteness } from '../data/observations';
+import { OBSERVATION_CATALOGUE, summariseCompleteness } from '../data/observations';
 import { EncounterStatusBadge, EvidenceBadge, Notice, QualityBadge } from './Badges';
 import ObservationPanel from './ObservationPanel';
+import { getConcernRecommendations } from '../data/reportedConcerns';
 import { daysFromNow, formatDateTime, toDateTimeLocal } from '../utils/format';
 
 export interface EncounterActions {
@@ -93,12 +94,14 @@ const EncounterDetail: React.FC<EncounterDetailProps> = ({
 
   const [decision, setDecision] = useState<DecisionInput>({
     disposition: 'Home follow-up',
+    protocolClassification: '',
+    protocolPlan: '',
     workingAssessment: '',
     instructionsForCaregiver: '',
     safetyNetting: DEFAULT_SAFETY,
     followUpDueAt: daysFromNow(2),
     followUpMethod: 'Phone call',
-    referralFacility: facilities.find((f) => f.level !== 'Community outreach team')?.name ?? '',
+    referralFacility: facilities.find((f) => f.level === 'CHD/CHRD')?.name ?? '',
     referralUrgency: 'Within 24 hours',
     referralReason: '',
     incompleteEvidenceAcknowledged: false,
@@ -109,7 +112,7 @@ const EncounterDetail: React.FC<EncounterDetailProps> = ({
   const [moreInfo, setMoreInfo] = useState('');
   const [urgentReason, setUrgentReason] = useState('Caregiver reported a danger sign.');
   const [urgentFacility, setUrgentFacility] = useState(
-    facilities.find((f) => f.level === 'Referral hospital')?.name ?? '',
+    facilities.find((f) => f.level === 'CHR/CHRR')?.name ?? '',
   );
   const [failureType, setFailureType] = useState('Connectivity loss');
   const [failureDetail, setFailureDetail] = useState('');
@@ -136,6 +139,9 @@ const EncounterDetail: React.FC<EncounterDetailProps> = ({
   }, [encounter.id]);
 
   const summary = useMemo(() => summariseCompleteness(encounter.observations), [encounter.observations]);
+  const concernRecommendations = useMemo(() => getConcernRecommendations(patient.reportedConcerns), [patient.reportedConcerns]);
+  const assessmentProtocol = country?.protocols.find((protocol) => protocol.ageProtocol === 'Young Infant' && protocol.scope === 'International reference — not nationally adopted') ?? null;
+  const assessmentProtocolApproved = assessmentProtocol?.clinicalApproval === 'Approved by clinical lead';
   const canSign = canSignDecision(session.user, encounter);
   const canRecord = canRecordObservations(session.user, encounter);
   const canDraft = canPrepareDraft(session.user, encounter);
@@ -174,7 +180,11 @@ const EncounterDetail: React.FC<EncounterDetailProps> = ({
       setDecisionErrors(validation.errors);
       return;
     }
-    const result = actions.signDecision(encounter.id, decision);
+    const result = actions.signDecision(encounter.id, {
+      ...decision,
+      protocolId: assessmentProtocol?.id ?? null,
+      protocolVersion: assessmentProtocol?.version ?? null,
+    });
     if (!result.valid) {
       setDecisionErrors(result.errors);
       return;
@@ -382,6 +392,33 @@ const EncounterDetail: React.FC<EncounterDetailProps> = ({
                   )}
                 </div>
               </div>
+
+              {patient.reportedConcerns.length > 0 && (
+                <div className={`rounded-xl border p-4 ${concernRecommendations.urgentCareCue ? 'border-status-red/40 bg-status-red/10' : 'border-brand-primary/25 bg-brand-primary/5'}`}>
+                  <div className="flex flex-wrap items-center justify-between gap-3">
+                    <div>
+                      <p className="text-sm font-bold text-brand-text-primary">
+                        {concernRecommendations.urgentCareCue ? 'Potential danger sign: act now' : 'Next step: review prioritized observations'}
+                      </p>
+                      <p className="mt-1 text-xs text-brand-text-secondary">
+                        {concernRecommendations.urgentCareCue
+                          ? 'Arrange same-day in-person care; do not wait for AI or a drone. This is a reported-concern safety cue, not an automated classification.'
+                          : 'The evidence tab will bring the proposed concern-linked observations forward. Complete all required checks; a clinician makes the assessment.'}
+                      </p>
+                    </div>
+                    <div className="flex flex-wrap gap-2">
+                      <button type="button" className="btn-secondary text-xs" onClick={() => setTab('evidence')}>
+                        Review next observations
+                      </button>
+                      {concernRecommendations.urgentCareCue && (
+                        <button type="button" className="btn-danger text-xs" onClick={() => setTab('outcome')}>
+                          Open urgent-care pathway
+                        </button>
+                      )}
+                    </div>
+                  </div>
+                </div>
+              )}
             </div>
           )}
 
@@ -407,6 +444,8 @@ const EncounterDetail: React.FC<EncounterDetailProps> = ({
                 onChange={setDraftObservations}
                 onSave={handleSaveObservations}
                 user={session.user}
+                reportedConcerns={patient.reportedConcerns}
+                onUrgentPathway={() => setTab('outcome')}
                 disabled={!canRecord || !encounter.consent.obtained}
               />
 
@@ -596,6 +635,79 @@ const EncounterDetail: React.FC<EncounterDetailProps> = ({
                     <EvidenceBadge status="working" label="Signature gate working" />
                   </div>
 
+                  <Notice tone={assessmentProtocolApproved ? 'info' : 'warning'} title="Default international reference — not Madagascar-approved">
+                    {assessmentProtocol
+                      ? `${assessmentProtocol.title} (${assessmentProtocol.version}). `
+                      : 'No international young-infant reference is attached. '}
+                    The source-mapped colour classes below come from the WHO/UNICEF 2019 young-infant chart. WHO’s serious bacterial infection guideline is dated 8 December 2024 and is a separate supplementary source; its PSBI definition uses high body temperature ≥38°C and fast breathing ≥60/min only at ages 0–6 days, while the 2019 chart's very-severe-disease box uses ≥37.5°C and does not state that age restriction. The app keeps those source versions distinct rather than combining the criteria. These draft international references do not establish Madagascar adoption; the PCIMNE draft remains secondary and its edition unidentified.
+                  </Notice>
+
+                  <section className="surface-muted p-4" aria-labelledby="compare-observations-title">
+                    <h4 id="compare-observations-title" className="text-sm font-bold text-brand-text-primary">1. Compare assessment findings with protocol</h4>
+                    <p className="mt-1 text-xs text-brand-text-secondary">Review what was asked, looked at, felt/touched, or measured before classifying. The reference text below is a working observation map, not a protocol class or rule.</p>
+                    <div className="mt-3 overflow-x-auto">
+                      <table className="w-full min-w-[640px] text-left text-xs">
+                        <thead><tr className="border-b border-brand-secondary/20 text-brand-text-secondary"><th className="p-2">Assessment item</th><th className="p-2">Method</th><th className="p-2">Recorded finding</th><th className="p-2">Working reference (unverified)</th></tr></thead>
+                        <tbody>
+                          {encounter.observations.filter((observation) => observation.value.trim() && observation.quality !== 'Not assessed').map((observation) => {
+                            const definition = OBSERVATION_CATALOGUE.find((item) => item.id === observation.definitionId);
+                            return <tr key={observation.definitionId} className="border-b border-brand-secondary/10 align-top"><td className="p-2 font-medium">{definition?.label ?? observation.definitionId}</td><td className="p-2">{definition?.method ?? observation.source ?? 'Recorded'}</td><td className="p-2">{observation.value}<span className="block text-[10px] text-brand-text-secondary">{observation.quality}</span></td><td className="p-2">{definition?.protocolReference ?? 'No mapped reference'}</td></tr>;
+                          })}
+                          {!encounter.observations.some((observation) => observation.value.trim() && observation.quality !== 'Not assessed') && <tr><td colSpan={4} className="p-3 text-brand-text-secondary">No assessment findings have been recorded yet.</td></tr>}
+                        </tbody>
+                      </table>
+                    </div>
+                    <Notice tone="warning" title="Assessment first — rule map is draft">Use the concern list only to navigate. Compare ASK, LOOK, LISTEN, FEEL/TOUCH and measured findings with each source criterion, then select every applicable class and linked action. This initial map covers severe disease/local infection, jaundice, diarrhoea and feeding/weight; HIV, immunization, other problems, maternal health and condition-specific follow-up remain to be mapped. Missing or unusable findings are not negative findings. Draft content is for a synthetic demonstrator, not approved for patient care.</Notice>
+                  </section>
+
+                  <section className="surface-muted p-4" aria-labelledby="contextualization-title">
+                    <h4 id="contextualization-title" className="text-sm font-bold text-brand-text-primary">How national contextualization should work</h4>
+                    <ol className="mt-2 list-decimal space-y-1 pl-5 text-xs text-brand-text-secondary">
+                      <li>Start with the WHO/UNICEF international rule and its source version.</li>
+                      <li>For each rule, apply a Madagascar adaptation only when it is explicitly mapped to that baseline rule, supported by a local source, and clinically reviewed.</li>
+                      <li>If a local variation is missing or still under review, show the baseline candidate and flag the local status as unresolved; never silently treat it as a Madagascar-approved rule.</li>
+                    </ol>
+                    <p className="mt-3 rounded-lg bg-brand-background/70 p-3 text-xs text-brand-text-secondary">
+                      Current demo: no reviewed Madagascar contextualization rules are loaded. The local PCIMNE draft remains unverified, so no local overrides are applied. Free-text findings and notes should be matched to the baseline rule criteria; unmatched or ambiguous details must remain visible for clinician review.
+                    </p>
+                  </section>
+
+                  <section className="surface-muted p-4" aria-labelledby="chart-classifications-title">
+                    <div className="flex flex-wrap items-start justify-between gap-2">
+                      <div>
+                        <h4 id="chart-classifications-title" className="text-sm font-bold text-brand-text-primary">2. Chart classifications and matching actions</h4>
+                        <p className="mt-1 text-xs text-brand-text-secondary">Compare the recorded assessment with the source criteria, then select the applicable class and its linked actions for this synthetic demonstration. The colour-name swatches are approximate screen colours, not sampled chart RGB values. Free text remains available for additional clinical detail.</p>
+                      </div>
+                      <EvidenceBadge status="working" label="Draft WHO source map loaded" />
+                    </div>
+                    {assessmentProtocol?.classificationRules?.length ? (
+                      <div className="mt-3 space-y-3">
+                        <Notice tone="warning" title="Draft mapping — not approved for patient care">WHO source wording is mapped for product demonstration only. A qualified newborn clinician must review this initial map, complete the unmapped chart sections, resolve differences between the 2019 chart and 2024 SBI guideline, and document Madagascar contextualization before any field use.</Notice>
+                        {assessmentProtocol.classificationRules.map((rule) => {
+                          const selected = decision.protocolClassification.split(/\n+/).filter(Boolean).includes(rule.label);
+                          const hasColourSwatch = Boolean(rule.chartColourHex && /^#[0-9A-Fa-f]{6}$/.test(rule.chartColourHex));
+                          return (
+                            <div key={rule.id} className={`overflow-hidden rounded-xl border bg-white/60 ${selected ? 'ring-2 ring-brand-primary/50' : 'border-brand-secondary/20'}`}>
+                              <div className="flex items-start gap-3 p-3">
+                                <span aria-label={hasColourSwatch ? `${rule.chartColourLabel} chart colour family, approximate swatch` : 'Chart colour swatch unavailable'} className="mt-1 h-5 w-5 shrink-0 rounded border border-black/20" style={{ backgroundColor: hasColourSwatch ? rule.chartColourHex : '#d1d5db' }} />
+                                <div className="min-w-0 flex-1">
+                                  <button type="button" className="text-left text-sm font-bold text-brand-text-primary underline-offset-2 hover:underline" aria-pressed={selected} disabled={!canSign} onClick={() => setDecision((prev) => { const current = prev.protocolClassification.split(/\n+/).filter(Boolean); const removing = current.includes(rule.label); const next = removing ? current.filter((label) => label !== rule.label) : [...current, rule.label]; const linkedActionLines = rule.actions.map((action) => `${action.category}: ${action.label}${action.detail ? ` — ${action.detail}` : ''}`); const nextPlan = removing ? prev.protocolPlan.split(/\n+/).filter((line) => !linkedActionLines.includes(line)).join('\n') : prev.protocolPlan; return { ...prev, protocolClassification: next.join('\n'), protocolPlan: nextPlan }; })}>
+                                    {rule.label}
+                                  </button>
+                                  <p className="text-[11px] text-brand-text-secondary">Chart colour family: {hasColourSwatch ? rule.chartColourLabel : 'swatch unavailable'} · {rule.criteriaSummary}</p>
+                                  {rule.actions.length > 0 && <div className="mt-2 grid gap-2 sm:grid-cols-2">{rule.actions.map((action) => { const actionText = `${action.category}: ${action.label}${action.detail ? ` — ${action.detail}` : ''}`; const selectedAction = decision.protocolPlan.split(/\n+/).includes(actionText); return <button key={action.id} type="button" aria-pressed={selectedAction} disabled={!canSign} onClick={() => setDecision((prev) => { const currentActions = prev.protocolPlan.split(/\n+/).filter(Boolean); const nextActions = currentActions.includes(actionText) ? currentActions.filter((item) => item !== actionText) : [...currentActions, actionText]; const currentClasses = prev.protocolClassification.split(/\n+/).filter(Boolean); const nextClasses = currentClasses.includes(rule.label) ? currentClasses : [...currentClasses, rule.label]; return { ...prev, protocolClassification: nextClasses.join('\n'), protocolPlan: nextActions.join('\n') }; })} className={`rounded-lg border-l-4 bg-brand-background/70 p-2 text-left text-xs hover:bg-brand-background ${selectedAction ? 'ring-2 ring-brand-primary/50' : ''}`} style={{ borderLeftColor: hasColourSwatch ? rule.chartColourHex : '#9ca3af' }}><span className="font-semibold">{action.category}: {action.label}</span>{action.detail && <span className="mt-0.5 block text-brand-text-secondary">{action.detail}</span>}</button>; })}</div>}
+                                  {rule.citations.map((citation) => { const source = assessmentProtocol?.sources?.find((item) => item.id === citation.sourceId); return <p key={`${citation.sourceId}-${citation.ruleId}`} className="mt-2 text-[10px] text-brand-text-secondary">Source: {source?.url ? <a href={source.url} target="_blank" rel="noreferrer" className="underline">{source.title}</a> : source?.title ?? citation.sourceId}, p. {citation.page} — {citation.section}</p>; })}
+                                </div>
+                              </div>
+                            </div>
+                          );
+                        })}
+                      </div>
+                    ) : (
+                      <Notice tone="warning" title="No chart colour map loaded">No source-mapped chart classes are available for this protocol.</Notice>
+                    )}
+                  </section>
+
                   {!canSign && (
                     <Notice tone="warning" title="Signing not available to this account">
                       {session.user.role !== 'Physician'
@@ -619,35 +731,41 @@ const EncounterDetail: React.FC<EncounterDetailProps> = ({
                     </Notice>
                   )}
 
-                  <div className="grid gap-2 md:grid-cols-3">
-                    {(['Home follow-up', 'In-person assessment', 'Urgent referral'] as Disposition[]).map((d) => (
-                      <button
-                        key={d}
-                        type="button"
-                        onClick={() => setDecision((prev) => ({ ...prev, disposition: d }))}
-                        disabled={!canSign}
-                        className={`rounded-xl border p-3 text-left text-sm transition ${decision.disposition === d ? dispositionTone[d] : 'border-brand-secondary/25 bg-brand-background/30 hover:border-brand-secondary/50'}`}
-                      >
-                        <p className="font-semibold text-brand-text-primary">{d}</p>
-                        <p className="mt-1 text-[11px] text-brand-text-secondary">
-                          {d === 'Home follow-up' && 'Caregiver instructions, safety netting, and a scheduled review.'}
-                          {d === 'In-person assessment' && 'Non-emergency but requires examination at a facility.'}
-                          {d === 'Urgent referral' && 'Same-day care. Must not wait for AI or a flight.'}
-                        </p>
-                      </button>
-                    ))}
-                  </div>
-
                   <div className="grid gap-3 md:grid-cols-2">
+                    <div className="md:col-span-2">
+                      <label className="label-field">3. Classification (choose a chart class above when available; add detail below)</label>
+                      <textarea
+                        className="input-field"
+                        rows={2}
+                        value={decision.protocolClassification}
+                        onChange={(e) => setDecision((prev) => ({ ...prev, protocolClassification: e.target.value }))}
+                        disabled={!canSign}
+                        placeholder="Record the classification only after comparing findings with the current approved protocol."
+                      />
+                    </div>
                     <div>
-                      <label className="label-field">Working assessment (physician-authored)</label>
+                      <label className="label-field">Clinical reasoning and comparison (physician-authored)</label>
                       <textarea
                         className="input-field"
                         rows={3}
                         value={decision.workingAssessment}
                         onChange={(e) => setDecision((prev) => ({ ...prev, workingAssessment: e.target.value }))}
                         disabled={!canSign}
-                        placeholder="Summarise the clinical reasoning; do not copy the AI draft blindly."
+                        placeholder="Summarise which findings support the classification; do not copy the AI draft blindly."
+                      />
+                    </div>
+                  </div>
+
+                  <div className="grid gap-3 md:grid-cols-2">
+                    <div>
+                      <label className="label-field">4. Matching action (choose a listed chart action above when available; add detail below)</label>
+                      <textarea
+                        className="input-field"
+                        rows={3}
+                        value={decision.protocolPlan}
+                        onChange={(e) => setDecision((prev) => ({ ...prev, protocolPlan: e.target.value }))}
+                        disabled={!canSign}
+                        placeholder="Record the clinician-selected action from the approved protocol. For this demo, use synthetic content only."
                       />
                     </div>
                     <div>
@@ -672,6 +790,19 @@ const EncounterDetail: React.FC<EncounterDetailProps> = ({
                       />
                     </div>
                   </div>
+
+                  <section>
+                    <h4 className="mb-2 text-sm font-bold text-brand-text-primary">5. Select the resulting care pathway</h4>
+                    <p className="mb-3 text-xs text-brand-text-secondary">Choose after documenting the classification and action that the clinician compared against the source protocol.</p>
+                    <div className="grid gap-2 md:grid-cols-3">
+                      {(['Home follow-up', 'In-person assessment', 'Urgent referral'] as Disposition[]).map((d) => (
+                        <button key={d} type="button" onClick={() => setDecision((prev) => ({ ...prev, disposition: d }))} disabled={!canSign} className={`rounded-xl border p-3 text-left text-sm transition ${decision.disposition === d ? dispositionTone[d] : 'border-brand-secondary/25 bg-brand-background/30 hover:border-brand-secondary/50'}`}>
+                          <p className="font-semibold text-brand-text-primary">{d}</p>
+                          <p className="mt-1 text-[11px] text-brand-text-secondary">{d === 'Home follow-up' && 'Caregiver instructions, safety netting, and a scheduled review.'}{d === 'In-person assessment' && 'Non-emergency but requires examination at a facility.'}{d === 'Urgent referral' && 'Same-day care. Must not wait for AI or a flight.'}</p>
+                        </button>
+                      ))}
+                    </div>
+                  </section>
 
                   {decision.disposition === 'Home follow-up' ? (
                     <div className="grid gap-3 md:grid-cols-2">
@@ -711,7 +842,7 @@ const EncounterDetail: React.FC<EncounterDetailProps> = ({
                           disabled={!canSign}
                         >
                           {facilities
-                            .filter((f) => f.level !== 'Community outreach team')
+                            .filter((f) => f.level !== 'Community outreach team' && f.level !== 'Community health site' && f.level !== 'CSB I' && f.level !== 'CSB II')
                             .map((f) => <option key={f.id} value={f.name}>{f.name}</option>)}
                         </select>
                       </div>
@@ -1058,6 +1189,9 @@ const SignedDecision: React.FC<{ encounter: Encounter }> = ({ encounter }) => {
       </div>
 
       <InfoBlock label="Working assessment" value={decision.workingAssessment} />
+      {decision.protocolClassification && <InfoBlock label="Protocol classification (clinician-entered)" value={decision.protocolClassification} />}
+      {decision.protocolPlan && <InfoBlock label="Protocol plan" value={decision.protocolPlan} />}
+      {decision.protocolId && <InfoCard label="Protocol source" value={`${decision.protocolId}${decision.protocolVersion ? ` · ${decision.protocolVersion}` : ''}`} />}
       <InfoBlock label="Instructions for the caregiver" value={decision.instructionsForCaregiver} />
       <InfoBlock label="Safety netting" value={decision.safetyNetting} />
 

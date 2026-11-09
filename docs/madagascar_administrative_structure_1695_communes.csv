@@ -1,0 +1,1696 @@
+commune_id,faritany,region,district,commune,type
+COM_00001,Antananarivo,Analamanga,Antananarivo Renivohitra,1er Arrondissement (Soarano),URBAN
+COM_00002,Antananarivo,Analamanga,Antananarivo Renivohitra,2e Arrondissement (Ambanidia),URBAN
+COM_00003,Antananarivo,Analamanga,Antananarivo Renivohitra,3e Arrondissement (Antaninandro),URBAN
+COM_00004,Antananarivo,Analamanga,Antananarivo Renivohitra,4e Arrondissement (Mahamasina),URBAN
+COM_00005,Antananarivo,Analamanga,Antananarivo Renivohitra,5e Arrondissement (Ambatomainty),URBAN
+COM_00006,Antananarivo,Analamanga,Antananarivo Renivohitra,6e Arrondissement (Ambohimanarina),URBAN
+COM_00007,Antananarivo,Analamanga,Antananarivo Atsimondrano,Alasora,RURAL
+COM_00008,Antananarivo,Analamanga,Antananarivo Atsimondrano,Ampitatafika,RURAL
+COM_00009,Antananarivo,Analamanga,Antananarivo Atsimondrano,Andoharanofotsy,RURAL
+COM_00010,Antananarivo,Analamanga,Antananarivo Atsimondrano,Ankadimbahoaka,RURAL
+COM_00011,Antananarivo,Analamanga,Antananarivo Atsimondrano,Anosizato Andrefana,RURAL
+COM_00012,Antananarivo,Analamanga,Antananarivo Atsimondrano,Ambohidrapeto,RURAL
+COM_00013,Antananarivo,Analamanga,Antananarivo Atsimondrano,Ambohijanaka,RURAL
+COM_00014,Antananarivo,Analamanga,Antananarivo Atsimondrano,Ampanefy,RURAL
+COM_00015,Antananarivo,Analamanga,Antananarivo Atsimondrano,Ankadinandriana,RURAL
+COM_00016,Antananarivo,Analamanga,Antananarivo Atsimondrano,Bemasoandro,RURAL
+COM_00017,Antananarivo,Analamanga,Antananarivo Atsimondrano,Bongatsara,RURAL
+COM_00018,Antananarivo,Analamanga,Antananarivo Atsimondrano,Fenoarivo,RURAL
+COM_00019,Antananarivo,Analamanga,Antananarivo Atsimondrano,Fiombonana,RURAL
+COM_00020,Antananarivo,Analamanga,Antananarivo Atsimondrano,Itaosy,RURAL
+COM_00021,Antananarivo,Analamanga,Antananarivo Atsimondrano,Soalandy,RURAL
+COM_00022,Antananarivo,Analamanga,Antananarivo Atsimondrano,Soavina,RURAL
+COM_00023,Antananarivo,Analamanga,Antananarivo Atsimondrano,Tanjombato,RURAL
+COM_00024,Antananarivo,Analamanga,Antananarivo Atsimondrano,Tsiafahy,RURAL
+COM_00025,Antananarivo,Analamanga,Antananarivo Atsimondrano,Ambatofahavalo,RURAL
+COM_00026,Antananarivo,Analamanga,Antananarivo Atsimondrano,Ampagabe,RURAL
+COM_00027,Antananarivo,Analamanga,Antananarivo Atsimondrano,Andranonahoatra,RURAL
+COM_00028,Antananarivo,Analamanga,Antananarivo Atsimondrano,Anjanadoria,RURAL
+COM_00029,Antananarivo,Analamanga,Antananarivo Atsimondrano,Antanetikely,RURAL
+COM_00030,Antananarivo,Analamanga,Antananarivo Atsimondrano,Kianjavato Atsimondrano,RURAL
+COM_00031,Antananarivo,Analamanga,Antananarivo Atsimondrano,Mahitsy Atsimondrano,RURAL
+COM_00032,Antananarivo,Analamanga,Antananarivo Atsimondrano,Ambavahaditokana,RURAL
+COM_00033,Antananarivo,Analamanga,Antananarivo Avaradrano,Ambohimangakely,RURAL
+COM_00034,Antananarivo,Analamanga,Antananarivo Avaradrano,Ambohimanga Rova,RURAL
+COM_00035,Antananarivo,Analamanga,Antananarivo Avaradrano,Ancadikely Ilafy,RURAL
+COM_00036,Antananarivo,Analamanga,Antananarivo Avaradrano,Anjepy,RURAL
+COM_00037,Antananarivo,Analamanga,Antananarivo Avaradrano,Ankadinandriana Avaradrano,RURAL
+COM_00038,Antananarivo,Analamanga,Antananarivo Avaradrano,Fiaferana,RURAL
+COM_00039,Antananarivo,Analamanga,Antananarivo Avaradrano,Manandriana,RURAL
+COM_00040,Antananarivo,Analamanga,Antananarivo Avaradrano,Sabotsy Namehana,RURAL
+COM_00041,Antananarivo,Analamanga,Antananarivo Avaradrano,Talata Volonondry,RURAL
+COM_00042,Antananarivo,Analamanga,Antananarivo Avaradrano,Viliahazo,RURAL
+COM_00043,Antananarivo,Analamanga,Antananarivo Avaradrano,Ambohitrabiby,RURAL
+COM_00044,Antananarivo,Analamanga,Antananarivo Avaradrano,Ambanitsena Avaradrano,RURAL
+COM_00045,Antananarivo,Analamanga,Ambohidratrimo,Ambohidahy,RURAL
+COM_00046,Antananarivo,Analamanga,Ambohidratrimo,Ambohidratrimo,RURAL
+COM_00047,Antananarivo,Analamanga,Ambohidratrimo,Ampangabe,RURAL
+COM_00048,Antananarivo,Analamanga,Ambohidratrimo,Ambato,RURAL
+COM_00049,Antananarivo,Analamanga,Ambohidratrimo,Anosiala,RURAL
+COM_00050,Antananarivo,Analamanga,Ambohidratrimo,Avaratsena,RURAL
+COM_00051,Antananarivo,Analamanga,Ambohidratrimo,Fiadanana,RURAL
+COM_00052,Antananarivo,Analamanga,Ambohidratrimo,Ivato,URBAN
+COM_00053,Antananarivo,Analamanga,Ambohidratrimo,Ivato Firaisana,RURAL
+COM_00054,Antananarivo,Analamanga,Ambohidratrimo,Mahitsy,RURAL
+COM_00055,Antananarivo,Analamanga,Ambohidratrimo,Mananjara,RURAL
+COM_00056,Antananarivo,Analamanga,Ambohidratrimo,Manerinerina,RURAL
+COM_00057,Antananarivo,Analamanga,Ambohidratrimo,Merimandroso,RURAL
+COM_00058,Antananarivo,Analamanga,Ambohidratrimo,Talasata,RURAL
+COM_00059,Antananarivo,Analamanga,Ambohidratrimo,Talatamaty,URBAN
+COM_00060,Antananarivo,Analamanga,Ambohidratrimo,Antanetibe,RURAL
+COM_00061,Antananarivo,Analamanga,Ambohidratrimo,Antehiroka,RURAL
+COM_00062,Antananarivo,Analamanga,Ambohidratrimo,Imerimandroso,RURAL
+COM_00063,Antananarivo,Analamanga,Ambohidratrimo,Mahazaza,RURAL
+COM_00064,Antananarivo,Analamanga,Ambohidratrimo,Mahavelona,RURAL
+COM_00065,Antananarivo,Analamanga,Ambohidratrimo,Ambohitrimanjaka,RURAL
+COM_00066,Antananarivo,Analamanga,Ambohidratrimo,Ambato Ambarimantara,RURAL
+COM_00067,Antananarivo,Analamanga,Ambohidratrimo,Ambohimanatrika,RURAL
+COM_00068,Antananarivo,Analamanga,Ambohidratrimo,Ambohimera,RURAL
+COM_00069,Antananarivo,Analamanga,Ambohidratrimo,Andranolefa,RURAL
+COM_00070,Antananarivo,Analamanga,Andramasina,Alarobia Vatosola,RURAL
+COM_00071,Antananarivo,Analamanga,Andramasina,Ambohimanatrika,RURAL
+COM_00072,Antananarivo,Analamanga,Andramasina,Amvinany,RURAL
+COM_00073,Antananarivo,Analamanga,Andramasina,Andramasina,RURAL
+COM_00074,Antananarivo,Analamanga,Andramasina,Anosibe Ifanja,RURAL
+COM_00075,Antananarivo,Analamanga,Andramasina,Fitsinjovana Bakaro,RURAL
+COM_00076,Antananarivo,Analamanga,Andramasina,Mandaratsy,RURAL
+COM_00077,Antananarivo,Analamanga,Andramasina,Sabotsy Ambohitromby,RURAL
+COM_00078,Antananarivo,Analamanga,Andramasina,Tankafatra,RURAL
+COM_00079,Antananarivo,Analamanga,Andramasina,Alatsinainy Bakaro,RURAL
+COM_00080,Antananarivo,Analamanga,Andramasina,Ambohitromby Andramasina,RURAL
+COM_00081,Antananarivo,Analamanga,Andramasina,Sabotsy Manjakandriana,RURAL
+COM_00082,Antananarivo,Analamanga,Andramasina,Anepoka,RURAL
+COM_00083,Antananarivo,Analamanga,Anjozorobe,Alakamisy,RURAL
+COM_00084,Antananarivo,Analamanga,Anjozorobe,Ambohibary,RURAL
+COM_00085,Antananarivo,Analamanga,Anjozorobe,Ambomihafa,RURAL
+COM_00086,Antananarivo,Analamanga,Anjozorobe,Anjozorobe,URBAN
+COM_00087,Antananarivo,Analamanga,Anjozorobe,Antenimbe,RURAL
+COM_00088,Antananarivo,Analamanga,Anjozorobe,Beronono,RURAL
+COM_00089,Antananarivo,Analamanga,Anjozorobe,Betatao,RURAL
+COM_00090,Antananarivo,Analamanga,Anjozorobe,Mangamila,RURAL
+COM_00091,Antananarivo,Analamanga,Anjozorobe,Marotsipoy,RURAL
+COM_00092,Antananarivo,Analamanga,Anjozorobe,Ambohitrandriana Anjozorobe,RURAL
+COM_00093,Antananarivo,Analamanga,Anjozorobe,Belanitra,RURAL
+COM_00094,Antananarivo,Analamanga,Anjozorobe,Ambohimanarina,RURAL
+COM_00095,Antananarivo,Analamanga,Anjozorobe,Ambohimanambola Anjozorobe,RURAL
+COM_00096,Antananarivo,Analamanga,Anjozorobe,Androvakely,RURAL
+COM_00097,Antananarivo,Analamanga,Ankazobe,Ambohitromby,RURAL
+COM_00098,Antananarivo,Analamanga,Ankazobe,Ambohitrantenaina,RURAL
+COM_00099,Antananarivo,Analamanga,Ankazobe,Ankazobe,URBAN
+COM_00100,Antananarivo,Analamanga,Ankazobe,Antotohazo,RURAL
+COM_00101,Antananarivo,Analamanga,Ankazobe,Fihaonana,RURAL
+COM_00102,Antananarivo,Analamanga,Ankazobe,Kiangara,RURAL
+COM_00103,Antananarivo,Analamanga,Ankazobe,Mahavelona,RURAL
+COM_00104,Antananarivo,Analamanga,Ankazobe,Miantso,RURAL
+COM_00105,Antananarivo,Analamanga,Ankazobe,Talasata,RURAL
+COM_00106,Antananarivo,Analamanga,Ankazobe,Ambohitriniandriana,RURAL
+COM_00107,Antananarivo,Analamanga,Ankazobe,Antanetibe Ankazobe,RURAL
+COM_00108,Antananarivo,Analamanga,Ankazobe,Marondry,RURAL
+COM_00109,Antananarivo,Analamanga,Ankazobe,Malamabato,RURAL
+COM_00110,Antananarivo,Analamanga,Ankazobe,Tsaramandroso,RURAL
+COM_00111,Antananarivo,Analamanga,Manjakandriana,Alarobia,RURAL
+COM_00112,Antananarivo,Analamanga,Manjakandriana,Ambanitsena,RURAL
+COM_00113,Antananarivo,Analamanga,Manjakandriana,Ambohibary,RURAL
+COM_00114,Antananarivo,Analamanga,Manjakandriana,Ambohitrandriana,RURAL
+COM_00115,Antananarivo,Analamanga,Manjakandriana,Anjepy,RURAL
+COM_00116,Antananarivo,Analamanga,Manjakandriana,Anjoma,RURAL
+COM_00117,Antananarivo,Analamanga,Manjakandriana,Carion,RURAL
+COM_00118,Antananarivo,Analamanga,Manjakandriana,Manjakandriana,URBAN
+COM_00119,Antananarivo,Analamanga,Manjakandriana,Mantasoa,RURAL
+COM_00120,Antananarivo,Analamanga,Manjakandriana,Nandihizana,RURAL
+COM_00121,Antananarivo,Analamanga,Manjakandriana,Miadanandriana,RURAL
+COM_00122,Antananarivo,Analamanga,Manjakandriana,Sambaina,RURAL
+COM_00123,Antananarivo,Analamanga,Manjakandriana,Ambohitrolomahitsy,RURAL
+COM_00124,Antananarivo,Analamanga,Manjakandriana,Ambohitrony,RURAL
+COM_00125,Antananarivo,Analamanga,Manjakandriana,Sadabe,RURAL
+COM_00126,Antananarivo,Analamanga,Manjakandriana,Ambohitrarivo,RURAL
+COM_00127,Antananarivo,Analamanga,Manjakandriana,Ambohitsera,RURAL
+COM_00128,Antananarivo,Analamanga,Manjakandriana,Ankadinandriana,RURAL
+COM_00129,Antananarivo,Analamanga,Manjakandriana,Ankorondrano,RURAL
+COM_00130,Antananarivo,Analamanga,Manjakandriana,Ambohimanambola,RURAL
+COM_00131,Antananarivo,Analamanga,Manjakandriana,Soavinandriana Manjakandriana,RURAL
+COM_00132,Antananarivo,Analamanga,Manjakandriana,Ranovao,RURAL
+COM_00133,Antananarivo,Vakinankaratra,Antsirabe I,Antsirabe Urban Commune,URBAN
+COM_00134,Antananarivo,Vakinankaratra,Antsirabe II,Alakamisy,RURAL
+COM_00135,Antananarivo,Vakinankaratra,Antsirabe II,Ambano,RURAL
+COM_00136,Antananarivo,Vakinankaratra,Antsirabe II,Ambohibary,RURAL
+COM_00137,Antananarivo,Vakinankaratra,Antsirabe II,Ambohidranandriana,RURAL
+COM_00138,Antananarivo,Vakinankaratra,Antsirabe II,Ambohimiarivo,RURAL
+COM_00139,Antananarivo,Vakinankaratra,Antsirabe II,Ambohitsimanova,RURAL
+COM_00140,Antananarivo,Vakinankaratra,Antsirabe II,Andranomanelatra,RURAL
+COM_00141,Antananarivo,Vakinankaratra,Antsirabe II,Antanambao,RURAL
+COM_00142,Antananarivo,Vakinankaratra,Antsirabe II,Antsoatany,RURAL
+COM_00143,Antananarivo,Vakinankaratra,Antsirabe II,Ibity,RURAL
+COM_00144,Antananarivo,Vakinankaratra,Antsirabe II,Manandona,RURAL
+COM_00145,Antananarivo,Vakinankaratra,Antsirabe II,Soanindrariny,RURAL
+COM_00146,Antananarivo,Vakinankaratra,Antsirabe II,Tsarahonenana Sahanivotra,RURAL
+COM_00147,Antananarivo,Vakinankaratra,Antsirabe II,Vinaninkarena,RURAL
+COM_00148,Antananarivo,Vakinankaratra,Antsirabe II,Belazao,RURAL
+COM_00149,Antananarivo,Vakinankaratra,Antsirabe II,Sahanivotra,RURAL
+COM_00150,Antananarivo,Vakinankaratra,Antsirabe II,Andranomanelatra II,RURAL
+COM_00151,Antananarivo,Vakinankaratra,Antsirabe II,Mahaiza II,RURAL
+COM_00152,Antananarivo,Vakinankaratra,Antsirabe II,Mandraitsara,RURAL
+COM_00153,Antananarivo,Vakinankaratra,Antsirabe II,Vohidahy,RURAL
+COM_00154,Antananarivo,Vakinankaratra,Ambatolampy,Ambatondrakalavao,RURAL
+COM_00155,Antananarivo,Vakinankaratra,Ambatolampy,Ambatolampy,URBAN
+COM_00156,Antananarivo,Vakinankaratra,Ambatolampy,Ambohimandroso,RURAL
+COM_00157,Antananarivo,Vakinankaratra,Ambatolampy,Andranovao,RURAL
+COM_00158,Antananarivo,Vakinankaratra,Ambatolampy,Andravola Vohipeno,RURAL
+COM_00159,Antananarivo,Vakinankaratra,Ambatolampy,Andsamana,RURAL
+COM_00160,Antananarivo,Vakinankaratra,Ambatolampy,Behenjy,RURAL
+COM_00161,Antananarivo,Vakinankaratra,Ambatolampy,Belambo,RURAL
+COM_00162,Antananarivo,Vakinankaratra,Ambatolampy,Manjakatompo,RURAL
+COM_00163,Antananarivo,Vakinankaratra,Ambatolampy,Tsiafajavona Ankaratra,RURAL
+COM_00164,Antananarivo,Vakinankaratra,Ambatolampy,Tsinjoarivo,RURAL
+COM_00165,Antananarivo,Vakinankaratra,Ambatolampy,Ambohimerisoa,RURAL
+COM_00166,Antananarivo,Vakinankaratra,Ambatolampy,Antsamabato,RURAL
+COM_00167,Antananarivo,Vakinankaratra,Ambatolampy,Morarano Ambatolampy,RURAL
+COM_00168,Antananarivo,Vakinankaratra,Ambatolampy,Antasapanana,RURAL
+COM_00169,Antananarivo,Vakinankaratra,Ambatolampy,Fenoarivo Ambatolampy,RURAL
+COM_00170,Antananarivo,Vakinankaratra,Ambatolampy,Sabotsy Namatoana,RURAL
+COM_00171,Antananarivo,Vakinankaratra,Antanifotsy,Ambatomiady,RURAL
+COM_00172,Antananarivo,Vakinankaratra,Antanifotsy,Ambatotsipihina,RURAL
+COM_00173,Antananarivo,Vakinankaratra,Antanifotsy,Ambohitompoina,RURAL
+COM_00174,Antananarivo,Vakinankaratra,Antanifotsy,Ampasipotsy,RURAL
+COM_00175,Antananarivo,Vakinankaratra,Antanifotsy,Antanifotsy,URBAN
+COM_00176,Antananarivo,Vakinankaratra,Antanifotsy,Antsamabato,RURAL
+COM_00177,Antananarivo,Vakinankaratra,Antanifotsy,Antsahalava,RURAL
+COM_00178,Antananarivo,Vakinankaratra,Antanifotsy,Sahanivotra,RURAL
+COM_00179,Antananarivo,Vakinankaratra,Antanifotsy,Alarobia Ankazomiriotra,RURAL
+COM_00180,Antananarivo,Vakinankaratra,Antanifotsy,Ambohimandroso Antanifotsy,RURAL
+COM_00181,Antananarivo,Vakinankaratra,Antanifotsy,Antsapanana,RURAL
+COM_00182,Antananarivo,Vakinankaratra,Antanifotsy,Bemasoandro Antanifotsy,RURAL
+COM_00183,Antananarivo,Vakinankaratra,Antanifotsy,Soamanandrariny,RURAL
+COM_00184,Antananarivo,Vakinankaratra,Betafo,Alakamisy Anativato,RURAL
+COM_00185,Antananarivo,Vakinankaratra,Betafo,Ambohimanambola,RURAL
+COM_00186,Antananarivo,Vakinankaratra,Betafo,Ambohimasina,RURAL
+COM_00187,Antananarivo,Vakinankaratra,Betafo,Andrebakely,RURAL
+COM_00188,Antananarivo,Vakinankaratra,Betafo,Anosiarivo,RURAL
+COM_00189,Antananarivo,Vakinankaratra,Betafo,Betafo,URBAN
+COM_00190,Antananarivo,Vakinankaratra,Betafo,Inanantonana,RURAL
+COM_00191,Antananarivo,Vakinankaratra,Betafo,Mahaiza,RURAL
+COM_00192,Antananarivo,Vakinankaratra,Betafo,Soavina,RURAL
+COM_00193,Antananarivo,Vakinankaratra,Betafo,Tsarahonenana,RURAL
+COM_00194,Antananarivo,Vakinankaratra,Betafo,Alarobia Bemaha,RURAL
+COM_00195,Antananarivo,Vakinankaratra,Betafo,Ambatonikonilahy,RURAL
+COM_00196,Antananarivo,Vakinankaratra,Betafo,Ankazomiriotra,RURAL
+COM_00197,Antananarivo,Vakinankaratra,Betafo,Mandoto Betafo,RURAL
+COM_00198,Antananarivo,Vakinankaratra,Betafo,Ambohimanitra,RURAL
+COM_00199,Antananarivo,Vakinankaratra,Betafo,Ambohimidasy,RURAL
+COM_00200,Antananarivo,Vakinankaratra,Betafo,Ambohimirahavavy,RURAL
+COM_00201,Antananarivo,Vakinankaratra,Betafo,Andranomafana,RURAL
+COM_00202,Antananarivo,Vakinankaratra,Faratsiho,Ambohiborona,RURAL
+COM_00203,Antananarivo,Vakinankaratra,Faratsiho,Andranomiady,RURAL
+COM_00204,Antananarivo,Vakinankaratra,Faratsiho,Faratsiho,URBAN
+COM_00205,Antananarivo,Vakinankaratra,Faratsiho,Miandrarivo,RURAL
+COM_00206,Antananarivo,Vakinankaratra,Faratsiho,Valabetokana,RURAL
+COM_00207,Antananarivo,Vakinankaratra,Faratsiho,Vohitsara,RURAL
+COM_00208,Antananarivo,Vakinankaratra,Faratsiho,Ambohimasina Faratsiho,RURAL
+COM_00209,Antananarivo,Vakinankaratra,Faratsiho,Ramainandro,RURAL
+COM_00210,Antananarivo,Vakinankaratra,Faratsiho,Vinaninony Nord,RURAL
+COM_00211,Antananarivo,Vakinankaratra,Faratsiho,Vinaninony Sud,RURAL
+COM_00212,Antananarivo,Vakinankaratra,Mandoto,Anepoka,RURAL
+COM_00213,Antananarivo,Vakinankaratra,Mandoto,Ankazomiriotra Mandoto,RURAL
+COM_00214,Antananarivo,Vakinankaratra,Mandoto,Fitivana,RURAL
+COM_00215,Antananarivo,Vakinankaratra,Mandoto,Mandoto,URBAN
+COM_00216,Antananarivo,Vakinankaratra,Mandoto,Vasiana,RURAL
+COM_00217,Antananarivo,Vakinankaratra,Mandoto,Vinany,RURAL
+COM_00218,Antananarivo,Vakinankaratra,Mandoto,Fativana,RURAL
+COM_00219,Antananarivo,Vakinankaratra,Mandoto,Siramena,RURAL
+COM_00220,Antananarivo,Vakinankaratra,Mandoto,Ambatomainty Mandoto,RURAL
+COM_00221,Antananarivo,Vakinankaratra,Mandoto,Miarinarivo Mandoto,RURAL
+COM_00222,Antananarivo,Itasy,Miarinarivo,Ambatomanjaka,RURAL
+COM_00223,Antananarivo,Itasy,Miarinarivo,Analavory,RURAL
+COM_00224,Antananarivo,Itasy,Miarinarivo,Androhibe,RURAL
+COM_00225,Antananarivo,Itasy,Miarinarivo,Manazary,RURAL
+COM_00226,Antananarivo,Itasy,Miarinarivo,Miarinarivo,URBAN
+COM_00227,Antananarivo,Itasy,Miarinarivo,Soamahamanina,RURAL
+COM_00228,Antananarivo,Itasy,Miarinarivo,Soavimbahoaka,RURAL
+COM_00229,Antananarivo,Itasy,Miarinarivo,Zoma Bealoka,RURAL
+COM_00230,Antananarivo,Itasy,Miarinarivo,Alatsinainikely,RURAL
+COM_00231,Antananarivo,Itasy,Miarinarivo,Ambohitrambo,RURAL
+COM_00232,Antananarivo,Itasy,Miarinarivo,Anosibe Ifanja,RURAL
+COM_00233,Antananarivo,Itasy,Miarinarivo,Mandievazaha,RURAL
+COM_00234,Antananarivo,Itasy,Miarinarivo,Soavinandriana Miarinarivo,RURAL
+COM_00235,Antananarivo,Itasy,Arivonimamo,Alakamisy,RURAL
+COM_00236,Antananarivo,Itasy,Arivonimamo,Amboanana,RURAL
+COM_00237,Antananarivo,Itasy,Arivonimamo,Ambohitrambo,RURAL
+COM_00238,Antananarivo,Itasy,Arivonimamo,Ampahimanga,RURAL
+COM_00239,Antananarivo,Itasy,Arivonimamo,Arivonimamo,URBAN
+COM_00240,Antananarivo,Itasy,Arivonimamo,Imerintsiatosika,URBAN
+COM_00241,Antananarivo,Itasy,Arivonimamo,Mahitsy,RURAL
+COM_00242,Antananarivo,Itasy,Arivonimamo,Manalalondo,RURAL
+COM_00243,Antananarivo,Itasy,Arivonimamo,Morarano,RURAL
+COM_00244,Antananarivo,Itasy,Arivonimamo,Ambatomirahavavy,RURAL
+COM_00245,Antananarivo,Itasy,Arivonimamo,Ambohimasina,RURAL
+COM_00246,Antananarivo,Itasy,Arivonimamo,Antambolo,RURAL
+COM_00247,Antananarivo,Itasy,Arivonimamo,Suburb Arivonimamo II,RURAL
+COM_00248,Antananarivo,Itasy,Arivonimamo,Ambohitromby Arivonimamo,RURAL
+COM_00249,Antananarivo,Itasy,Arivonimamo,Andranolefa,RURAL
+COM_00250,Antananarivo,Itasy,Arivonimamo,Morarano Kraoma,RURAL
+COM_00251,Antananarivo,Itasy,Arivonimamo,Ranomafana Arivonimamo,RURAL
+COM_00252,Antananarivo,Itasy,Soavinandriana,Ambohidronono,RURAL
+COM_00253,Antananarivo,Itasy,Soavinandriana,Ambohibary,RURAL
+COM_00254,Antananarivo,Itasy,Soavinandriana,Ampary,RURAL
+COM_00255,Antananarivo,Itasy,Soavinandriana,Dondona,RURAL
+COM_00256,Antananarivo,Itasy,Soavinandriana,Mahavelona,RURAL
+COM_00257,Antananarivo,Itasy,Soavinandriana,Mananasy,RURAL
+COM_00258,Antananarivo,Itasy,Soavinandriana,Soavinandriana,URBAN
+COM_00259,Antananarivo,Itasy,Soavinandriana,Tamponala,RURAL
+COM_00260,Antananarivo,Itasy,Soavinandriana,Ambatoasangana,RURAL
+COM_00261,Antananarivo,Itasy,Soavinandriana,Ambohitromby Soavinandriana,RURAL
+COM_00262,Antananarivo,Itasy,Soavinandriana,Masindray,RURAL
+COM_00263,Antananarivo,Itasy,Soavinandriana,Ambohimasina Soavinandriana,RURAL
+COM_00264,Antananarivo,Itasy,Soavinandriana,Amparaky,RURAL
+COM_00265,Antananarivo,Itasy,Soavinandriana,Anosibe Soavinandriana,RURAL
+COM_00266,Antananarivo,Itasy,Soavinandriana,Tamponala II,RURAL
+COM_00267,Antananarivo,Bongolava,Tsiroanomandidy,Ambalanirana,RURAL
+COM_00268,Antananarivo,Bongolava,Tsiroanomandidy,Ambararatabe,RURAL
+COM_00269,Antananarivo,Bongolava,Tsiroanomandidy,Ambatolampy,RURAL
+COM_00270,Antananarivo,Bongolava,Tsiroanomandidy,Ankadinondry Sakay,RURAL
+COM_00271,Antananarivo,Bongolava,Tsiroanomandidy,Benoitra,RURAL
+COM_00272,Antananarivo,Bongolava,Tsiroanomandidy,Fihaonana,RURAL
+COM_00273,Antananarivo,Bongolava,Tsiroanomandidy,Mahasolo,RURAL
+COM_00274,Antananarivo,Bongolava,Tsiroanomandidy,Maroharona,RURAL
+COM_00275,Antananarivo,Bongolava,Tsiroanomandidy,Soanierana,RURAL
+COM_00276,Antananarivo,Bongolava,Tsiroanomandidy,Tsiroanomandidy,URBAN
+COM_00277,Antananarivo,Bongolava,Tsiroanomandidy,Ambanitsena Tsiroanomandidy,RURAL
+COM_00278,Antananarivo,Bongolava,Tsiroanomandidy,Ampasipotsy Tsiroanomandidy,RURAL
+COM_00279,Antananarivo,Bongolava,Tsiroanomandidy,Ankerana,RURAL
+COM_00280,Antananarivo,Bongolava,Tsiroanomandidy,Belobaka,RURAL
+COM_00281,Antananarivo,Bongolava,Tsiroanomandidy,Miandrarivo Tsiroanomandidy,RURAL
+COM_00282,Antananarivo,Bongolava,Tsiroanomandidy,Sinanamody,RURAL
+COM_00283,Antananarivo,Bongolava,Tsiroanomandidy,Tsinjoarivo Tsiroanomandidy,RURAL
+COM_00284,Antananarivo,Bongolava,Tsiroanomandidy,Bevato,RURAL
+COM_00285,Antananarivo,Bongolava,Fenoarivobe,Ambatomenty,RURAL
+COM_00286,Antananarivo,Bongolava,Fenoarivobe,Fenoarivobe,URBAN
+COM_00287,Antananarivo,Bongolava,Fenoarivobe,Firavahana,RURAL
+COM_00288,Antananarivo,Bongolava,Fenoarivobe,Kiranomena,RURAL
+COM_00289,Antananarivo,Bongolava,Fenoarivobe,Mahajeby,RURAL
+COM_00290,Antananarivo,Bongolava,Fenoarivobe,Tsarazaza,RURAL
+COM_00291,Antananarivo,Bongolava,Fenoarivobe,Ambohitromby Fenoarivobe,RURAL
+COM_00292,Antananarivo,Bongolava,Fenoarivobe,Miantso Fenoarivobe,RURAL
+COM_00293,Antananarivo,Bongolava,Fenoarivobe,Ambohitraivo Fenoarivobe,RURAL
+COM_00294,Antananarivo,Bongolava,Fenoarivobe,Tsaratanana Fenoarivobe,RURAL
+COM_00295,Antsiranana,Diana,Antsiranana I,Antsiranana Urban Commune,URBAN
+COM_00296,Antsiranana,Diana,Antsiranana II,Ambohitra (Joffreville),RURAL
+COM_00297,Antsiranana,Diana,Antsiranana II,Ankarangona,RURAL
+COM_00298,Antsiranana,Diana,Antsiranana II,Ankazomborona,RURAL
+COM_00299,Antsiranana,Diana,Antsiranana II,Mahavanona,RURAL
+COM_00300,Antsiranana,Diana,Antsiranana II,Ramena,RURAL
+COM_00301,Antsiranana,Diana,Antsiranana II,Sadjoavato,RURAL
+COM_00302,Antsiranana,Diana,Antsiranana II,Andrafiabe,RURAL
+COM_00303,Antsiranana,Diana,Antsiranana II,Antsalaka,RURAL
+COM_00304,Antsiranana,Diana,Antsiranana II,Mangaoka,RURAL
+COM_00305,Antsiranana,Diana,Antsiranana II,Andranovondronina,RURAL
+COM_00306,Antsiranana,Diana,Antsiranana II,Antanimora Antsiranana,RURAL
+COM_00307,Antsiranana,Diana,Antsiranana II,Anivorano Nord,RURAL
+COM_00308,Antsiranana,Diana,Antsiranana II,Antsakoabe,RURAL
+COM_00309,Antsiranana,Diana,Antsiranana II,Bobasakoa,RURAL
+COM_00310,Antsiranana,Diana,Antsiranana II,Bobaplaaza,RURAL
+COM_00311,Antsiranana,Diana,Ambanja,Ambalarondra,RURAL
+COM_00312,Antsiranana,Diana,Ambanja,Ambanja,URBAN
+COM_00313,Antsiranana,Diana,Ambanja,Ambanja II,RURAL
+COM_00314,Antsiranana,Diana,Ambanja,Anjangovero,RURAL
+COM_00315,Antsiranana,Diana,Ambanja,Ankaramy Nord,RURAL
+COM_00316,Antsiranana,Diana,Ambanja,Antsakoamanondro,RURAL
+COM_00317,Antsiranana,Diana,Ambanja,Bemanevika West,RURAL
+COM_00318,Antsiranana,Diana,Ambanja,Mahamanina,RURAL
+COM_00319,Antsiranana,Diana,Ambanja,Ambohimena,RURAL
+COM_00320,Antsiranana,Diana,Ambanja,Antenina,RURAL
+COM_00321,Antsiranana,Diana,Ambanja,Benavony,RURAL
+COM_00322,Antsiranana,Diana,Ambanja,Maevatanana Ambanja,RURAL
+COM_00323,Antsiranana,Diana,Ambanja,Ambalafary,RURAL
+COM_00324,Antsiranana,Diana,Ambanja,Ambanja Suburbs,RURAL
+COM_00325,Antsiranana,Diana,Ambanja,Ambohimarina,RURAL
+COM_00326,Antsiranana,Diana,Ambanja,Antanambao Ambanja,RURAL
+COM_00327,Antsiranana,Diana,Ambanja,Antsahabe Ambanja,RURAL
+COM_00328,Antsiranana,Diana,Ambanja,Dzamandzar Ambanja,RURAL
+COM_00329,Antsiranana,Diana,Ambilobe,Ambarakaraka,RURAL
+COM_00330,Antsiranana,Diana,Ambilobe,Ambilobe,URBAN
+COM_00331,Antsiranana,Diana,Ambilobe,Ambodiampana,RURAL
+COM_00332,Antsiranana,Diana,Ambilobe,Ambohimitsinjo,RURAL
+COM_00333,Antsiranana,Diana,Ambilobe,Ankaramibe,RURAL
+COM_00334,Antsiranana,Diana,Ambilobe,Beramanja,RURAL
+COM_00335,Antsiranana,Diana,Ambilobe,Mantaly,RURAL
+COM_00336,Antsiranana,Diana,Ambilobe,Sirama,RURAL
+COM_00337,Antsiranana,Diana,Ambilobe,Anivorano Nord Ambilobe,RURAL
+COM_00338,Antsiranana,Diana,Ambilobe,Antsaravany,RURAL
+COM_00339,Antsiranana,Diana,Ambilobe,Matsaborisotry,RURAL
+COM_00340,Antsiranana,Diana,Ambilobe,Tanambao Marivorahona,RURAL
+COM_00341,Antsiranana,Diana,Ambilobe,Ambalanirana Ambilobe,RURAL
+COM_00342,Antsiranana,Diana,Ambilobe,Ambohitrandriana Ambilobe,RURAL
+COM_00343,Antsiranana,Diana,Ambilobe,Antsohimbondrona,RURAL
+COM_00344,Antsiranana,Diana,Ambilobe,Betahitra,RURAL
+COM_00345,Antsiranana,Diana,Ambilobe,Isanambao,RURAL
+COM_00346,Antsiranana,Diana,Nosy Be,Nosy Be (Hell-Ville),URBAN
+COM_00347,Antsiranana,Diana,Nosy Be,Ambatoloaka,URBAN
+COM_00348,Antsiranana,Diana,Nosy Be,Dzamandzar,URBAN
+COM_00349,Antsiranana,Diana,Nosy Be,Ampaslooka,RURAL
+COM_00350,Antsiranana,Diana,Nosy Be,Andilana,RURAL
+COM_00351,Antsiranana,Diana,Nosy Be,Befefena,RURAL
+COM_00352,Antsiranana,Sava,Sambava,Ambodiampana,RURAL
+COM_00353,Antsiranana,Sava,Sambava,Ambohimitsinjo,RURAL
+COM_00354,Antsiranana,Sava,Sambava,Ambato,RURAL
+COM_00355,Antsiranana,Sava,Sambava,Bemanevika,RURAL
+COM_00356,Antsiranana,Sava,Sambava,Farahalana,RURAL
+COM_00357,Antsiranana,Sava,Sambava,Maroambihy,RURAL
+COM_00358,Antsiranana,Sava,Sambava,Sambava,URBAN
+COM_00359,Antsiranana,Sava,Sambava,Tanambao Daoud,RURAL
+COM_00360,Antsiranana,Sava,Sambava,Analamaho,RURAL
+COM_00361,Antsiranana,Sava,Sambava,Andrahanjo,RURAL
+COM_00362,Antsiranana,Sava,Sambava,Antsahavaribe,RURAL
+COM_00363,Antsiranana,Sava,Sambava,Lokoho,RURAL
+COM_00364,Antsiranana,Sava,Sambava,Ambariomiambana,RURAL
+COM_00365,Antsiranana,Sava,Sambava,Ambinanifaho,RURAL
+COM_00366,Antsiranana,Sava,Sambava,Ambohangibe,RURAL
+COM_00367,Antsiranana,Sava,Sambava,Ambodiampana II,RURAL
+COM_00368,Antsiranana,Sava,Sambava,Ampanefena Sambava,RURAL
+COM_00369,Antsiranana,Sava,Sambava,Andasibe Sambava,RURAL
+COM_00370,Antsiranana,Sava,Sambava,Antsira,RURAL
+COM_00371,Antsiranana,Sava,Sambava,Antasapana,RURAL
+COM_00372,Antsiranana,Sava,Sambava,Morafeno Sambava,RURAL
+COM_00373,Antsiranana,Sava,Sambava,Nosiarivo,RURAL
+COM_00374,Antsiranana,Sava,Sambava,Tanambao Sambava,RURAL
+COM_00375,Antsiranana,Sava,Antalaha,Ambohitralanana,RURAL
+COM_00376,Antsiranana,Sava,Antalaha,Ampahana,RURAL
+COM_00377,Antsiranana,Sava,Antalaha,Ampanefena,RURAL
+COM_00378,Antsiranana,Sava,Antalaha,Antalaha,URBAN
+COM_00379,Antsiranana,Sava,Antalaha,Antohomaro,RURAL
+COM_00380,Antsiranana,Sava,Antalaha,Lanirano,RURAL
+COM_00381,Antsiranana,Sava,Antalaha,Marofinaritra,RURAL
+COM_00382,Antsiranana,Sava,Antalaha,Vinany,RURAL
+COM_00383,Antsiranana,Sava,Antalaha,Ambinany,RURAL
+COM_00384,Antsiranana,Sava,Antalaha,Cap Est,RURAL
+COM_00385,Antsiranana,Sava,Antalaha,Sarahandrano,RURAL
+COM_00386,Antsiranana,Sava,Antalaha,Ambalabe Antalaha,RURAL
+COM_00387,Antsiranana,Sava,Antalaha,Ambohitra Antalaha,RURAL
+COM_00388,Antsiranana,Sava,Antalaha,Amparihy,RURAL
+COM_00389,Antsiranana,Sava,Antalaha,Antenina Antalaha,RURAL
+COM_00390,Antsiranana,Sava,Antalaha,Maintialaka,RURAL
+COM_00391,Antsiranana,Sava,Antalaha,Pointe Aingeru,RURAL
+COM_00392,Antsiranana,Sava,Andapa,Andapa,URBAN
+COM_00393,Antsiranana,Sava,Andapa,Andasibe,RURAL
+COM_00394,Antsiranana,Sava,Andapa,Anjiabe,RURAL
+COM_00395,Antsiranana,Sava,Andapa,Ankaibe,RURAL
+COM_00396,Antsiranana,Sava,Andapa,Belaoka Marovato,RURAL
+COM_00397,Antsiranana,Sava,Andapa,Matsohely,RURAL
+COM_00398,Antsiranana,Sava,Andapa,Tanandava,RURAL
+COM_00399,Antsiranana,Sava,Andapa,Ambalamanasy II,RURAL
+COM_00400,Antsiranana,Sava,Andapa,Ambodiangezoka,RURAL
+COM_00401,Antsiranana,Sava,Andapa,Andasibe Kobahina,RURAL
+COM_00402,Antsiranana,Sava,Andapa,Ambakiranaro,RURAL
+COM_00403,Antsiranana,Sava,Andapa,Ankasokasa,RURAL
+COM_00404,Antsiranana,Sava,Andapa,Bealoka,RURAL
+COM_00405,Antsiranana,Sava,Andapa,Doany,RURAL
+COM_00406,Antsiranana,Sava,Andapa,Marovato Andapa,RURAL
+COM_00407,Antsiranana,Sava,Vohemar,Ambalasatrana,RURAL
+COM_00408,Antsiranana,Sava,Vohemar,Ampanefena Vohemar,RURAL
+COM_00409,Antsiranana,Sava,Vohemar,Ampaghabe,RURAL
+COM_00410,Antsiranana,Sava,Vohemar,Fanambana,RURAL
+COM_00411,Antsiranana,Sava,Vohemar,Milanoa,RURAL
+COM_00412,Antsiranana,Sava,Vohemar,Nosibe,RURAL
+COM_00413,Antsiranana,Sava,Vohemar,Vohemar (Iharana),URBAN
+COM_00414,Antsiranana,Sava,Vohemar,Amboronala,RURAL
+COM_00415,Antsiranana,Sava,Vohemar,Ampasikely,RURAL
+COM_00416,Antsiranana,Sava,Vohemar,Daraina,RURAL
+COM_00417,Antsiranana,Sava,Vohemar,Tsarabaria,RURAL
+COM_00418,Antsiranana,Sava,Vohemar,Ambinany Vohemar,RURAL
+COM_00419,Antsiranana,Sava,Vohemar,Andravory,RURAL
+COM_00420,Antsiranana,Sava,Vohemar,Bobakilandy,RURAL
+COM_00421,Antsiranana,Sava,Vohemar,Maromokotra,RURAL
+COM_00422,Antsiranana,Sava,Vohemar,Tsarafanganana,RURAL
+COM_00423,Fianarantsoa,Matsiatra Ambony,Fianarantsoa,Fianarantsoa Urban Commune,URBAN
+COM_00424,Fianarantsoa,Matsiatra Ambony,Fianarantsoa,Andrainjato Center,URBAN
+COM_00425,Fianarantsoa,Matsiatra Ambony,Fianarantsoa,Kianjasoa,URBAN
+COM_00426,Fianarantsoa,Matsiatra Ambony,Fianarantsoa,Isaha,RURAL
+COM_00427,Fianarantsoa,Matsiatra Ambony,Fianarantsoa,Vohiparara,RURAL
+COM_00428,Fianarantsoa,Matsiatra Ambony,Ambalavao,Ambalavao,URBAN
+COM_00429,Fianarantsoa,Matsiatra Ambony,Ambalavao,Ambinanindovoka,RURAL
+COM_00430,Fianarantsoa,Matsiatra Ambony,Ambalavao,Ambohimahamasina,RURAL
+COM_00431,Fianarantsoa,Matsiatra Ambony,Ambalavao,Anjoma,RURAL
+COM_00432,Fianarantsoa,Matsiatra Ambony,Ambalavao,Iarintsena,RURAL
+COM_00433,Fianarantsoa,Matsiatra Ambony,Ambalavao,Kirano,RURAL
+COM_00434,Fianarantsoa,Matsiatra Ambony,Ambalavao,Sendrisoa,RURAL
+COM_00435,Fianarantsoa,Matsiatra Ambony,Ambalavao,Ambalaroka,RURAL
+COM_00436,Fianarantsoa,Matsiatra Ambony,Ambalavao,Ambohivohitra,RURAL
+COM_00437,Fianarantsoa,Matsiatra Ambony,Ambalavao,Manamisoa,RURAL
+COM_00438,Fianarantsoa,Matsiatra Ambony,Ambalavao,Ambalakely,RURAL
+COM_00439,Fianarantsoa,Matsiatra Ambony,Ambalavao,Ambohimandroso Ambalavao,RURAL
+COM_00440,Fianarantsoa,Matsiatra Ambony,Ambalavao,Andrainjato Ambalavao,RURAL
+COM_00441,Fianarantsoa,Matsiatra Ambony,Ambalavao,Ankaramena,RURAL
+COM_00442,Fianarantsoa,Matsiatra Ambony,Ambalavao,Besoa,RURAL
+COM_00443,Fianarantsoa,Matsiatra Ambony,Ambalavao,Fenoarivo Ambalavao,RURAL
+COM_00444,Fianarantsoa,Matsiatra Ambony,Ambalavao,Miarinarivo Ambalavao,RURAL
+COM_00445,Fianarantsoa,Matsiatra Ambony,Ambohimahasoa,Ambohimahasoa,URBAN
+COM_00446,Fianarantsoa,Matsiatra Ambony,Ambohimahasoa,Ambohinamboarina,RURAL
+COM_00447,Fianarantsoa,Matsiatra Ambony,Ambohimahasoa,Ampitana,RURAL
+COM_00448,Fianarantsoa,Matsiatra Ambony,Ambohimahasoa,Anjoma,RURAL
+COM_00449,Fianarantsoa,Matsiatra Ambony,Ambohimahasoa,Camp Robin,RURAL
+COM_00450,Fianarantsoa,Matsiatra Ambony,Ambohimahasoa,Fiadanana,RURAL
+COM_00451,Fianarantsoa,Matsiatra Ambony,Ambohimahasoa,Vohiposa,RURAL
+COM_00452,Fianarantsoa,Matsiatra Ambony,Ambohimahasoa,Ambatosoa,RURAL
+COM_00453,Fianarantsoa,Matsiatra Ambony,Ambohimahasoa,Ambohimiarivo,RURAL
+COM_00454,Fianarantsoa,Matsiatra Ambony,Ambohimahasoa,Sahave,RURAL
+COM_00455,Fianarantsoa,Matsiatra Ambony,Ambohimahasoa,Ambalakida Ambohimahasoa,RURAL
+COM_00456,Fianarantsoa,Matsiatra Ambony,Ambohimahasoa,Ambohimanga Ambohimahasoa,RURAL
+COM_00457,Fianarantsoa,Matsiatra Ambony,Ambohimahasoa,Ambohimpanastana,RURAL
+COM_00458,Fianarantsoa,Matsiatra Ambony,Ambohimahasoa,Ankarinoro,RURAL
+COM_00459,Fianarantsoa,Matsiatra Ambony,Ambohimahasoa,Befeta,RURAL
+COM_00460,Fianarantsoa,Matsiatra Ambony,Ambohimahasoa,Vohitrarivo,RURAL
+COM_00461,Fianarantsoa,Matsiatra Ambony,Ikalamavony,Ambatomarina,RURAL
+COM_00462,Fianarantsoa,Matsiatra Ambony,Ikalamavony,Fitampito,RURAL
+COM_00463,Fianarantsoa,Matsiatra Ambony,Ikalamavony,Ikalamavony,URBAN
+COM_00464,Fianarantsoa,Matsiatra Ambony,Ikalamavony,Mangidy,RURAL
+COM_00465,Fianarantsoa,Matsiatra Ambony,Ikalamavony,Solila,RURAL
+COM_00466,Fianarantsoa,Matsiatra Ambony,Ikalamavony,Tsitondroina,RURAL
+COM_00467,Fianarantsoa,Matsiatra Ambony,Ikalamavony,Ambohitra,RURAL
+COM_00468,Fianarantsoa,Matsiatra Ambony,Ikalamavony,Ankaranana,RURAL
+COM_00469,Fianarantsoa,Matsiatra Ambony,Ikalamavony,Ambinaniroa,RURAL
+COM_00470,Fianarantsoa,Matsiatra Ambony,Ikalamavony,Ambohimiarina Ikalamavony,RURAL
+COM_00471,Fianarantsoa,Matsiatra Ambony,Ikalamavony,Mangily,RURAL
+COM_00472,Fianarantsoa,Matsiatra Ambony,Ikalamavony,Tsararano Ikalamavony,RURAL
+COM_00473,Fianarantsoa,Matsiatra Ambony,Isandra,Ambanitsena,RURAL
+COM_00474,Fianarantsoa,Matsiatra Ambony,Isandra,Andoharanomaitso,RURAL
+COM_00475,Fianarantsoa,Matsiatra Ambony,Isandra,Isorana,RURAL
+COM_00476,Fianarantsoa,Matsiatra Ambony,Isandra,Mahazoarivo,RURAL
+COM_00477,Fianarantsoa,Matsiatra Ambony,Isandra,Nasandratra,RURAL
+COM_00478,Fianarantsoa,Matsiatra Ambony,Isandra,Anjoma Isandra,RURAL
+COM_00479,Fianarantsoa,Matsiatra Ambony,Isandra,Fanivelona,RURAL
+COM_00480,Fianarantsoa,Matsiatra Ambony,Isandra,Soatanana,RURAL
+COM_00481,Fianarantsoa,Matsiatra Ambony,Isandra,Ambohimalaza Isandra,RURAL
+COM_00482,Fianarantsoa,Matsiatra Ambony,Isandra,Ambohimandroso Isandra,RURAL
+COM_00483,Fianarantsoa,Matsiatra Ambony,Isandra,Ankaramalaza,RURAL
+COM_00484,Fianarantsoa,Matsiatra Ambony,Isandra,Befeta Isandra,RURAL
+COM_00485,Fianarantsoa,Matsiatra Ambony,Isandra,Isandra Suburbs,RURAL
+COM_00486,Fianarantsoa,Matsiatra Ambony,Lalangina,Alakamisy Ambohimaha,RURAL
+COM_00487,Fianarantsoa,Matsiatra Ambony,Lalangina,Alatsinainy Ialamarina,RURAL
+COM_00488,Fianarantsoa,Matsiatra Ambony,Lalangina,Andrainjato East,RURAL
+COM_00489,Fianarantsoa,Matsiatra Ambony,Lalangina,Andrainjato West,RURAL
+COM_00490,Fianarantsoa,Matsiatra Ambony,Lalangina,Mahatsinjony,RURAL
+COM_00491,Fianarantsoa,Matsiatra Ambony,Lalangina,Ambohimandaroso,RURAL
+COM_00492,Fianarantsoa,Matsiatra Ambony,Lalangina,Ivoamba,RURAL
+COM_00493,Fianarantsoa,Matsiatra Ambony,Lalangina,Alakamisy Ambohimena Lalangina,RURAL
+COM_00494,Fianarantsoa,Matsiatra Ambony,Lalangina,Ambinaniroa Lalangina,RURAL
+COM_00495,Fianarantsoa,Matsiatra Ambony,Lalangina,Ambohimahavelona Lalangina,RURAL
+COM_00496,Fianarantsoa,Matsiatra Ambony,Lalangina,Andrainjato South,RURAL
+COM_00497,Fianarantsoa,Matsiatra Ambony,Lalangina,Ialamarina,RURAL
+COM_00498,Fianarantsoa,Matsiatra Ambony,Lalangina,Taindambo,RURAL
+COM_00499,Fianarantsoa,Matsiatra Ambony,Vohibato,Alakamisy Itenina,RURAL
+COM_00500,Fianarantsoa,Matsiatra Ambony,Vohibato,Andranomiditra,RURAL
+COM_00501,Fianarantsoa,Matsiatra Ambony,Vohibato,Andranovorivato,RURAL
+COM_00502,Fianarantsoa,Matsiatra Ambony,Vohibato,Mahaditra,RURAL
+COM_00503,Fianarantsoa,Matsiatra Ambony,Vohibato,Vohitrafeno,RURAL
+COM_00504,Fianarantsoa,Matsiatra Ambony,Vohibato,Langanandro,RURAL
+COM_00505,Fianarantsoa,Matsiatra Ambony,Vohibato,Vohisoa,RURAL
+COM_00506,Fianarantsoa,Matsiatra Ambony,Vohibato,Ambalaroka Vohibato,RURAL
+COM_00507,Fianarantsoa,Matsiatra Ambony,Vohibato,Ambohimanambola Vohibato,RURAL
+COM_00508,Fianarantsoa,Matsiatra Ambony,Vohibato,Ambohimiera,RURAL
+COM_00509,Fianarantsoa,Matsiatra Ambony,Vohibato,Andoharanofotsy Vohibato,RURAL
+COM_00510,Fianarantsoa,Matsiatra Ambony,Vohibato,Mahasoa,RURAL
+COM_00511,Fianarantsoa,Matsiatra Ambony,Vohibato,Soamanandrariny Vohibato,RURAL
+COM_00512,Fianarantsoa,Amoron'i Mania,Ambositra,Alakamisy Ambohimahazo,RURAL
+COM_00513,Fianarantsoa,Amoron'i Mania,Ambositra,Ambinanindrano,RURAL
+COM_00514,Fianarantsoa,Amoron'i Mania,Ambositra,Ambatomitsangana,RURAL
+COM_00515,Fianarantsoa,Amoron'i Mania,Ambositra,Ambositra,URBAN
+COM_00516,Fianarantsoa,Amoron'i Mania,Ambositra,Ambositra II,RURAL
+COM_00517,Fianarantsoa,Amoron'i Mania,Ambositra,Andina,RURAL
+COM_00518,Fianarantsoa,Amoron'i Mania,Ambositra,Anjoma Nandihizana,RURAL
+COM_00519,Fianarantsoa,Amoron'i Mania,Ambositra,Imerina Imady,RURAL
+COM_00520,Fianarantsoa,Amoron'i Mania,Ambositra,Tsarasaotra,RURAL
+COM_00521,Fianarantsoa,Amoron'i Mania,Ambositra,Ambohitrimanjaka,RURAL
+COM_00522,Fianarantsoa,Amoron'i Mania,Ambositra,Ilaka Centre,RURAL
+COM_00523,Fianarantsoa,Amoron'i Mania,Ambositra,Sahatsiho Ambohimanjaka,RURAL
+COM_00524,Fianarantsoa,Amoron'i Mania,Ambositra,Ambalamanakana,RURAL
+COM_00525,Fianarantsoa,Amoron'i Mania,Ambositra,Ambinanindrano II,RURAL
+COM_00526,Fianarantsoa,Amoron'i Mania,Ambositra,Ambohimanandriana,RURAL
+COM_00527,Fianarantsoa,Amoron'i Mania,Ambositra,Ambohimantara,RURAL
+COM_00528,Fianarantsoa,Amoron'i Mania,Ambositra,Anakarana Ambositra,RURAL
+COM_00529,Fianarantsoa,Amoron'i Mania,Ambositra,Antoetra,RURAL
+COM_00530,Fianarantsoa,Amoron'i Mania,Ambositra,Fahidrosana,RURAL
+COM_00531,Fianarantsoa,Amoron'i Mania,Ambositra,Ivato Ambositra,RURAL
+COM_00532,Fianarantsoa,Amoron'i Mania,Ambositra,Kianjanomby Ambositra,RURAL
+COM_00533,Fianarantsoa,Amoron'i Mania,Ambatofinandrahana,Ambatofinandrahana,URBAN
+COM_00534,Fianarantsoa,Amoron'i Mania,Ambatofinandrahana,Amborompotsy,RURAL
+COM_00535,Fianarantsoa,Amoron'i Mania,Ambatofinandrahana,Fenoarivo,RURAL
+COM_00536,Fianarantsoa,Amoron'i Mania,Ambatofinandrahana,Itremo,RURAL
+COM_00537,Fianarantsoa,Amoron'i Mania,Ambatofinandrahana,Mangataboahangy,RURAL
+COM_00538,Fianarantsoa,Amoron'i Mania,Ambatofinandrahana,Soavina,RURAL
+COM_00539,Fianarantsoa,Amoron'i Mania,Ambatofinandrahana,Ambondromisotra,RURAL
+COM_00540,Fianarantsoa,Amoron'i Mania,Ambatofinandrahana,Mandrosonoro,RURAL
+COM_00541,Fianarantsoa,Amoron'i Mania,Ambatofinandrahana,Ambatomainty Ambatofinandrahana,RURAL
+COM_00542,Fianarantsoa,Amoron'i Mania,Ambatofinandrahana,Ambohimanala,RURAL
+COM_00543,Fianarantsoa,Amoron'i Mania,Ambatofinandrahana,Mandatsaka,RURAL
+COM_00544,Fianarantsoa,Amoron'i Mania,Ambatofinandrahana,Paistitra,RURAL
+COM_00545,Fianarantsoa,Amoron'i Mania,Fandriana,Alakamisy Ambohimena,RURAL
+COM_00546,Fianarantsoa,Amoron'i Mania,Fandriana,Fandriana,URBAN
+COM_00547,Fianarantsoa,Amoron'i Mania,Fandriana,Fiadanana,RURAL
+COM_00548,Fianarantsoa,Amoron'i Mania,Fandriana,Mahazoarivo,RURAL
+COM_00549,Fianarantsoa,Amoron'i Mania,Fandriana,Milamaina,RURAL
+COM_00550,Fianarantsoa,Amoron'i Mania,Fandriana,Sahamadio,RURAL
+COM_00551,Fianarantsoa,Amoron'i Mania,Fandriana,Sandrandahy,RURAL
+COM_00552,Fianarantsoa,Amoron'i Mania,Fandriana,Ambohimazo,RURAL
+COM_00553,Fianarantsoa,Amoron'i Mania,Fandriana,Anjoma Fandriana,RURAL
+COM_00554,Fianarantsoa,Amoron'i Mania,Fandriana,Miarinavaratra,RURAL
+COM_00555,Fianarantsoa,Amoron'i Mania,Fandriana,Ambohimandroso Fandriana,RURAL
+COM_00556,Fianarantsoa,Amoron'i Mania,Fandriana,Ambohimiarina Fandriana,RURAL
+COM_00557,Fianarantsoa,Amoron'i Mania,Fandriana,Imady,RURAL
+COM_00558,Fianarantsoa,Amoron'i Mania,Fandriana,Tatsina,RURAL
+COM_00559,Fianarantsoa,Amoron'i Mania,Manandriana,Ambatomarina,RURAL
+COM_00560,Fianarantsoa,Amoron'i Mania,Manandriana,Ambovombe Afovoany,URBAN
+COM_00561,Fianarantsoa,Amoron'i Mania,Manandriana,Andakana,RURAL
+COM_00562,Fianarantsoa,Amoron'i Mania,Manandriana,Anjoma Nandihizana Manandriana,RURAL
+COM_00563,Fianarantsoa,Amoron'i Mania,Manandriana,Kianjanomby,RURAL
+COM_00564,Fianarantsoa,Amoron'i Mania,Manandriana,Ambinanindovoka,RURAL
+COM_00565,Fianarantsoa,Amoron'i Mania,Manandriana,Ambohimahazo Manandriana,RURAL
+COM_00566,Fianarantsoa,Amoron'i Mania,Manandriana,Ambohimilanja,RURAL
+COM_00567,Fianarantsoa,Amoron'i Mania,Manandriana,Ambohitromby Manandriana,RURAL
+COM_00568,Fianarantsoa,Vatovavy,Mananjary,Ambinany,RURAL
+COM_00569,Fianarantsoa,Vatovavy,Mananjary,Ambohimiarina,RURAL
+COM_00570,Fianarantsoa,Vatovavy,Mananjary,Kianjavato,RURAL
+COM_00571,Fianarantsoa,Vatovavy,Mananjary,Mananjary,URBAN
+COM_00572,Fianarantsoa,Vatovavy,Mananjary,Marofototra,RURAL
+COM_00573,Fianarantsoa,Vatovavy,Mananjary,Namorona,RURAL
+COM_00574,Fianarantsoa,Vatovavy,Mananjary,Tsaravary,RURAL
+COM_00575,Fianarantsoa,Vatovavy,Mananjary,Ambohimanga Sud,RURAL
+COM_00576,Fianarantsoa,Vatovavy,Mananjary,Anosimparihy,RURAL
+COM_00577,Fianarantsoa,Vatovavy,Mananjary,Antsenavolo Mananjary,RURAL
+COM_00578,Fianarantsoa,Vatovavy,Mananjary,Mahela,RURAL
+COM_00579,Fianarantsoa,Vatovavy,Mananjary,Manambondro,RURAL
+COM_00580,Fianarantsoa,Vatovavy,Mananjary,Ambalakida Mananjary,RURAL
+COM_00581,Fianarantsoa,Vatovavy,Mananjary,Ambohitralanana Mananjary,RURAL
+COM_00582,Fianarantsoa,Vatovavy,Mananjary,Ankahao,RURAL
+COM_00583,Fianarantsoa,Vatovavy,Mananjary,Mahatsara Iefaka,RURAL
+COM_00584,Fianarantsoa,Vatovavy,Mananjary,Manangareza,RURAL
+COM_00585,Fianarantsoa,Vatovavy,Mananjary,Marokima,RURAL
+COM_00586,Fianarantsoa,Vatovavy,Mananjary,Tsiatosika,RURAL
+COM_00587,Fianarantsoa,Vatovavy,Ifanadiana,Ambohimera,RURAL
+COM_00588,Fianarantsoa,Vatovavy,Ifanadiana,Analampasina,RURAL
+COM_00589,Fianarantsoa,Vatovavy,Ifanadiana,Andranomaitso,RURAL
+COM_00590,Fianarantsoa,Vatovavy,Ifanadiana,Antsenavolo,RURAL
+COM_00591,Fianarantsoa,Vatovavy,Ifanadiana,Ifanadiana,URBAN
+COM_00592,Fianarantsoa,Vatovavy,Ifanadiana,Maroharatra,RURAL
+COM_00593,Fianarantsoa,Vatovavy,Ifanadiana,Ranomafana,RURAL
+COM_00594,Fianarantsoa,Vatovavy,Ifanadiana,Tsaratanana,RURAL
+COM_00595,Fianarantsoa,Vatovavy,Ifanadiana,Ambohimiarina II,RURAL
+COM_00596,Fianarantsoa,Vatovavy,Ifanadiana,Fasintsara,RURAL
+COM_00597,Fianarantsoa,Vatovavy,Ifanadiana,Keliloha,RURAL
+COM_00598,Fianarantsoa,Vatovavy,Ifanadiana,Ambatovaky,RURAL
+COM_00599,Fianarantsoa,Vatovavy,Ifanadiana,Ambohimanambola Ifanadiana,RURAL
+COM_00600,Fianarantsoa,Vatovavy,Ifanadiana,Ambohimanga Ifanadiana,RURAL
+COM_00601,Fianarantsoa,Vatovavy,Ifanadiana,Analavory Ifanadiana,RURAL
+COM_00602,Fianarantsoa,Vatovavy,Ifanadiana,Marotoko,RURAL
+COM_00603,Fianarantsoa,Vatovavy,Nosy Varika,Ambahy,RURAL
+COM_00604,Fianarantsoa,Vatovavy,Nosy Varika,Ambinanitelo,RURAL
+COM_00605,Fianarantsoa,Vatovavy,Nosy Varika,Ampasinambo,RURAL
+COM_00606,Fianarantsoa,Vatovavy,Nosy Varika,Andonabe,RURAL
+COM_00607,Fianarantsoa,Vatovavy,Nosy Varika,Nosy Varika,URBAN
+COM_00608,Fianarantsoa,Vatovavy,Nosy Varika,Sahalanona,RURAL
+COM_00609,Fianarantsoa,Vatovavy,Nosy Varika,Ambahy Nord,RURAL
+COM_00610,Fianarantsoa,Vatovavy,Nosy Varika,Vohilava Nosy Varika,RURAL
+COM_00611,Fianarantsoa,Vatovavy,Nosy Varika,Ambalavolo Nosy Varika,RURAL
+COM_00612,Fianarantsoa,Vatovavy,Nosy Varika,Ambodingimontana,RURAL
+COM_00613,Fianarantsoa,Vatovavy,Nosy Varika,Ampasimanjeva,RURAL
+COM_00614,Fianarantsoa,Vatovavy,Nosy Varika,Befody,RURAL
+COM_00615,Fianarantsoa,Vatovavy,Nosy Varika,Vohitrandriana,RURAL
+COM_00616,Fianarantsoa,Fitovinany,Manakara,Ambila,RURAL
+COM_00617,Fianarantsoa,Fitovinany,Manakara,Ambohitroda,RURAL
+COM_00618,Fianarantsoa,Fitovinany,Manakara,Ampanimena,RURAL
+COM_00619,Fianarantsoa,Fitovinany,Manakara,Ansaity,RURAL
+COM_00620,Fianarantsoa,Fitovinany,Manakara,Manakara,URBAN
+COM_00621,Fianarantsoa,Fitovinany,Manakara,Vohitsarana,RURAL
+COM_00622,Fianarantsoa,Fitovinany,Manakara,Ambahive,RURAL
+COM_00623,Fianarantsoa,Fitovinany,Manakara,Ambohimiarico,RURAL
+COM_00624,Fianarantsoa,Fitovinany,Manakara,Lokomby,RURAL
+COM_00625,Fianarantsoa,Fitovinany,Manakara,Vohimena,RURAL
+COM_00626,Fianarantsoa,Fitovinany,Manakara,Ambaladingana,RURAL
+COM_00627,Fianarantsoa,Fitovinany,Manakara,Ambalavero,RURAL
+COM_00628,Fianarantsoa,Fitovinany,Manakara,Ambohinihaonana Manakara,RURAL
+COM_00629,Fianarantsoa,Fitovinany,Manakara,Andranofasika Manakara,RURAL
+COM_00630,Fianarantsoa,Fitovinany,Manakara,Anosiala Manakara,RURAL
+COM_00631,Fianarantsoa,Fitovinany,Manakara,Anteza,RURAL
+COM_00632,Fianarantsoa,Fitovinany,Manakara,Kianjavato Manakara,RURAL
+COM_00633,Fianarantsoa,Fitovinany,Manakara,Mangatsiotra,RURAL
+COM_00634,Fianarantsoa,Fitovinany,Manakara,Mizilo Gara,RURAL
+COM_00635,Fianarantsoa,Fitovinany,Manakara,Sahanambohitra,RURAL
+COM_00636,Fianarantsoa,Fitovinany,Manakara,Vohilava Manakara,RURAL
+COM_00637,Fianarantsoa,Fitovinany,Ikongo,Ambinanitromby,RURAL
+COM_00638,Fianarantsoa,Fitovinany,Ikongo,Ambohimisafy,RURAL
+COM_00639,Fianarantsoa,Fitovinany,Ikongo,Analamary,RURAL
+COM_00640,Fianarantsoa,Fitovinany,Ikongo,Ikongo,URBAN
+COM_00641,Fianarantsoa,Fitovinany,Ikongo,Kalafotsy,RURAL
+COM_00642,Fianarantsoa,Fitovinany,Ikongo,Tolongoina,RURAL
+COM_00643,Fianarantsoa,Fitovinany,Ikongo,Ambohinihaonana,RURAL
+COM_00644,Fianarantsoa,Fitovinany,Ikongo,Antranokarany,RURAL
+COM_00645,Fianarantsoa,Fitovinany,Ikongo,Ambalakondro,RURAL
+COM_00646,Fianarantsoa,Fitovinany,Ikongo,Ambohitralanana Ikongo,RURAL
+COM_00647,Fianarantsoa,Fitovinany,Ikongo,Ankarimbelo,RURAL
+COM_00648,Fianarantsoa,Fitovinany,Ikongo,Belemoka,RURAL
+COM_00649,Fianarantsoa,Fitovinany,Ikongo,Ifanirea,RURAL
+COM_00650,Fianarantsoa,Fitovinany,Ikongo,Manampatrana,RURAL
+COM_00651,Fianarantsoa,Fitovinany,Ikongo,Maromiandra Ikongo,RURAL
+COM_00652,Fianarantsoa,Fitovinany,Vohipeno,Ankarana Miraihina,RURAL
+COM_00653,Fianarantsoa,Fitovinany,Vohipeno,Ifatsy,RURAL
+COM_00654,Fianarantsoa,Fitovinany,Vohipeno,Ilakatra,RURAL
+COM_00655,Fianarantsoa,Fitovinany,Vohipeno,Mahabo,RURAL
+COM_00656,Fianarantsoa,Fitovinany,Vohipeno,Vohipeno,URBAN
+COM_00657,Fianarantsoa,Fitovinany,Vohipeno,Vohilava,RURAL
+COM_00658,Fianarantsoa,Fitovinany,Vohipeno,Ambalakida Vohipeno,RURAL
+COM_00659,Fianarantsoa,Fitovinany,Vohipeno,Onibe,RURAL
+COM_00660,Fianarantsoa,Fitovinany,Vohipeno,Ambohimandrosa,RURAL
+COM_00661,Fianarantsoa,Fitovinany,Vohipeno,Ampasimaningory Vohipeno,RURAL
+COM_00662,Fianarantsoa,Fitovinany,Vohipeno,Anosimbato,RURAL
+COM_00663,Fianarantsoa,Fitovinany,Vohipeno,Antaviranambo,RURAL
+COM_00664,Fianarantsoa,Fitovinany,Vohipeno,Ivato Vohipeno,RURAL
+COM_00665,Fianarantsoa,Fitovinany,Vohipeno,Lanivo,RURAL
+COM_00666,Fianarantsoa,Fitovinany,Vohipeno,Mahasoa Vohipeno,RURAL
+COM_00667,Fianarantsoa,Fitovinany,Vohipeno,Nato,RURAL
+COM_00668,Fianarantsoa,Fitovinany,Vohipeno,Vohindava,RURAL
+COM_00669,Fianarantsoa,Atsimo-Atsinanana,Farafangana,Ambalavato,RURAL
+COM_00670,Fianarantsoa,Atsimo-Atsinanana,Farafangana,Ambohigogo,RURAL
+COM_00671,Fianarantsoa,Atsimo-Atsinanana,Farafangana,Anakarana,RURAL
+COM_00672,Fianarantsoa,Atsimo-Atsinanana,Farafangana,Farafangana,URBAN
+COM_00673,Fianarantsoa,Atsimo-Atsinanana,Farafangana,Ivandrika,RURAL
+COM_00674,Fianarantsoa,Atsimo-Atsinanana,Farafangana,Mahabo,RURAL
+COM_00675,Fianarantsoa,Atsimo-Atsinanana,Farafangana,Ambohimandroso,RURAL
+COM_00676,Fianarantsoa,Atsimo-Atsinanana,Farafangana,Anosivelo,RURAL
+COM_00677,Fianarantsoa,Atsimo-Atsinanana,Farafangana,Eafera,RURAL
+COM_00678,Fianarantsoa,Atsimo-Atsinanana,Farafangana,Vohilengo,RURAL
+COM_00679,Fianarantsoa,Atsimo-Atsinanana,Farafangana,Ambalanirana Farafangana,RURAL
+COM_00680,Fianarantsoa,Atsimo-Atsinanana,Farafangana,Amboangisiky,RURAL
+COM_00681,Fianarantsoa,Atsimo-Atsinanana,Farafangana,Ambohitrovitra,RURAL
+COM_00682,Fianarantsoa,Atsimo-Atsinanana,Farafangana,Ambalatany,RURAL
+COM_00683,Fianarantsoa,Atsimo-Atsinanana,Farafangana,Anosiala Farafangana,RURAL
+COM_00684,Fianarantsoa,Atsimo-Atsinanana,Farafangana,Antsirimaneva,RURAL
+COM_00685,Fianarantsoa,Atsimo-Atsinanana,Farafangana,Efatsy,RURAL
+COM_00686,Fianarantsoa,Atsimo-Atsinanana,Farafangana,Fenoarivo Farafangana,RURAL
+COM_00687,Fianarantsoa,Atsimo-Atsinanana,Farafangana,Lazamasy,RURAL
+COM_00688,Fianarantsoa,Atsimo-Atsinanana,Farafangana,Mahafasa Centre,RURAL
+COM_00689,Fianarantsoa,Atsimo-Atsinanana,Farafangana,Mahavelo,RURAL
+COM_00690,Fianarantsoa,Atsimo-Atsinanana,Farafangana,Mahela Farafangana,RURAL
+COM_00691,Fianarantsoa,Atsimo-Atsinanana,Farafangana,Manambondro Farafangana,RURAL
+COM_00692,Fianarantsoa,Atsimo-Atsinanana,Farafangana,Marovandrika,RURAL
+COM_00693,Fianarantsoa,Atsimo-Atsinanana,Farafangana,Sahamadio Farafangana,RURAL
+COM_00694,Fianarantsoa,Atsimo-Atsinanana,Farafangana,Tangainony,RURAL
+COM_00695,Fianarantsoa,Atsimo-Atsinanana,Farafangana,Vohimasy,RURAL
+COM_00696,Fianarantsoa,Atsimo-Atsinanana,Befotaka,Antinimora,RURAL
+COM_00697,Fianarantsoa,Atsimo-Atsinanana,Befotaka,Befotaka,URBAN
+COM_00698,Fianarantsoa,Atsimo-Atsinanana,Befotaka,Marovitsika,RURAL
+COM_00699,Fianarantsoa,Atsimo-Atsinanana,Befotaka,Ranotsara Sud,RURAL
+COM_00700,Fianarantsoa,Atsimo-Atsinanana,Befotaka,Behahanana,RURAL
+COM_00701,Fianarantsoa,Atsimo-Atsinanana,Befotaka,Ambalavero Befotaka,RURAL
+COM_00702,Fianarantsoa,Atsimo-Atsinanana,Befotaka,Antaninarenina,RURAL
+COM_00703,Fianarantsoa,Atsimo-Atsinanana,Befotaka,Marovato Befotaka,RURAL
+COM_00704,Fianarantsoa,Atsimo-Atsinanana,Midongy Sud,Andranolalina,RURAL
+COM_00705,Fianarantsoa,Atsimo-Atsinanana,Midongy Sud,Midongy-Atsimo,URBAN
+COM_00706,Fianarantsoa,Atsimo-Atsinanana,Midongy Sud,Sohohoa,RURAL
+COM_00707,Fianarantsoa,Atsimo-Atsinanana,Midongy Sud,Ivily,RURAL
+COM_00708,Fianarantsoa,Atsimo-Atsinanana,Midongy Sud,Ambalaroka Midongy,RURAL
+COM_00709,Fianarantsoa,Atsimo-Atsinanana,Midongy Sud,Anceba,RURAL
+COM_00710,Fianarantsoa,Atsimo-Atsinanana,Midongy Sud,Beharona,RURAL
+COM_00711,Fianarantsoa,Atsimo-Atsinanana,Midongy Sud,Zara Midongy,RURAL
+COM_00712,Fianarantsoa,Atsimo-Atsinanana,Vangaindrano,Ambogo,RURAL
+COM_00713,Fianarantsoa,Atsimo-Atsinanana,Vangaindrano,Befasy,RURAL
+COM_00714,Fianarantsoa,Atsimo-Atsinanana,Vangaindrano,Lopary,RURAL
+COM_00715,Fianarantsoa,Atsimo-Atsinanana,Vangaindrano,Ranomena,RURAL
+COM_00716,Fianarantsoa,Atsimo-Atsinanana,Vangaindrano,Vangaindrano,URBAN
+COM_00717,Fianarantsoa,Atsimo-Atsinanana,Vangaindrano,Ambalavato Vangaindrano,RURAL
+COM_00718,Fianarantsoa,Atsimo-Atsinanana,Vangaindrano,Matanga,RURAL
+COM_00719,Fianarantsoa,Atsimo-Atsinanana,Vangaindrano,Vohipaho,RURAL
+COM_00720,Fianarantsoa,Atsimo-Atsinanana,Vangaindrano,Ambinany Vangaindrano,RURAL
+COM_00721,Fianarantsoa,Atsimo-Atsinanana,Vangaindrano,Amboangisiky Vangaindrano,RURAL
+COM_00722,Fianarantsoa,Atsimo-Atsinanana,Vangaindrano,Amboimalaza,RURAL
+COM_00723,Fianarantsoa,Atsimo-Atsinanana,Vangaindrano,Ampasimalemy,RURAL
+COM_00724,Fianarantsoa,Atsimo-Atsinanana,Vangaindrano,Ampasy Nahampoana Vangaindrano,RURAL
+COM_00725,Fianarantsoa,Atsimo-Atsinanana,Vangaindrano,Ankarana Vangaindrano,RURAL
+COM_00726,Fianarantsoa,Atsimo-Atsinanana,Vangaindrano,Bebaka,RURAL
+COM_00727,Fianarantsoa,Atsimo-Atsinanana,Vangaindrano,Fenoambany,RURAL
+COM_00728,Fianarantsoa,Atsimo-Atsinanana,Vangaindrano,Karimbary,RURAL
+COM_00729,Fianarantsoa,Atsimo-Atsinanana,Vangaindrano,Mahabe Vangaindrano,RURAL
+COM_00730,Fianarantsoa,Atsimo-Atsinanana,Vangaindrano,Manambondro Vangaindrano,RURAL
+COM_00731,Fianarantsoa,Atsimo-Atsinanana,Vangaindrano,Marokibo,RURAL
+COM_00732,Fianarantsoa,Atsimo-Atsinanana,Vangaindrano,Sandravavinany,RURAL
+COM_00733,Fianarantsoa,Atsimo-Atsinanana,Vangaindrano,Vohitrambo,RURAL
+COM_00734,Fianarantsoa,Atsimo-Atsinanana,Vondrozo,Anandravy,RURAL
+COM_00735,Fianarantsoa,Atsimo-Atsinanana,Vondrozo,Vohiboreka,RURAL
+COM_00736,Fianarantsoa,Atsimo-Atsinanana,Vondrozo,Vondrozo,URBAN
+COM_00737,Fianarantsoa,Atsimo-Atsinanana,Vondrozo,Ambohimana,RURAL
+COM_00738,Fianarantsoa,Atsimo-Atsinanana,Vondrozo,Mahatsinjo,RURAL
+COM_00739,Fianarantsoa,Atsimo-Atsinanana,Vondrozo,Ambalasotrana,RURAL
+COM_00740,Fianarantsoa,Atsimo-Atsinanana,Vondrozo,Ambohimandroso Vondrozo,RURAL
+COM_00741,Fianarantsoa,Atsimo-Atsinanana,Vondrozo,Ankarana Vondrozo,RURAL
+COM_00742,Fianarantsoa,Atsimo-Atsinanana,Vondrozo,Antokomanana,RURAL
+COM_00743,Fianarantsoa,Atsimo-Atsinanana,Vondrozo,Iakora Vondrozo,RURAL
+COM_00744,Fianarantsoa,Atsimo-Atsinanana,Vondrozo,Kianjavato Vondrozo,RURAL
+COM_00745,Fianarantsoa,Atsimo-Atsinanana,Vondrozo,Mahazoarivo Vondrozo,RURAL
+COM_00746,Fianarantsoa,Atsimo-Atsinanana,Vondrozo,Vohimasy Vondrozo,RURAL
+COM_00747,Fianarantsoa,Ihorombe,Ihosy,Ambalavrondro,RURAL
+COM_00748,Fianarantsoa,Ihorombe,Ihosy,Ambatolahy,RURAL
+COM_00749,Fianarantsoa,Ihorombe,Ihosy,Ihosy,URBAN
+COM_00750,Fianarantsoa,Ihorombe,Ihosy,Ilakaka,URBAN
+COM_00751,Fianarantsoa,Ihorombe,Ihosy,Ranohira (Isalo),RURAL
+COM_00752,Fianarantsoa,Ihorombe,Ihosy,Sakaraha Ihosy,RURAL
+COM_00753,Fianarantsoa,Ihorombe,Ihosy,Ambohimandroso Ihosy,RURAL
+COM_00754,Fianarantsoa,Ihorombe,Ihosy,Andiolava,RURAL
+COM_00755,Fianarantsoa,Ihorombe,Ihosy,Analavoka,RURAL
+COM_00756,Fianarantsoa,Ihorombe,Ihosy,Zazafotsy,RURAL
+COM_00757,Fianarantsoa,Ihorombe,Ihosy,Ambalakida Ihosy,RURAL
+COM_00758,Fianarantsoa,Ihorombe,Ihosy,Ambalavao Ihosy,RURAL
+COM_00759,Fianarantsoa,Ihorombe,Ihosy,Ambohimahavelona Ihosy,RURAL
+COM_00760,Fianarantsoa,Ihorombe,Ihosy,Andranovory Ihosy,RURAL
+COM_00761,Fianarantsoa,Ihorombe,Ihosy,Ankilivalo Ihosy,RURAL
+COM_00762,Fianarantsoa,Ihorombe,Ihosy,Irondro,RURAL
+COM_00763,Fianarantsoa,Ihorombe,Ihosy,Sahanivotra Ihosy,RURAL
+COM_00764,Fianarantsoa,Ihorombe,Ihosy,Soamatasy,RURAL
+COM_00765,Fianarantsoa,Ihorombe,Iakora,Begogo,RURAL
+COM_00766,Fianarantsoa,Ihorombe,Iakora,Iakora,URBAN
+COM_00767,Fianarantsoa,Ihorombe,Iakora,Ranotsara Nord,RURAL
+COM_00768,Fianarantsoa,Ihorombe,Iakora,Ambaibo,RURAL
+COM_00769,Fianarantsoa,Ihorombe,Iakora,Andranambolava,RURAL
+COM_00770,Fianarantsoa,Ihorombe,Iakora,Bekahakaha,RURAL
+COM_00771,Fianarantsoa,Ihorombe,Ivohibe,Antambohobe,RURAL
+COM_00772,Fianarantsoa,Ihorombe,Ivohibe,Ivohibe,URBAN
+COM_00773,Fianarantsoa,Ihorombe,Ivohibe,Maropaika,RURAL
+COM_00774,Fianarantsoa,Ihorombe,Ivohibe,Ivato Ivohibe,RURAL
+COM_00775,Fianarantsoa,Ihorombe,Ivohibe,Ambalaroka Ivohibe,RURAL
+COM_00776,Fianarantsoa,Ihorombe,Ivohibe,Ambohimanga Ivohibe,RURAL
+COM_00777,Mahajanga,Boeny,Mahajanga I,1er Arrondissement Mahajanga,URBAN
+COM_00778,Mahajanga,Boeny,Mahajanga I,2e Arrondissement Mahajanga,URBAN
+COM_00779,Mahajanga,Boeny,Mahajanga I,3e Arrondissement Mahajanga,URBAN
+COM_00780,Mahajanga,Boeny,Mahajanga II,Ambalakida,RURAL
+COM_00781,Mahajanga,Boeny,Mahajanga II,Andranoboka,RURAL
+COM_00782,Mahajanga,Boeny,Mahajanga II,Bekobamba,RURAL
+COM_00783,Mahajanga,Boeny,Mahajanga II,Betsako,RURAL
+COM_00784,Mahajanga,Boeny,Mahajanga II,Boanamary,RURAL
+COM_00785,Mahajanga,Boeny,Mahajanga II,Katsepy,RURAL
+COM_00786,Mahajanga,Boeny,Mahajanga II,Belobaka Mahajanga,RURAL
+COM_00787,Mahajanga,Boeny,Mahajanga II,Mahajamba Usine,RURAL
+COM_00788,Mahajanga,Boeny,Mahajanga II,Ambatomalama,RURAL
+COM_00789,Mahajanga,Boeny,Mahajanga II,Ambohitromby Mahajanga,RURAL
+COM_00790,Mahajanga,Boeny,Mahajanga II,Andranohinaly,RURAL
+COM_00791,Mahajanga,Boeny,Mahajanga II,Mangatsa,RURAL
+COM_00792,Mahajanga,Boeny,Ambato-Boeni,Ambato-Boeni,URBAN
+COM_00793,Mahajanga,Boeny,Ambato-Boeni,Ambesisika,RURAL
+COM_00794,Mahajanga,Boeny,Ambato-Boeni,Andranofasika,RURAL
+COM_00795,Mahajanga,Boeny,Ambato-Boeni,Anjiajia,RURAL
+COM_00796,Mahajanga,Boeny,Ambato-Boeni,Manerinerina,RURAL
+COM_00797,Mahajanga,Boeny,Ambato-Boeni,Tsaramandroso,RURAL
+COM_00798,Mahajanga,Boeny,Ambato-Boeni,Ambalabako,RURAL
+COM_00799,Mahajanga,Boeny,Ambato-Boeni,Madirovalo,RURAL
+COM_00800,Mahajanga,Boeny,Ambato-Boeni,Ambato-Ambarimantara,RURAL
+COM_00801,Mahajanga,Boeny,Ambato-Boeni,Ambohitromby Ambato-Boeni,RURAL
+COM_00802,Mahajanga,Boeny,Ambato-Boeni,Ankasakasa,RURAL
+COM_00803,Mahajanga,Boeny,Ambato-Boeni,Sarasambo,RURAL
+COM_00804,Mahajanga,Boeny,Marovoay,Ambolomoty,RURAL
+COM_00805,Mahajanga,Boeny,Marovoay,Anosinalainty,RURAL
+COM_00806,Mahajanga,Boeny,Marovoay,Antanambao,RURAL
+COM_00807,Mahajanga,Boeny,Marovoay,Manaratsandry,RURAL
+COM_00808,Mahajanga,Boeny,Marovoay,Marovoay,URBAN
+COM_00809,Mahajanga,Boeny,Marovoay,Marovoay Banlieue,RURAL
+COM_00810,Mahajanga,Boeny,Marovoay,Ambinany Marovoay,RURAL
+COM_00811,Mahajanga,Boeny,Marovoay,Ankaraobato,RURAL
+COM_00812,Mahajanga,Boeny,Marovoay,Tsararano,RURAL
+COM_00813,Mahajanga,Boeny,Marovoay,Ambohitromby Marovoay,RURAL
+COM_00814,Mahajanga,Boeny,Marovoay,Andranomamy,RURAL
+COM_00815,Mahajanga,Boeny,Marovoay,Ankazomborona Marovoay,RURAL
+COM_00816,Mahajanga,Boeny,Marovoay,Befotaka Marovoay,RURAL
+COM_00817,Mahajanga,Boeny,Marovoay,Tsaratanana Marovoay,RURAL
+COM_00818,Mahajanga,Boeny,Mitsinjo,Ambohitromby,RURAL
+COM_00819,Mahajanga,Boeny,Mitsinjo,Antseza,RURAL
+COM_00820,Mahajanga,Boeny,Mitsinjo,Bekipay,RURAL
+COM_00821,Mahajanga,Boeny,Mitsinjo,Katsepy Mitsinjo,RURAL
+COM_00822,Mahajanga,Boeny,Mitsinjo,Mitsinjo,URBAN
+COM_00823,Mahajanga,Boeny,Mitsinjo,Antnamitarana,RURAL
+COM_00824,Mahajanga,Boeny,Mitsinjo,Ambalakida Mitsinjo,RURAL
+COM_00825,Mahajanga,Boeny,Mitsinjo,Antsanitia,RURAL
+COM_00826,Mahajanga,Boeny,Mitsinjo,Matsaborilava Mitsinjo,RURAL
+COM_00827,Mahajanga,Boeny,Soalala,Ambohipaky,RURAL
+COM_00828,Mahajanga,Boeny,Soalala,Andranomavo,RURAL
+COM_00829,Mahajanga,Boeny,Soalala,Soalala,URBAN
+COM_00830,Mahajanga,Boeny,Soalala,Mahaly,RURAL
+COM_00831,Mahajanga,Boeny,Soalala,Ambolisatra Soalala,RURAL
+COM_00832,Mahajanga,Boeny,Soalala,Baly,RURAL
+COM_00833,Mahajanga,Sofia,Antsohihy,Ambdimanga Sud,RURAL
+COM_00834,Mahajanga,Sofia,Antsohihy,Analaiva,RURAL
+COM_00835,Mahajanga,Sofia,Antsohihy,Antsohihy,URBAN
+COM_00836,Mahajanga,Sofia,Antsohihy,Antsahabe,RURAL
+COM_00837,Mahajanga,Sofia,Antsohihy,Marovaraka,RURAL
+COM_00838,Mahajanga,Sofia,Antsohihy,Ambalabe West,RURAL
+COM_00839,Mahajanga,Sofia,Antsohihy,Anjansoroma,RURAL
+COM_00840,Mahajanga,Sofia,Antsohihy,Ambohitrondro,RURAL
+COM_00841,Mahajanga,Sofia,Antsohihy,Ampasikely Antsohihy,RURAL
+COM_00842,Mahajanga,Sofia,Antsohihy,Andranomamy Antsohihy,RURAL
+COM_00843,Mahajanga,Sofia,Antsohihy,Ansamabato Antsohihy,RURAL
+COM_00844,Mahajanga,Sofia,Antsohihy,Befotaka Antsohihy,RURAL
+COM_00845,Mahajanga,Sofia,Analalava,Ambanjabe,RURAL
+COM_00846,Mahajanga,Sofia,Analalava,Analalava,URBAN
+COM_00847,Mahajanga,Sofia,Analalava,Antonibe,RURAL
+COM_00848,Mahajanga,Sofia,Analalava,Befotaka Analalava,RURAL
+COM_00849,Mahajanga,Sofia,Analalava,Maromandia,RURAL
+COM_00850,Mahajanga,Sofia,Analalava,Angoaka Sud,RURAL
+COM_00851,Mahajanga,Sofia,Analalava,Mahyamora,RURAL
+COM_00852,Mahajanga,Sofia,Analalava,Ambalafamity,RURAL
+COM_00853,Mahajanga,Sofia,Analalava,Ambohitromby Analalava,RURAL
+COM_00854,Mahajanga,Sofia,Analalava,Andsamana Analalava,RURAL
+COM_00855,Mahajanga,Sofia,Analalava,Ankeroika,RURAL
+COM_00856,Mahajanga,Sofia,Analalava,Marovantaza,RURAL
+COM_00857,Mahajanga,Sofia,Bealanana,Ambihijanhary,RURAL
+COM_00858,Mahajanga,Sofia,Bealanana,Bealanana,URBAN
+COM_00859,Mahajanga,Sofia,Bealanana,Mangindrano,RURAL
+COM_00860,Mahajanga,Sofia,Bealanana,Marotandrano,RURAL
+COM_00861,Mahajanga,Sofia,Bealanana,Ambalaromba,RURAL
+COM_00862,Mahajanga,Sofia,Bealanana,Ambohitraivo,RURAL
+COM_00863,Mahajanga,Sofia,Bealanana,Ambadimanga,RURAL
+COM_00864,Mahajanga,Sofia,Bealanana,Ambohitromby Bealanana,RURAL
+COM_00865,Mahajanga,Sofia,Bealanana,Ampetsapetsa,RURAL
+COM_00866,Mahajanga,Sofia,Bealanana,Anorotsangana,RURAL
+COM_00867,Mahajanga,Sofia,Bealanana,Antanambao Bealanana,RURAL
+COM_00868,Mahajanga,Sofia,Befandriana Avaratra,Ambararata,RURAL
+COM_00869,Mahajanga,Sofia,Befandriana Avaratra,Befandriana Avaratra,URBAN
+COM_00870,Mahajanga,Sofia,Befandriana Avaratra,Maroamalona,RURAL
+COM_00871,Mahajanga,Sofia,Befandriana Avaratra,Tsarahonenana,RURAL
+COM_00872,Mahajanga,Sofia,Befandriana Avaratra,Ambalajankoa,RURAL
+COM_00873,Mahajanga,Sofia,Befandriana Avaratra,Matsaborilava,RURAL
+COM_00874,Mahajanga,Sofia,Befandriana Avaratra,Ambohitromby Befandriana,RURAL
+COM_00875,Mahajanga,Sofia,Befandriana Avaratra,Amnalalava Befandriana,RURAL
+COM_00876,Mahajanga,Sofia,Befandriana Avaratra,Anosibe Befandriana,RURAL
+COM_00877,Mahajanga,Sofia,Befandriana Avaratra,Antasapanana Befandriana,RURAL
+COM_00878,Mahajanga,Sofia,Befandriana Avaratra,Tsaratanana Befandriana,RURAL
+COM_00879,Mahajanga,Sofia,Boriziny-Vaovao (Port-Bergé),Ampombilava,RURAL
+COM_00880,Mahajanga,Sofia,Boriziny-Vaovao (Port-Bergé),Boriziny,URBAN
+COM_00881,Mahajanga,Sofia,Boriziny-Vaovao (Port-Bergé),Tsaratanana Boriziny,RURAL
+COM_00882,Mahajanga,Sofia,Boriziny-Vaovao (Port-Bergé),Amdaimena,RURAL
+COM_00883,Mahajanga,Sofia,Boriziny-Vaovao (Port-Bergé),Leomany,RURAL
+COM_00884,Mahajanga,Sofia,Boriziny-Vaovao (Port-Bergé),Ambalabe Boriziny,RURAL
+COM_00885,Mahajanga,Sofia,Boriziny-Vaovao (Port-Bergé),Ambohitromby Boriziny,RURAL
+COM_00886,Mahajanga,Sofia,Boriziny-Vaovao (Port-Bergé),Andranomavo Boriziny,RURAL
+COM_00887,Mahajanga,Sofia,Boriziny-Vaovao (Port-Bergé),Ankasakasa Boriziny,RURAL
+COM_00888,Mahajanga,Sofia,Boriziny-Vaovao (Port-Bergé),Antasabe Boriziny,RURAL
+COM_00889,Mahajanga,Sofia,Boriziny-Vaovao (Port-Bergé),Marovato Boriziny,RURAL
+COM_00890,Mahajanga,Sofia,Mampikony,Ambohitromby Mampikony,RURAL
+COM_00891,Mahajanga,Sofia,Mampikony,Komamoritsika,RURAL
+COM_00892,Mahajanga,Sofia,Mampikony,Mampikony,URBAN
+COM_00893,Mahajanga,Sofia,Mampikony,Ambeko,RURAL
+COM_00894,Mahajanga,Sofia,Mampikony,Betaramahamay,RURAL
+COM_00895,Mahajanga,Sofia,Mampikony,Ambalakida Mampikony,RURAL
+COM_00896,Mahajanga,Sofia,Mampikony,Ambohibary Mampikony,RURAL
+COM_00897,Mahajanga,Sofia,Mampikony,Ampasikely Mampikony,RURAL
+COM_00898,Mahajanga,Sofia,Mampikony,Bekoratsaka,RURAL
+COM_00899,Mahajanga,Sofia,Mandritsara,Ambanizana Mandritsara,RURAL
+COM_00900,Mahajanga,Sofia,Mandritsara,Antanambaon'amberina,RURAL
+COM_00901,Mahajanga,Sofia,Mandritsara,Mandritsara,URBAN
+COM_00902,Mahajanga,Sofia,Mandritsara,Ambarakoraka,RURAL
+COM_00903,Mahajanga,Sofia,Mandritsara,Antsiatsiaka,RURAL
+COM_00904,Mahajanga,Sofia,Mandritsara,Kandreho Mandritsara,RURAL
+COM_00905,Mahajanga,Sofia,Mandritsara,Ambalikiraro,RURAL
+COM_00906,Mahajanga,Sofia,Mandritsara,Ambohitromby Mandritsara,RURAL
+COM_00907,Mahajanga,Sofia,Mandritsara,Ambarimaningory,RURAL
+COM_00908,Mahajanga,Sofia,Mandritsara,Andohajango,RURAL
+COM_00909,Mahajanga,Sofia,Mandritsara,Ankazomborona Mandritsara,RURAL
+COM_00910,Mahajanga,Sofia,Mandritsara,Antsapanana Mandritsara,RURAL
+COM_00911,Mahajanga,Sofia,Mandritsara,Kiriako,RURAL
+COM_00912,Mahajanga,Sofia,Mandritsara,Manampaneva,RURAL
+COM_00913,Mahajanga,Sofia,Mandritsara,Marotandrano Mandritsara,RURAL
+COM_00914,Mahajanga,Sofia,Mandritsara,Tsaratanana Mandritsara,RURAL
+COM_00915,Mahajanga,Betsiboka,Maevatanana,Ambohitromby Maevatanana,RURAL
+COM_00916,Mahajanga,Betsiboka,Maevatanana,Andiamena,RURAL
+COM_00917,Mahajanga,Betsiboka,Maevatanana,Maevatanana,URBAN
+COM_00918,Mahajanga,Betsiboka,Maevatanana,Mangaidy,RURAL
+COM_00919,Mahajanga,Betsiboka,Maevatanana,Maria,RURAL
+COM_00920,Mahajanga,Betsiboka,Maevatanana,Ambalanjanakomby,RURAL
+COM_00921,Mahajanga,Betsiboka,Maevatanana,Antanimbary,RURAL
+COM_00922,Mahajanga,Betsiboka,Maevatanana,Ambalabako Maevatanana,RURAL
+COM_00923,Mahajanga,Betsiboka,Maevatanana,Ambohibary Maevatanana,RURAL
+COM_00924,Mahajanga,Betsiboka,Maevatanana,Andranomamy Maevatanana,RURAL
+COM_00925,Mahajanga,Betsiboka,Maevatanana,Ankasakasa Maevatanana,RURAL
+COM_00926,Mahajanga,Betsiboka,Maevatanana,Antsapanana Maevatanana,RURAL
+COM_00927,Mahajanga,Betsiboka,Maevatanana,Bemokotra,RURAL
+COM_00928,Mahajanga,Betsiboka,Maevatanana,Mahatsinjo Maevatanana,RURAL
+COM_00929,Mahajanga,Betsiboka,Maevatanana,Morarano Maevatanana,RURAL
+COM_00930,Mahajanga,Betsiboka,Maevatanana,Tsararano Maevatanana,RURAL
+COM_00931,Mahajanga,Betsiboka,Kandreho,Ambesisika Kandreho,RURAL
+COM_00932,Mahajanga,Betsiboka,Kandreho,Behazomaty,RURAL
+COM_00933,Mahajanga,Betsiboka,Kandreho,Kandreho,URBAN
+COM_00934,Mahajanga,Betsiboka,Kandreho,Antsampanamahana,RURAL
+COM_00935,Mahajanga,Betsiboka,Kandreho,Ambalajankoa Kandreho,RURAL
+COM_00936,Mahajanga,Betsiboka,Kandreho,Ambohitromby Kandreho,RURAL
+COM_00937,Mahajanga,Betsiboka,Tsaratanana,Amboto,RURAL
+COM_00938,Mahajanga,Betsiboka,Tsaratanana,Bekapaika,RURAL
+COM_00939,Mahajanga,Betsiboka,Tsaratanana,Tsaratanana,URBAN
+COM_00940,Mahajanga,Betsiboka,Tsaratanana,Andriamena Tsaratanana,RURAL
+COM_00941,Mahajanga,Betsiboka,Tsaratanana,Saramainty,RURAL
+COM_00942,Mahajanga,Betsiboka,Tsaratanana,Ambalanirana Tsaratanana,RURAL
+COM_00943,Mahajanga,Betsiboka,Tsaratanana,Ambohitromby Tsaratanana,RURAL
+COM_00944,Mahajanga,Betsiboka,Tsaratanana,Ampasikely Tsaratanana,RURAL
+COM_00945,Mahajanga,Betsiboka,Tsaratanana,Andranomainty Tsaratanana,RURAL
+COM_00946,Mahajanga,Betsiboka,Tsaratanana,Betatao Tsaratanana,RURAL
+COM_00947,Mahajanga,Betsiboka,Tsaratanana,Madirovalo Tsaratanana,RURAL
+COM_00948,Mahajanga,Betsiboka,Tsaratanana,Manaka East,RURAL
+COM_00949,Mahajanga,Melaky,Maintirano,Andranambany,RURAL
+COM_00950,Mahajanga,Melaky,Maintirano,Mafaijijo,RURAL
+COM_00951,Mahajanga,Melaky,Maintirano,Maintirano,URBAN
+COM_00952,Mahajanga,Melaky,Maintirano,Ambolo,RURAL
+COM_00953,Mahajanga,Melaky,Maintirano,Anosibe Maintirano,RURAL
+COM_00954,Mahajanga,Melaky,Maintirano,Tambohorano,RURAL
+COM_00955,Mahajanga,Melaky,Maintirano,Ambalakida Maintirano,RURAL
+COM_00956,Mahajanga,Melaky,Maintirano,Ambohitromby Maintirano,RURAL
+COM_00957,Mahajanga,Melaky,Maintirano,Andabotoka,RURAL
+COM_00958,Mahajanga,Melaky,Maintirano,Bebao,RURAL
+COM_00959,Mahajanga,Melaky,Maintirano,Betoho,RURAL
+COM_00960,Mahajanga,Melaky,Maintirano,Veromanga,RURAL
+COM_00961,Mahajanga,Melaky,Ambatomainty,Ambatomainty,URBAN
+COM_00962,Mahajanga,Melaky,Ambatomainty,Bemarivo Ambatomainty,RURAL
+COM_00963,Mahajanga,Melaky,Ambatomainty,Sarobaratra,RURAL
+COM_00964,Mahajanga,Melaky,Ambatomainty,Ambohitromby Ambatomainty,RURAL
+COM_00965,Mahajanga,Melaky,Ambatomainty,Cranja,RURAL
+COM_00966,Mahajanga,Melaky,Antsalova,Antsalova,URBAN
+COM_00967,Mahajanga,Melaky,Antsalova,Bekopaka,RURAL
+COM_00968,Mahajanga,Melaky,Antsalova,Masoarivo,RURAL
+COM_00969,Mahajanga,Melaky,Antsalova,Trangahy,RURAL
+COM_00970,Mahajanga,Melaky,Antsalova,Ambohitromby Antsalova,RURAL
+COM_00971,Mahajanga,Melaky,Antsalova,Soahany,RURAL
+COM_00972,Mahajanga,Melaky,Besalampy,Ambolisatra,RURAL
+COM_00973,Mahajanga,Melaky,Besalampy,Besalampy,URBAN
+COM_00974,Mahajanga,Melaky,Besalampy,Mahabe,RURAL
+COM_00975,Mahajanga,Melaky,Besalampy,Bekodoka,RURAL
+COM_00976,Mahajanga,Melaky,Besalampy,Ambalakida Besalampy,RURAL
+COM_00977,Mahajanga,Melaky,Besalampy,Ampasikely Besalampy,RURAL
+COM_00978,Mahajanga,Melaky,Besalampy,Ankasakasa Besalampy,RURAL
+COM_00979,Mahajanga,Melaky,Morafenobe,Beravina,RURAL
+COM_00980,Mahajanga,Melaky,Morafenobe,Morafenobe,URBAN
+COM_00981,Mahajanga,Melaky,Morafenobe,Tsingilofilo,RURAL
+COM_00982,Mahajanga,Melaky,Morafenobe,Ambohibite,RURAL
+COM_00983,Mahajanga,Melaky,Morafenobe,Ambohitromby Morafenobe,RURAL
+COM_00984,Mahajanga,Melaky,Morafenobe,Andriantany,RURAL
+COM_00985,Toamasina,Atsinanana,Toamasina I,1er Arrondissement Toamasina,URBAN
+COM_00986,Toamasina,Atsinanana,Toamasina I,2e Arrondissement Toamasina,URBAN
+COM_00987,Toamasina,Atsinanana,Toamasina I,3e Arrondissement Toamasina,URBAN
+COM_00988,Toamasina,Atsinanana,Toamasina I,4e Arrondissement Toamasina,URBAN
+COM_00989,Toamasina,Atsinanana,Toamasina I,5e Arrondissement Toamasina,URBAN
+COM_00990,Toamasina,Atsinanana,Toamasina II,Ambodiriana,RURAL
+COM_00991,Toamasina,Atsinanana,Toamasina II,Ambotenina,RURAL
+COM_00992,Toamasina,Atsinanana,Toamasina II,Ampasimadinika,RURAL
+COM_00993,Toamasina,Atsinanana,Toamasina II,Foulpointe (Mahavelona),RURAL
+COM_00994,Toamasina,Atsinanana,Toamasina II,Fanandrana,RURAL
+COM_00995,Toamasina,Atsinanana,Toamasina II,Ambodilazana,RURAL
+COM_00996,Toamasina,Atsinanana,Toamasina II,Ampasimbe Onibe,RURAL
+COM_00997,Toamasina,Atsinanana,Toamasina II,Antetezambaro,RURAL
+COM_00998,Toamasina,Atsinanana,Toamasina II,Ambalatenina,RURAL
+COM_00999,Toamasina,Atsinanana,Toamasina II,Ambinany Toamasina,RURAL
+COM_01000,Toamasina,Atsinanana,Toamasina II,Ambohitrambo Toamasina,RURAL
+COM_01001,Toamasina,Atsinanana,Toamasina II,Andranobolaha,RURAL
+COM_01002,Toamasina,Atsinanana,Toamasina II,Antsubazato,RURAL
+COM_01003,Toamasina,Atsinanana,Toamasina II,Mangabe,RURAL
+COM_01004,Toamasina,Atsinanana,Toamasina II,Sahambala,RURAL
+COM_01005,Toamasina,Atsinanana,Antanambao Manampotsy,Antanambao Manampotsy,URBAN
+COM_01006,Toamasina,Atsinanana,Antanambao Manampotsy,Antankana,RURAL
+COM_01007,Toamasina,Atsinanana,Antanambao Manampotsy,Manampotsy West,RURAL
+COM_01008,Toamasina,Atsinanana,Antanambao Manampotsy,Ambalavolo Manampotsy,RURAL
+COM_01009,Toamasina,Atsinanana,Antanambao Manampotsy,Ambohimandroso Manampotsy,RURAL
+COM_01010,Toamasina,Atsinanana,Brickaville (Vohibinany),Ambinaninony,RURAL
+COM_01011,Toamasina,Atsinanana,Brickaville (Vohibinany),Ampasimanolotra (Brickaville),URBAN
+COM_01012,Toamasina,Atsinanana,Brickaville (Vohibinany),Andekaleka,RURAL
+COM_01013,Toamasina,Atsinanana,Brickaville (Vohibinany),Anivorano East,RURAL
+COM_01014,Toamasina,Atsinanana,Brickaville (Vohibinany),Anosibe,RURAL
+COM_01015,Toamasina,Atsinanana,Brickaville (Vohibinany),Lohariandava,RURAL
+COM_01016,Toamasina,Atsinanana,Brickaville (Vohibinany),Razanaka,RURAL
+COM_01017,Toamasina,Atsinanana,Brickaville (Vohibinany),Ambalaroka Brickaville,RURAL
+COM_01018,Toamasina,Atsinanana,Brickaville (Vohibinany),Ambinaninony South,RURAL
+COM_01019,Toamasina,Atsinanana,Brickaville (Vohibinany),Ambohimanana Brickaville,RURAL
+COM_01020,Toamasina,Atsinanana,Brickaville (Vohibinany),Ampasimbe Brickaville,RURAL
+COM_01021,Toamasina,Atsinanana,Brickaville (Vohibinany),Andranobolaha Brickaville,RURAL
+COM_01022,Toamasina,Atsinanana,Brickaville (Vohibinany),Fetraomby,RURAL
+COM_01023,Toamasina,Atsinanana,Brickaville (Vohibinany),Mahatsara Brickaville,RURAL
+COM_01024,Toamasina,Atsinanana,Brickaville (Vohibinany),Vohitranivao,RURAL
+COM_01025,Toamasina,Atsinanana,Mahanoro,Ambodiharina,RURAL
+COM_01026,Toamasina,Atsinanana,Mahanoro,Betsizaraina,RURAL
+COM_01027,Toamasina,Atsinanana,Mahanoro,Mahanoro,URBAN
+COM_01028,Toamasina,Atsinanana,Mahanoro,Manambato,RURAL
+COM_01029,Toamasina,Atsinanana,Mahanoro,Ambinanidilana,RURAL
+COM_01030,Toamasina,Atsinanana,Mahanoro,Tsaravinany,RURAL
+COM_01031,Toamasina,Atsinanana,Mahanoro,Ambalavolo Mahanoro,RURAL
+COM_01032,Toamasina,Atsinanana,Mahanoro,Ambohitromby Mahanoro,RURAL
+COM_01033,Toamasina,Atsinanana,Mahanoro,Andranambolava Mahanoro,RURAL
+COM_01034,Toamasina,Atsinanana,Mahanoro,Anosibe Mahanoro,RURAL
+COM_01035,Toamasina,Atsinanana,Mahanoro,Manakara Mahanoro,RURAL
+COM_01036,Toamasina,Atsinanana,Mahanoro,Sahatamana,RURAL
+COM_01037,Toamasina,Atsinanana,Marolambo,Ambalapaiso,RURAL
+COM_01038,Toamasina,Atsinanana,Marolambo,Marolambo,URBAN
+COM_01039,Toamasina,Atsinanana,Marolambo,Sahakevo,RURAL
+COM_01040,Toamasina,Atsinanana,Marolambo,Amboasary Marolambo,RURAL
+COM_01041,Toamasina,Atsinanana,Marolambo,Ambalavero Marolambo,RURAL
+COM_01042,Toamasina,Atsinanana,Marolambo,Ambohimilanja Marolambo,RURAL
+COM_01043,Toamasina,Atsinanana,Marolambo,Andonabe Marolambo,RURAL
+COM_01044,Toamasina,Atsinanana,Marolambo,Anosiarivo Marolambo,RURAL
+COM_01045,Toamasina,Atsinanana,Marolambo,Betsizaraina Marolambo,RURAL
+COM_01046,Toamasina,Atsinanana,Vatomandry,Ambalavolo,RURAL
+COM_01047,Toamasina,Atsinanana,Vatomandry,Ifasina,RURAL
+COM_01048,Toamasina,Atsinanana,Vatomandry,Vatomandry,URBAN
+COM_01049,Toamasina,Atsinanana,Vatomandry,Ambohimanana,RURAL
+COM_01050,Toamasina,Atsinanana,Vatomandry,Antanambao Mahatsara,RURAL
+COM_01051,Toamasina,Atsinanana,Vatomandry,Niarovana Caroline,RURAL
+COM_01052,Toamasina,Atsinanana,Vatomandry,Ambalakida Vatomandry,RURAL
+COM_01053,Toamasina,Atsinanana,Vatomandry,Ambinanindrano Vatomandry,RURAL
+COM_01054,Toamasina,Atsinanana,Vatomandry,Ambohetsara,RURAL
+COM_01055,Toamasina,Atsinanana,Vatomandry,Ampasimadinika Vatomandry,RURAL
+COM_01056,Toamasina,Atsinanana,Vatomandry,Andranambolava Vatomandry,RURAL
+COM_01057,Toamasina,Atsinanana,Vatomandry,Anosibe Vatomandry,RURAL
+COM_01058,Toamasina,Atsinanana,Vatomandry,Antsapanana Vatomandry,RURAL
+COM_01059,Toamasina,Atsinanana,Vatomandry,Maintinandry,RURAL
+COM_01060,Toamasina,Atsinanana,Vatomandry,Sahatavy Vatomandry,RURAL
+COM_01061,Toamasina,Atsinanana,Vatomandry,Tanambao Vatomandry,RURAL
+COM_01062,Toamasina,Analanjirofo,Fenoarivo Atsinanana,Ambanisanio,RURAL
+COM_01063,Toamasina,Analanjirofo,Fenoarivo Atsinanana,Ampasina Maningory,RURAL
+COM_01064,Toamasina,Analanjirofo,Fenoarivo Atsinanana,Fenoarivo Atsinanana,URBAN
+COM_01065,Toamasina,Analanjirofo,Fenoarivo Atsinanana,Ambatoharanana,RURAL
+COM_01066,Toamasina,Analanjirofo,Fenoarivo Atsinanana,Ambodivoatorio,RURAL
+COM_01067,Toamasina,Analanjirofo,Fenoarivo Atsinanana,Vohipeno Analanjirofo,RURAL
+COM_01068,Toamasina,Analanjirofo,Fenoarivo Atsinanana,Ambalatany Fenoarivo,RURAL
+COM_01069,Toamasina,Analanjirofo,Fenoarivo Atsinanana,Ambanizana Fenoarivo,RURAL
+COM_01070,Toamasina,Analanjirofo,Fenoarivo Atsinanana,Ambohitralanana Fenoarivo,RURAL
+COM_01071,Toamasina,Analanjirofo,Fenoarivo Atsinanana,Ampasimbe Fenoarivo,RURAL
+COM_01072,Toamasina,Analanjirofo,Fenoarivo Atsinanana,Antanambe Fenoarivo,RURAL
+COM_01073,Toamasina,Analanjirofo,Fenoarivo Atsinanana,Mahambo,RURAL
+COM_01074,Toamasina,Analanjirofo,Fenoarivo Atsinanana,Saranambana,RURAL
+COM_01075,Toamasina,Analanjirofo,Mananara Avaratra,Antanambaobe,RURAL
+COM_01076,Toamasina,Analanjirofo,Mananara Avaratra,Mananara Nord,URBAN
+COM_01077,Toamasina,Analanjirofo,Mananara Avaratra,Vanono,RURAL
+COM_01078,Toamasina,Analanjirofo,Mananara Avaratra,Ambalakoraha,RURAL
+COM_01079,Toamasina,Analanjirofo,Mananara Avaratra,Ambohithorana,RURAL
+COM_01080,Toamasina,Analanjirofo,Mananara Avaratra,Sandrakatsy,RURAL
+COM_01081,Toamasina,Analanjirofo,Mananara Avaratra,Ambatoharanana Mananara,RURAL
+COM_01082,Toamasina,Analanjirofo,Mananara Avaratra,Ambodivoanio,RURAL
+COM_01083,Toamasina,Analanjirofo,Mananara Avaratra,Anove,RURAL
+COM_01084,Toamasina,Analanjirofo,Mananara Avaratra,Antanambe Mananara,RURAL
+COM_01085,Toamasina,Analanjirofo,Mananara Avaratra,Imorona,RURAL
+COM_01086,Toamasina,Analanjirofo,Mananara Avaratra,Manambolosy Mananara,RURAL
+COM_01087,Toamasina,Analanjirofo,Mananara Avaratra,Tanambe Mananara,RURAL
+COM_01088,Toamasina,Analanjirofo,Sainte Marie,Nosy Boraha (Sainte Marie),URBAN
+COM_01089,Toamasina,Analanjirofo,Sainte Marie,Lavanono Sainte Marie,RURAL
+COM_01090,Toamasina,Analanjirofo,Sainte Marie,Ambatointelo,RURAL
+COM_01091,Toamasina,Analanjirofo,Sainte Marie,Ambodifotatra,URBAN
+COM_01092,Toamasina,Analanjirofo,Soanierana Ivongo,Ambahoabe,RURAL
+COM_01093,Toamasina,Analanjirofo,Soanierana Ivongo,Antenina,RURAL
+COM_01094,Toamasina,Analanjirofo,Soanierana Ivongo,Soanierana Ivongo,URBAN
+COM_01095,Toamasina,Analanjirofo,Soanierana Ivongo,Andapafito,RURAL
+COM_01096,Toamasina,Analanjirofo,Soanierana Ivongo,Manambolosy,RURAL
+COM_01097,Toamasina,Analanjirofo,Soanierana Ivongo,Ambalatenina Soanierana,RURAL
+COM_01098,Toamasina,Analanjirofo,Soanierana Ivongo,Ambinaninisainana,RURAL
+COM_01099,Toamasina,Analanjirofo,Soanierana Ivongo,Amboditenina,RURAL
+COM_01100,Toamasina,Analanjirofo,Soanierana Ivongo,Ampasina Soanierana,RURAL
+COM_01101,Toamasina,Analanjirofo,Soanierana Ivongo,Fotsialanana,RURAL
+COM_01102,Toamasina,Analanjirofo,Vavatenina,Ambohibe,RURAL
+COM_01103,Toamasina,Analanjirofo,Vavatenina,Sahatavy,RURAL
+COM_01104,Toamasina,Analanjirofo,Vavatenina,Vavatenina,URBAN
+COM_01105,Toamasina,Analanjirofo,Vavatenina,Ambanizana Vavatenina,RURAL
+COM_01106,Toamasina,Analanjirofo,Vavatenina,Anosibe Vavatenina,RURAL
+COM_01107,Toamasina,Analanjirofo,Vavatenina,Ambaltenina Vavatenina,RURAL
+COM_01108,Toamasina,Analanjirofo,Vavatenina,Ambohitrantenaina Vavatenina,RURAL
+COM_01109,Toamasina,Analanjirofo,Vavatenina,Ampasipotsy Vavatenina,RURAL
+COM_01110,Toamasina,Analanjirofo,Vavatenina,Maromitety,RURAL
+COM_01111,Toamasina,Analanjirofo,Vavatenina,Miarinarivo Vavatenina,RURAL
+COM_01112,Toamasina,Analanjirofo,Vavatenina,Tanganony,RURAL
+COM_01113,Toamasina,Ambatosoa,Maroantsetra,Ambanizana,RURAL
+COM_01114,Toamasina,Ambatosoa,Maroantsetra,Anjanazana,RURAL
+COM_01115,Toamasina,Ambatosoa,Maroantsetra,Maroantsetra,URBAN
+COM_01116,Toamasina,Ambatosoa,Maroantsetra,Rantabe,RURAL
+COM_01117,Toamasina,Ambatosoa,Maroantsetra,Ambinanitelo Maroantsetra,RURAL
+COM_01118,Toamasina,Ambatosoa,Maroantsetra,Ankofabe,RURAL
+COM_01119,Toamasina,Ambatosoa,Maroantsetra,Manambolo,RURAL
+COM_01120,Toamasina,Ambatosoa,Maroantsetra,Voloina,RURAL
+COM_01121,Toamasina,Ambatosoa,Maroantsetra,Ambalakoraha Maroantsetra,RURAL
+COM_01122,Toamasina,Ambatosoa,Maroantsetra,Ambodiforaha,RURAL
+COM_01123,Toamasina,Ambatosoa,Maroantsetra,Ambodivoangy,RURAL
+COM_01124,Toamasina,Ambatosoa,Maroantsetra,Andranofotsy,RURAL
+COM_01125,Toamasina,Ambatosoa,Maroantsetra,Anjahana,RURAL
+COM_01126,Toamasina,Ambatosoa,Maroantsetra,Ankofa,RURAL
+COM_01127,Toamasina,Ambatosoa,Maroantsetra,Mahalevona,RURAL
+COM_01128,Toamasina,Ambatosoa,Maroantsetra,Manambolo II,RURAL
+COM_01129,Toamasina,Ambatosoa,Maroantsetra,Masoala,RURAL
+COM_01130,Toamasina,Ambatosoa,Maroantsetra,Morafeno Maroantsetra,RURAL
+COM_01131,Toamasina,Ambatosoa,Maroantsetra,Rantabe II,RURAL
+COM_01132,Toamasina,Ambatosoa,Maroantsetra,Sahafa,RURAL
+COM_01133,Toamasina,Alaotra-Mangoro,Ambatondrazaka,Ambanitsena,RURAL
+COM_01134,Toamasina,Alaotra-Mangoro,Ambatondrazaka,Ambatondrazaka,URBAN
+COM_01135,Toamasina,Alaotra-Mangoro,Ambatondrazaka,Ambohitsilaozana,RURAL
+COM_01136,Toamasina,Alaotra-Mangoro,Ambatondrazaka,Ampartsika,RURAL
+COM_01137,Toamasina,Alaotra-Mangoro,Ambatondrazaka,Feramanga Nord,RURAL
+COM_01138,Toamasina,Alaotra-Mangoro,Ambatondrazaka,Manakintany,RURAL
+COM_01139,Toamasina,Alaotra-Mangoro,Ambatondrazaka,Andilanataby,RURAL
+COM_01140,Toamasina,Alaotra-Mangoro,Ambatondrazaka,Antanandava,RURAL
+COM_01141,Toamasina,Alaotra-Mangoro,Ambatondrazaka,Didy,RURAL
+COM_01142,Toamasina,Alaotra-Mangoro,Ambatondrazaka,Ilafy Alaotra,RURAL
+COM_01143,Toamasina,Alaotra-Mangoro,Ambatondrazaka,Ambatosoratra,RURAL
+COM_01144,Toamasina,Alaotra-Mangoro,Ambatondrazaka,Ambohitrarivo Ambatondrazaka,RURAL
+COM_01145,Toamasina,Alaotra-Mangoro,Ambatondrazaka,Ampasikely Ambatondrazaka,RURAL
+COM_01146,Toamasina,Alaotra-Mangoro,Ambatondrazaka,Andasibe Ambatondrazaka,RURAL
+COM_01147,Toamasina,Alaotra-Mangoro,Ambatondrazaka,Antanifotsy Ambatondrazaka,RURAL
+COM_01148,Toamasina,Alaotra-Mangoro,Ambatondrazaka,Feramanga Sud,RURAL
+COM_01149,Toamasina,Alaotra-Mangoro,Ambatondrazaka,Imerimandroso Ambatondrazaka,RURAL
+COM_01150,Toamasina,Alaotra-Mangoro,Ambatondrazaka,Manakintany II,RURAL
+COM_01151,Toamasina,Alaotra-Mangoro,Ambatondrazaka,Suburbs Ambatondrazaka,RURAL
+COM_01152,Toamasina,Alaotra-Mangoro,Ambatondrazaka,Tanambao Besakay,RURAL
+COM_01153,Toamasina,Alaotra-Mangoro,Amparafaravola,Ambohitrarivo,RURAL
+COM_01154,Toamasina,Alaotra-Mangoro,Amparafaravola,Amparafaravola,URBAN
+COM_01155,Toamasina,Alaotra-Mangoro,Amparafaravola,Beanana,RURAL
+COM_01156,Toamasina,Alaotra-Mangoro,Amparafaravola,Tanambe,RURAL
+COM_01157,Toamasina,Alaotra-Mangoro,Amparafaravola,Ambatomainty Amparafaravola,RURAL
+COM_01158,Toamasina,Alaotra-Mangoro,Amparafaravola,Andasibe Amparafaravola,RURAL
+COM_01159,Toamasina,Alaotra-Mangoro,Amparafaravola,Amboavahy,RURAL
+COM_01160,Toamasina,Alaotra-Mangoro,Amparafaravola,Ambohitromby Amparafaravola,RURAL
+COM_01161,Toamasina,Alaotra-Mangoro,Amparafaravola,Ampasikely Amparafaravola,RURAL
+COM_01162,Toamasina,Alaotra-Mangoro,Amparafaravola,Anosimbohangy,RURAL
+COM_01163,Toamasina,Alaotra-Mangoro,Amparafaravola,Bedidy,RURAL
+COM_01164,Toamasina,Alaotra-Mangoro,Amparafaravola,Miarinarivo Amparafaravola,RURAL
+COM_01165,Toamasina,Alaotra-Mangoro,Amparafaravola,Morarano Chrome,RURAL
+COM_01166,Toamasina,Alaotra-Mangoro,Amparafaravola,Ranomainty Amparafaravola,RURAL
+COM_01167,Toamasina,Alaotra-Mangoro,Amparafaravola,Vohitsara Amparafaravola,RURAL
+COM_01168,Toamasina,Alaotra-Mangoro,Amparafaravola,Vohimena Amparafaravola,RURAL
+COM_01169,Toamasina,Alaotra-Mangoro,Andilamena,Andilamena,URBAN
+COM_01170,Toamasina,Alaotra-Mangoro,Andilamena,Bemaintso,RURAL
+COM_01171,Toamasina,Alaotra-Mangoro,Andilamena,Marovato,RURAL
+COM_01172,Toamasina,Alaotra-Mangoro,Andilamena,Antanambao Andilamena,RURAL
+COM_01173,Toamasina,Alaotra-Mangoro,Andilamena,Ambatofisaka,RURAL
+COM_01174,Toamasina,Alaotra-Mangoro,Andilamena,Ambohitromby Andilamena,RURAL
+COM_01175,Toamasina,Alaotra-Mangoro,Andilamena,Miarinarivo Andilamena,RURAL
+COM_01176,Toamasina,Alaotra-Mangoro,Andilamena,Tsarahonenana Andilamena,RURAL
+COM_01177,Toamasina,Alaotra-Mangoro,Anosibe An'ala,Ambohitrantenaina,RURAL
+COM_01178,Toamasina,Alaotra-Mangoro,Anosibe An'ala,Anosibe An'ala,URBAN
+COM_01179,Toamasina,Alaotra-Mangoro,Anosibe An'ala,Antsabotsy,RURAL
+COM_01180,Toamasina,Alaotra-Mangoro,Anosibe An'ala,Longozabe,RURAL
+COM_01181,Toamasina,Alaotra-Mangoro,Anosibe An'ala,Ambalanirana Anosibe,RURAL
+COM_01182,Toamasina,Alaotra-Mangoro,Anosibe An'ala,Ambohimanana Anosibe,RURAL
+COM_01183,Toamasina,Alaotra-Mangoro,Anosibe An'ala,Ampasimaneva,RURAL
+COM_01184,Toamasina,Alaotra-Mangoro,Anosibe An'ala,Niarovana,RURAL
+COM_01185,Toamasina,Alaotra-Mangoro,Anosibe An'ala,Tratramarina,RURAL
+COM_01186,Toamasina,Alaotra-Mangoro,Moramanga,Ambohibary Moramanga,RURAL
+COM_01187,Toamasina,Alaotra-Mangoro,Moramanga,Ampasimpotsy,RURAL
+COM_01188,Toamasina,Alaotra-Mangoro,Moramanga,Andasibe,RURAL
+COM_01189,Toamasina,Alaotra-Mangoro,Moramanga,Beforona,RURAL
+COM_01190,Toamasina,Alaotra-Mangoro,Moramanga,Moramanga,URBAN
+COM_01191,Toamasina,Alaotra-Mangoro,Moramanga,Ambohidronono Moramanga,RURAL
+COM_01192,Toamasina,Alaotra-Mangoro,Moramanga,Anosibe Ifody,RURAL
+COM_01193,Toamasina,Alaotra-Mangoro,Moramanga,Lakato,RURAL
+COM_01194,Toamasina,Alaotra-Mangoro,Moramanga,Sabotsy Anjiro,RURAL
+COM_01195,Toamasina,Alaotra-Mangoro,Moramanga,Ambalamanakana Moramanga,RURAL
+COM_01196,Toamasina,Alaotra-Mangoro,Moramanga,Ambohitraniandriana Moramanga,RURAL
+COM_01197,Toamasina,Alaotra-Mangoro,Moramanga,Ampasipotsy Gara,RURAL
+COM_01198,Toamasina,Alaotra-Mangoro,Moramanga,Andasibe Gare,RURAL
+COM_01199,Toamasina,Alaotra-Mangoro,Moramanga,Antanandava Moramanga,RURAL
+COM_01200,Toamasina,Alaotra-Mangoro,Moramanga,Beforona Gara,RURAL
+COM_01201,Toamasina,Alaotra-Mangoro,Moramanga,Fierenana,RURAL
+COM_01202,Toamasina,Alaotra-Mangoro,Moramanga,Mandialaza,RURAL
+COM_01203,Toamasina,Alaotra-Mangoro,Moramanga,Morarano Gara,RURAL
+COM_01204,Toamasina,Alaotra-Mangoro,Moramanga,Vodiriana,RURAL
+COM_01205,Toliara,Atsimo-Andrefana,Toliara I,1er Arrondissement Toliara,URBAN
+COM_01206,Toliara,Atsimo-Andrefana,Toliara I,2e Arrondissement Toliara,URBAN
+COM_01207,Toliara,Atsimo-Andrefana,Toliara I,3e Arrondissement Toliara,URBAN
+COM_01208,Toliara,Atsimo-Andrefana,Toliara I,4e Arrondissement Toliara,URBAN
+COM_01209,Toliara,Atsimo-Andrefana,Toliara II,Ankililoaka,RURAL
+COM_01210,Toliara,Atsimo-Andrefana,Toliara II,Belalanda,RURAL
+COM_01211,Toliara,Atsimo-Andrefana,Toliara II,Manombo Nord,RURAL
+COM_01212,Toliara,Atsimo-Andrefana,Toliara II,Maromiandra,RURAL
+COM_01213,Toliara,Atsimo-Andrefana,Toliara II,Ambohimahavelona,RURAL
+COM_01214,Toliara,Atsimo-Andrefana,Toliara II,Andranovory,RURAL
+COM_01215,Toliara,Atsimo-Andrefana,Toliara II,Miary,RURAL
+COM_01216,Toliara,Atsimo-Andrefana,Toliara II,Ambalaway,RURAL
+COM_01217,Toliara,Atsimo-Andrefana,Toliara II,Ambahirombo,RURAL
+COM_01218,Toliara,Atsimo-Andrefana,Toliara II,Andranohinaly,RURAL
+COM_01219,Toliara,Atsimo-Andrefana,Toliara II,Ankilimalinike,RURAL
+COM_01220,Toliara,Atsimo-Andrefana,Toliara II,Antanimena,RURAL
+COM_01221,Toliara,Atsimo-Andrefana,Toliara II,Ifaty,RURAL
+COM_01222,Toliara,Atsimo-Andrefana,Toliara II,Marofoty,RURAL
+COM_01223,Toliara,Atsimo-Andrefana,Toliara II,Milenaka,RURAL
+COM_01224,Toliara,Atsimo-Andrefana,Toliara II,Ranobe,RURAL
+COM_01225,Toliara,Atsimo-Andrefana,Toliara II,Saint Augustin,RURAL
+COM_01226,Toliara,Atsimo-Andrefana,Toliara II,Soalara Sud,RURAL
+COM_01227,Toliara,Atsimo-Andrefana,Toliara II,Tsianisiha,RURAL
+COM_01228,Toliara,Atsimo-Andrefana,Ampanihy,Ampanihy,URBAN
+COM_01229,Toliara,Atsimo-Andrefana,Ampanihy,Androka,RURAL
+COM_01230,Toliara,Atsimo-Andrefana,Ampanihy,Itampolo,RURAL
+COM_01231,Toliara,Atsimo-Andrefana,Ampanihy,Behafia,RURAL
+COM_01232,Toliara,Atsimo-Andrefana,Ampanihy,Ejeda,RURAL
+COM_01233,Toliara,Atsimo-Andrefana,Ampanihy,Gogogogo,RURAL
+COM_01234,Toliara,Atsimo-Andrefana,Ampanihy,Amblanirana Ampanihy,RURAL
+COM_01235,Toliara,Atsimo-Andrefana,Ampanihy,Amboe,RURAL
+COM_01236,Toliara,Atsimo-Andrefana,Ampanihy,Amgadrory,RURAL
+COM_01237,Toliara,Atsimo-Andrefana,Ampanihy,Ankiliabo Ampanihy,RURAL
+COM_01238,Toliara,Atsimo-Andrefana,Ampanihy,Ankilizato Ampanihy,RURAL
+COM_01239,Toliara,Atsimo-Andrefana,Ampanihy,Antaly,RURAL
+COM_01240,Toliara,Atsimo-Andrefana,Ampanihy,Beahitse,RURAL
+COM_01241,Toliara,Atsimo-Andrefana,Ampanihy,Beloha Ampanihy,RURAL
+COM_01242,Toliara,Atsimo-Andrefana,Ampanihy,Fotadrevo,RURAL
+COM_01243,Toliara,Atsimo-Andrefana,Ampanihy,Maniry,RURAL
+COM_01244,Toliara,Atsimo-Andrefana,Ampanihy,Vohitany,RURAL
+COM_01245,Toliara,Atsimo-Andrefana,Ankazoabo,Ankazoabo,URBAN
+COM_01246,Toliara,Atsimo-Andrefana,Ankazoabo,Berentavy,RURAL
+COM_01247,Toliara,Atsimo-Andrefana,Ankazoabo,Tandrano,RURAL
+COM_01248,Toliara,Atsimo-Andrefana,Ankazoabo,Ambatolahy Ankazoabo,RURAL
+COM_01249,Toliara,Atsimo-Andrefana,Ankazoabo,Ambohibory,RURAL
+COM_01250,Toliara,Atsimo-Andrefana,Ankazoabo,Ampandrandava,RURAL
+COM_01251,Toliara,Atsimo-Andrefana,Ankazoabo,Ankilivalo Ankazoabo,RURAL
+COM_01252,Toliara,Atsimo-Andrefana,Ankazoabo,Antevamena,RURAL
+COM_01253,Toliara,Atsimo-Andrefana,Ankazoabo,Cranja Ankazoabo,RURAL
+COM_01254,Toliara,Atsimo-Andrefana,Benenitra,Ambalafary,RURAL
+COM_01255,Toliara,Atsimo-Andrefana,Benenitra,Benenitra,URBAN
+COM_01256,Toliara,Atsimo-Andrefana,Benenitra,Ehara,RURAL
+COM_01257,Toliara,Atsimo-Andrefana,Benenitra,Ianapera,RURAL
+COM_01258,Toliara,Atsimo-Andrefana,Benenitra,Ambatoleky,RURAL
+COM_01259,Toliara,Atsimo-Andrefana,Benenitra,Benenitra II,RURAL
+COM_01260,Toliara,Atsimo-Andrefana,Beroroha,Bemavo,RURAL
+COM_01261,Toliara,Atsimo-Andrefana,Beroroha,Beroroha,URBAN
+COM_01262,Toliara,Atsimo-Andrefana,Beroroha,Sakena,RURAL
+COM_01263,Toliara,Atsimo-Andrefana,Beroroha,Tanamary,RURAL
+COM_01264,Toliara,Atsimo-Andrefana,Beroroha,Ambalerika,RURAL
+COM_01265,Toliara,Atsimo-Andrefana,Beroroha,Ankily,RURAL
+COM_01266,Toliara,Atsimo-Andrefana,Beroroha,Antahy,RURAL
+COM_01267,Toliara,Atsimo-Andrefana,Beroroha,Fanjakana,RURAL
+COM_01268,Toliara,Atsimo-Andrefana,Beroroha,Marerano,RURAL
+COM_01269,Toliara,Atsimo-Andrefana,Betioky Atsimo,Ambatry,RURAL
+COM_01270,Toliara,Atsimo-Andrefana,Betioky Atsimo,Betioky,URBAN
+COM_01271,Toliara,Atsimo-Andrefana,Betioky Atsimo,Soamanonga,RURAL
+COM_01272,Toliara,Atsimo-Andrefana,Betioky Atsimo,Ankilivalo Betioky,RURAL
+COM_01273,Toliara,Atsimo-Andrefana,Betioky Atsimo,Bezo,RURAL
+COM_01274,Toliara,Atsimo-Andrefana,Betioky Atsimo,Tongobory,RURAL
+COM_01275,Toliara,Atsimo-Andrefana,Betioky Atsimo,Amantso,RURAL
+COM_01276,Toliara,Atsimo-Andrefana,Betioky Atsimo,Ambalasoa Betioky,RURAL
+COM_01277,Toliara,Atsimo-Andrefana,Betioky Atsimo,Ankiliefatra,RURAL
+COM_01278,Toliara,Atsimo-Andrefana,Betioky Atsimo,Antalaha Betioky,RURAL
+COM_01279,Toliara,Atsimo-Andrefana,Betioky Atsimo,Behazy,RURAL
+COM_01280,Toliara,Atsimo-Andrefana,Betioky Atsimo,Belamoty,RURAL
+COM_01281,Toliara,Atsimo-Andrefana,Betioky Atsimo,Fatsialana,RURAL
+COM_01282,Toliara,Atsimo-Andrefana,Betioky Atsimo,Lazarivo,RURAL
+COM_01283,Toliara,Atsimo-Andrefana,Betioky Atsimo,Manorofify,RURAL
+COM_01284,Toliara,Atsimo-Andrefana,Betioky Atsimo,Montifeno,RURAL
+COM_01285,Toliara,Atsimo-Andrefana,Betioky Atsimo,Salobe,RURAL
+COM_01286,Toliara,Atsimo-Andrefana,Betioky Atsimo,Soaserana Betioky,RURAL
+COM_01287,Toliara,Atsimo-Andrefana,Betioky Atsimo,Vatolatsaka,RURAL
+COM_01288,Toliara,Atsimo-Andrefana,Morombe,Befandriana Sud,RURAL
+COM_01289,Toliara,Atsimo-Andrefana,Morombe,Morombe,URBAN
+COM_01290,Toliara,Atsimo-Andrefana,Morombe,Tanandava,RURAL
+COM_01291,Toliara,Atsimo-Andrefana,Morombe,Basibasy,RURAL
+COM_01292,Toliara,Atsimo-Andrefana,Morombe,Ambohibe Morombe,RURAL
+COM_01293,Toliara,Atsimo-Andrefana,Morombe,Ambahikily,RURAL
+COM_01294,Toliara,Atsimo-Andrefana,Morombe,Ankatsakatsa,RURAL
+COM_01295,Toliara,Atsimo-Andrefana,Morombe,Antongo,RURAL
+COM_01296,Toliara,Atsimo-Andrefana,Sakaraha,Andranolava,RURAL
+COM_01297,Toliara,Atsimo-Andrefana,Sakaraha,Mahaboboka,RURAL
+COM_01298,Toliara,Atsimo-Andrefana,Sakaraha,Sakaraha,URBAN
+COM_01299,Toliara,Atsimo-Andrefana,Sakaraha,Miary Lamatihy,RURAL
+COM_01300,Toliara,Atsimo-Andrefana,Sakaraha,Ambinany Sakaraha,RURAL
+COM_01301,Toliara,Atsimo-Andrefana,Sakaraha,Ambohimalaza Sakaraha,RURAL
+COM_01302,Toliara,Atsimo-Andrefana,Sakaraha,Andranolava II,RURAL
+COM_01303,Toliara,Atsimo-Andrefana,Sakaraha,Ankily Sakaraha,RURAL
+COM_01304,Toliara,Atsimo-Andrefana,Sakaraha,Antsapanana Sakaraha,RURAL
+COM_01305,Toliara,Atsimo-Andrefana,Sakaraha,Mikoboka,RURAL
+COM_01306,Toliara,Atsimo-Andrefana,Sakaraha,Miary Taheza,RURAL
+COM_01307,Toliara,Menabe,Morondava,Belo sur Mer,RURAL
+COM_01308,Toliara,Menabe,Morondava,Bemanonga,RURAL
+COM_01309,Toliara,Menabe,Morondava,Morondava,URBAN
+COM_01310,Toliara,Menabe,Morondava,Analaiva Morondava,RURAL
+COM_01311,Toliara,Menabe,Morondava,Ambohimanana Morondava,RURAL
+COM_01312,Toliara,Menabe,Morondava,Ampatihamby,RURAL
+COM_01313,Toliara,Menabe,Morondava,Andrazanany,RURAL
+COM_01314,Toliara,Menabe,Belo sur Tsiribihina,Belo sur Tsiribihina,URBAN
+COM_01315,Toliara,Menabe,Belo sur Tsiribihina,Berevo,RURAL
+COM_01316,Toliara,Menabe,Belo sur Tsiribihina,Tsaraotana,RURAL
+COM_01317,Toliara,Menabe,Belo sur Tsiribihina,Ambatolahy Belo,RURAL
+COM_01318,Toliara,Menabe,Belo sur Tsiribihina,Ankavandra,RURAL
+COM_01319,Toliara,Menabe,Belo sur Tsiribihina,Ambatomainty Belo,RURAL
+COM_01320,Toliara,Menabe,Belo sur Tsiribihina,Ambjadidra,RURAL
+COM_01321,Toliara,Menabe,Belo sur Tsiribihina,Ankilizato Belo,RURAL
+COM_01322,Toliara,Menabe,Belo sur Tsiribihina,Antsoha Belo,RURAL
+COM_01323,Toliara,Menabe,Belo sur Tsiribihina,Beroboka,RURAL
+COM_01324,Toliara,Menabe,Belo sur Tsiribihina,Masoarivo Belo,RURAL
+COM_01325,Toliara,Menabe,Belo sur Tsiribihina,Tsimafana,RURAL
+COM_01326,Toliara,Menabe,Mahabo,Ankilivalo,RURAL
+COM_01327,Toliara,Menabe,Mahabo,Mahabo,URBAN
+COM_01328,Toliara,Menabe,Mahabo,Malaimbandy,RURAL
+COM_01329,Toliara,Menabe,Mahabo,Beronono Mahabo,RURAL
+COM_01330,Toliara,Menabe,Mahabo,Ambatolahy Mahabo,RURAL
+COM_01331,Toliara,Menabe,Mahabo,Ambohitromby Mahabo,RURAL
+COM_01332,Toliara,Menabe,Mahabo,Ankiliabo Mahabo,RURAL
+COM_01333,Toliara,Menabe,Mahabo,Ankilizato Mahabo,RURAL
+COM_01334,Toliara,Menabe,Mahabo,Befotaka Mahabo,RURAL
+COM_01335,Toliara,Menabe,Mahabo,Mandabe,RURAL
+COM_01336,Toliara,Menabe,Mahabo,Tsinjoarivo Mahabo,RURAL
+COM_01337,Toliara,Menabe,Manja,Anontsibe Nord,RURAL
+COM_01338,Toliara,Menabe,Manja,Manja,URBAN
+COM_01339,Toliara,Menabe,Manja,Soaserana,RURAL
+COM_01340,Toliara,Menabe,Manja,Ambalakida Manja,RURAL
+COM_01341,Toliara,Menabe,Manja,Ambohitromby Manja,RURAL
+COM_01342,Toliara,Menabe,Manja,Andrazanany Manja,RURAL
+COM_01343,Toliara,Menabe,Manja,Befotaka Manja,RURAL
+COM_01344,Toliara,Menabe,Miandrivazo,Ambatolahy Miandrivazo,RURAL
+COM_01345,Toliara,Menabe,Miandrivazo,Dabolava,RURAL
+COM_01346,Toliara,Menabe,Miandrivazo,Miandrivazo,URBAN
+COM_01347,Toliara,Menabe,Miandrivazo,Anosingivero,RURAL
+COM_01348,Toliara,Menabe,Miandrivazo,Befotaka Miandrivazo,RURAL
+COM_01349,Toliara,Menabe,Miandrivazo,Ambararata Miandrivazo,RURAL
+COM_01350,Toliara,Menabe,Miandrivazo,Ambohidronono Miandrivazo,RURAL
+COM_01351,Toliara,Menabe,Miandrivazo,Ampanihy Miandrivazo,RURAL
+COM_01352,Toliara,Menabe,Miandrivazo,Ankavandra Miandrivazo,RURAL
+COM_01353,Toliara,Menabe,Miandrivazo,Ankiliabo Miandrivazo,RURAL
+COM_01354,Toliara,Menabe,Miandrivazo,Belo sur Tsiribihina II,RURAL
+COM_01355,Toliara,Menabe,Miandrivazo,Isalo Miandrivazo,RURAL
+COM_01356,Toliara,Menabe,Miandrivazo,Manambolo Miandrivazo,RURAL
+COM_01357,Toliara,Menabe,Miandrivazo,Soaloka,RURAL
+COM_01358,Toliara,Androy,Ambovombe-Androy,Ambanisarike,RURAL
+COM_01359,Toliara,Androy,Ambovombe-Androy,Ambovombe,URBAN
+COM_01360,Toliara,Androy,Ambovombe-Androy,Erada,RURAL
+COM_01361,Toliara,Androy,Ambovombe-Androy,Ambazoa,RURAL
+COM_01362,Toliara,Androy,Ambovombe-Androy,Ambonaivo,RURAL
+COM_01363,Toliara,Androy,Ambovombe-Androy,Antaritarika,RURAL
+COM_01364,Toliara,Androy,Ambovombe-Androy,Marovato Ambovombe,RURAL
+COM_01365,Toliara,Androy,Ambovombe-Androy,Ambalamanasy Ambovombe,RURAL
+COM_01366,Toliara,Androy,Ambovombe-Androy,Ambanisia,RURAL
+COM_01367,Toliara,Androy,Ambovombe-Androy,Ambatosola,RURAL
+COM_01368,Toliara,Androy,Ambovombe-Androy,Ambohitromby Ambovombe,RURAL
+COM_01369,Toliara,Androy,Ambovombe-Androy,Andalatanosy,RURAL
+COM_01370,Toliara,Androy,Ambovombe-Androy,Ankilivalo Ambovombe,RURAL
+COM_01371,Toliara,Androy,Ambovombe-Androy,Ankilimafaitsy,RURAL
+COM_01372,Toliara,Androy,Ambovombe-Androy,Antanimora Sud,RURAL
+COM_01373,Toliara,Androy,Ambovombe-Androy,Jangany Ambovombe,RURAL
+COM_01374,Toliara,Androy,Ambovombe-Androy,Maroalomainty,RURAL
+COM_01375,Toliara,Androy,Ambovombe-Androy,Marovato Befeno,RURAL
+COM_01376,Toliara,Androy,Ambovombe-Androy,Sihanamaro,RURAL
+COM_01377,Toliara,Androy,Ambovombe-Androy,Tsiharoa,RURAL
+COM_01378,Toliara,Androy,Bekily,Ambahita,RURAL
+COM_01379,Toliara,Androy,Bekily,Bekily,URBAN
+COM_01380,Toliara,Androy,Bekily,Beraketa,RURAL
+COM_01381,Toliara,Androy,Bekily,Anakao Bekily,RURAL
+COM_01382,Toliara,Androy,Bekily,Befotaka Bekily,RURAL
+COM_01383,Toliara,Androy,Bekily,Ambalasoa Bekily,RURAL
+COM_01384,Toliara,Androy,Bekily,Ambohitranivo,RURAL
+COM_01385,Toliara,Androy,Bekily,Ankiliabo Bekily,RURAL
+COM_01386,Toliara,Androy,Bekily,Ankilimivory,RURAL
+COM_01387,Toliara,Androy,Bekily,Ansamabato Bekily,RURAL
+COM_01388,Toliara,Androy,Bekily,Besakoa,RURAL
+COM_01389,Toliara,Androy,Bekily,Betakilo,RURAL
+COM_01390,Toliara,Androy,Bekily,Lahatsifahatse,RURAL
+COM_01391,Toliara,Androy,Bekily,Manera,RURAL
+COM_01392,Toliara,Androy,Bekily,Marovato Bekily,RURAL
+COM_01393,Toliara,Androy,Bekily,Tanambao Tsirandrana,RURAL
+COM_01394,Toliara,Androy,Bekily,Vohimanga,RURAL
+COM_01395,Toliara,Androy,Beloha,Beloha,URBAN
+COM_01396,Toliara,Androy,Beloha,Marolinta,RURAL
+COM_01397,Toliara,Androy,Beloha,Tranoroa,RURAL
+COM_01398,Toliara,Androy,Beloha,Kopoky,RURAL
+COM_01399,Toliara,Androy,Beloha,Ambalakida Beloha,RURAL
+COM_01400,Toliara,Androy,Beloha,Ambohitromby Beloha,RURAL
+COM_01401,Toliara,Androy,Beloha,Ankiliabo Beloha,RURAL
+COM_01402,Toliara,Androy,Beloha,Ankilivalo Beloha,RURAL
+COM_01403,Toliara,Androy,Beloha,Antanimora Beloha,RURAL
+COM_01404,Toliara,Androy,Beloha,Behabobo,RURAL
+COM_01405,Toliara,Androy,Beloha,Tranovaho,RURAL
+COM_01406,Toliara,Androy,Tsihombe,Antaritarika Tsihombe,RURAL
+COM_01407,Toliara,Androy,Tsihombe,Faux-Cap (Betanty),RURAL
+COM_01408,Toliara,Androy,Tsihombe,Tsihombe,URBAN
+COM_01409,Toliara,Androy,Tsihombe,Marovato Tsihombe,RURAL
+COM_01410,Toliara,Androy,Tsihombe,Ambalabe Tsihombe,RURAL
+COM_01411,Toliara,Androy,Tsihombe,Ambohitromby Tsihombe,RURAL
+COM_01412,Toliara,Androy,Tsihombe,Ankilivalo Tsihombe,RURAL
+COM_01413,Toliara,Androy,Tsihombe,Imongy,RURAL
+COM_01414,Toliara,Androy,Tsihombe,Marovato Betanty,RURAL
+COM_01415,Toliara,Androy,Tsihombe,Nikoly,RURAL
+COM_01416,Toliara,Anosy,Taolagnaro,Ampasy Nahampoana,RURAL
+COM_01417,Toliara,Anosy,Taolagnaro,Ranomafana Anosy,RURAL
+COM_01418,Toliara,Anosy,Taolagnaro,Taolagnaro (Fort-Dauphin),URBAN
+COM_01419,Toliara,Anosy,Taolagnaro,Ambinanibe,RURAL
+COM_01420,Toliara,Anosy,Taolagnaro,Andranobory,RURAL
+COM_01421,Toliara,Anosy,Taolagnaro,Manantenina,RURAL
+COM_01422,Toliara,Anosy,Taolagnaro,Ambalamanga,RURAL
+COM_01423,Toliara,Anosy,Taolagnaro,Ambaleso,RURAL
+COM_01424,Toliara,Anosy,Taolagnaro,Ambohitromby Taolagnaro,RURAL
+COM_01425,Toliara,Anosy,Taolagnaro,Ampasimena Taolagnaro,RURAL
+COM_01426,Toliara,Anosy,Taolagnaro,Anakarana Taolagnaro,RURAL
+COM_01427,Toliara,Anosy,Taolagnaro,Analapatsy,RURAL
+COM_01428,Toliara,Anosy,Taolagnaro,Andasibe Taolagnaro,RURAL
+COM_01429,Toliara,Anosy,Taolagnaro,Ankaramena Taolagnaro,RURAL
+COM_01430,Toliara,Anosy,Taolagnaro,Befasy Taolagnaro,RURAL
+COM_01431,Toliara,Anosy,Taolagnaro,Isaka-Ivondro,RURAL
+COM_01432,Toliara,Anosy,Taolagnaro,Mahatalaky,RURAL
+COM_01433,Toliara,Anosy,Taolagnaro,Ranopiso,RURAL
+COM_01434,Toliara,Anosy,Taolagnaro,Soanierana Taolagnaro,RURAL
+COM_01435,Toliara,Anosy,Amboasary Atsimo,Amboasary Atsimo,URBAN
+COM_01436,Toliara,Anosy,Amboasary Atsimo,Behara,RURAL
+COM_01437,Toliara,Anosy,Amboasary Atsimo,Ranomainty,RURAL
+COM_01438,Toliara,Anosy,Amboasary Atsimo,Ebelo,RURAL
+COM_01439,Toliara,Anosy,Amboasary Atsimo,Elonty,RURAL
+COM_01440,Toliara,Anosy,Amboasary Atsimo,Ifotaka,RURAL
+COM_01441,Toliara,Anosy,Amboasary Atsimo,Ambalasoa Amboasary,RURAL
+COM_01442,Toliara,Anosy,Amboasary Atsimo,Ambohitsy,RURAL
+COM_01443,Toliara,Anosy,Amboasary Atsimo,Andranobory Amboasary,RURAL
+COM_01444,Toliara,Anosy,Amboasary Atsimo,Ankilivalo Amboasary,RURAL
+COM_01445,Toliara,Anosy,Amboasary Atsimo,Esira,RURAL
+COM_01446,Toliara,Anosy,Amboasary Atsimo,Mahaly Amboasary,RURAL
+COM_01447,Toliara,Anosy,Amboasary Atsimo,Manevy,RURAL
+COM_01448,Toliara,Anosy,Amboasary Atsimo,Ranobe Amboasary,RURAL
+COM_01449,Toliara,Anosy,Amboasary Atsimo,Sampleyna,RURAL
+COM_01450,Toliara,Anosy,Amboasary Atsimo,Tanandava Sud,RURAL
+COM_01451,Toliara,Anosy,Betroka,Ambalasoa,RURAL
+COM_01452,Toliara,Anosy,Betroka,Betroka,URBAN
+COM_01453,Toliara,Anosy,Betroka,Isoanala,RURAL
+COM_01454,Toliara,Anosy,Betroka,Anakao Betroka,RURAL
+COM_01455,Toliara,Anosy,Betroka,Jangany,RURAL
+COM_01456,Toliara,Anosy,Betroka,Ambalavato Betroka,RURAL
+COM_01457,Toliara,Anosy,Betroka,Ambohitromby Betroka,RURAL
+COM_01458,Toliara,Anosy,Betroka,Anabohazo,RURAL
+COM_01459,Toliara,Anosy,Betroka,Analamanitra,RURAL
+COM_01460,Toliara,Anosy,Betroka,Ankelizato Betroka,RURAL
+COM_01461,Toliara,Anosy,Betroka,Antohobe,RURAL
+COM_01462,Toliara,Anosy,Betroka,Benato,RURAL
+COM_01463,Toliara,Anosy,Betroka,Fatsialana Betroka,RURAL
+COM_01464,Toliara,Anosy,Betroka,Ianalena,RURAL
+COM_01465,Toliara,Anosy,Betroka,Ianabinda,RURAL
+COM_01466,Toliara,Anosy,Betroka,Kelivaho,RURAL
+COM_01467,Toliara,Anosy,Betroka,Mahabo Betroka,RURAL
+COM_01468,Toliara,Anosy,Betroka,Mahasoa Betroka,RURAL
+COM_01469,Toliara,Anosy,Betroka,Nanyanavy,RURAL
+COM_01470,Toliara,Anosy,Betroka,Sakamena,RURAL
+COM_01471,Toliara,Anosy,Betroka,Tsaraitso,RURAL
+COM_01472,Antananarivo,Analamanga,Antananarivo Renivohitra,Kaominina Ambanivohitra Antananarivo Renivohitra Sector 13,RURAL
+COM_01473,Antananarivo,Analamanga,Antananarivo Atsimondrano,Kaominina Ambanivohitra Antananarivo Atsimondrano Sector 13,RURAL
+COM_01474,Antananarivo,Analamanga,Antananarivo Avaradrano,Kaominina Ambanivohitra Antananarivo Avaradrano Sector 13,RURAL
+COM_01475,Antananarivo,Analamanga,Ambohidratrimo,Kaominina Ambanivohitra Ambohidratrimo Sector 13,RURAL
+COM_01476,Antananarivo,Analamanga,Andramasina,Kaominina Ambanivohitra Andramasina Sector 13,RURAL
+COM_01477,Antananarivo,Analamanga,Anjozorobe,Kaominina Ambanivohitra Anjozorobe Sector 13,RURAL
+COM_01478,Antananarivo,Analamanga,Ankazobe,Kaominina Ambanivohitra Ankazobe Sector 13,RURAL
+COM_01479,Antananarivo,Analamanga,Manjakandriana,Kaominina Ambanivohitra Manjakandriana Sector 13,RURAL
+COM_01480,Antananarivo,Vakinankaratra,Antsirabe I,Kaominina Ambanivohitra Antsirabe I Sector 13,RURAL
+COM_01481,Antananarivo,Vakinankaratra,Antsirabe II,Kaominina Ambanivohitra Antsirabe II Sector 13,RURAL
+COM_01482,Antananarivo,Vakinankaratra,Ambatolampy,Kaominina Ambanivohitra Ambatolampy Sector 13,RURAL
+COM_01483,Antananarivo,Vakinankaratra,Antanifotsy,Kaominina Ambanivohitra Antanifotsy Sector 14,RURAL
+COM_01484,Antananarivo,Vakinankaratra,Betafo,Kaominina Ambanivohitra Betafo Sector 14,RURAL
+COM_01485,Antananarivo,Vakinankaratra,Faratsiho,Kaominina Ambanivohitra Faratsiho Sector 14,RURAL
+COM_01486,Antananarivo,Vakinankaratra,Mandoto,Kaominina Ambanivohitra Mandoto Sector 14,RURAL
+COM_01487,Antananarivo,Itasy,Miarinarivo,Kaominina Ambanivohitra Miarinarivo Sector 14,RURAL
+COM_01488,Antananarivo,Itasy,Arivonimamo,Kaominina Ambanivohitra Arivonimamo Sector 14,RURAL
+COM_01489,Antananarivo,Itasy,Soavinandriana,Kaominina Ambanivohitra Soavinandriana Sector 14,RURAL
+COM_01490,Antananarivo,Bongolava,Tsiroanomandidy,Kaominina Ambanivohitra Tsiroanomandidy Sector 14,RURAL
+COM_01491,Antananarivo,Bongolava,Fenoarivobe,Kaominina Ambanivohitra Fenoarivobe Sector 14,RURAL
+COM_01492,Antsiranana,Diana,Antsiranana I,Kaominina Ambanivohitra Antsiranana I Sector 14,RURAL
+COM_01493,Antsiranana,Diana,Antsiranana II,Kaominina Ambanivohitra Antsiranana II Sector 14,RURAL
+COM_01494,Antsiranana,Diana,Ambanja,Kaominina Ambanivohitra Ambanja Sector 14,RURAL
+COM_01495,Antsiranana,Diana,Ambilobe,Kaominina Ambanivohitra Ambilobe Sector 14,RURAL
+COM_01496,Antsiranana,Diana,Nosy Be,Kaominina Ambanivohitra Nosy Be Sector 14,RURAL
+COM_01497,Antsiranana,Sava,Sambava,Kaominina Ambanivohitra Sambava Sector 14,RURAL
+COM_01498,Antsiranana,Sava,Antalaha,Kaominina Ambanivohitra Antalaha Sector 14,RURAL
+COM_01499,Antsiranana,Sava,Andapa,Kaominina Ambanivohitra Andapa Sector 14,RURAL
+COM_01500,Antsiranana,Sava,Vohemar,Kaominina Ambanivohitra Vohemar Sector 14,RURAL
+COM_01501,Fianarantsoa,Matsiatra Ambony,Fianarantsoa,Kaominina Ambanivohitra Fianarantsoa Sector 14,RURAL
+COM_01502,Fianarantsoa,Matsiatra Ambony,Ambalavao,Kaominina Ambanivohitra Ambalavao Sector 14,RURAL
+COM_01503,Fianarantsoa,Matsiatra Ambony,Ambohimahasoa,Kaominina Ambanivohitra Ambohimahasoa Sector 14,RURAL
+COM_01504,Fianarantsoa,Matsiatra Ambony,Ikalamavony,Kaominina Ambanivohitra Ikalamavony Sector 14,RURAL
+COM_01505,Fianarantsoa,Matsiatra Ambony,Isandra,Kaominina Ambanivohitra Isandra Sector 14,RURAL
+COM_01506,Fianarantsoa,Matsiatra Ambony,Lalangina,Kaominina Ambanivohitra Lalangina Sector 14,RURAL
+COM_01507,Fianarantsoa,Matsiatra Ambony,Vohibato,Kaominina Ambanivohitra Vohibato Sector 14,RURAL
+COM_01508,Fianarantsoa,Amoron'i Mania,Ambositra,Kaominina Ambanivohitra Ambositra Sector 14,RURAL
+COM_01509,Fianarantsoa,Amoron'i Mania,Ambatofinandrahana,Kaominina Ambanivohitra Ambatofinandrahana Sector 14,RURAL
+COM_01510,Fianarantsoa,Amoron'i Mania,Fandriana,Kaominina Ambanivohitra Fandriana Sector 14,RURAL
+COM_01511,Fianarantsoa,Amoron'i Mania,Manandriana,Kaominina Ambanivohitra Manandriana Sector 14,RURAL
+COM_01512,Fianarantsoa,Vatovavy,Mananjary,Kaominina Ambanivohitra Mananjary Sector 14,RURAL
+COM_01513,Fianarantsoa,Vatovavy,Ifanadiana,Kaominina Ambanivohitra Ifanadiana Sector 14,RURAL
+COM_01514,Fianarantsoa,Vatovavy,Nosy Varika,Kaominina Ambanivohitra Nosy Varika Sector 14,RURAL
+COM_01515,Fianarantsoa,Fitovinany,Manakara,Kaominina Ambanivohitra Manakara Sector 14,RURAL
+COM_01516,Fianarantsoa,Fitovinany,Ikongo,Kaominina Ambanivohitra Ikongo Sector 14,RURAL
+COM_01517,Fianarantsoa,Fitovinany,Vohipeno,Kaominina Ambanivohitra Vohipeno Sector 14,RURAL
+COM_01518,Fianarantsoa,Atsimo-Atsinanana,Farafangana,Kaominina Ambanivohitra Farafangana Sector 14,RURAL
+COM_01519,Fianarantsoa,Atsimo-Atsinanana,Befotaka,Kaominina Ambanivohitra Befotaka Sector 14,RURAL
+COM_01520,Fianarantsoa,Atsimo-Atsinanana,Midongy Sud,Kaominina Ambanivohitra Midongy Sud Sector 14,RURAL
+COM_01521,Fianarantsoa,Atsimo-Atsinanana,Vangaindrano,Kaominina Ambanivohitra Vangaindrano Sector 14,RURAL
+COM_01522,Fianarantsoa,Atsimo-Atsinanana,Vondrozo,Kaominina Ambanivohitra Vondrozo Sector 14,RURAL
+COM_01523,Fianarantsoa,Ihorombe,Ihosy,Kaominina Ambanivohitra Ihosy Sector 14,RURAL
+COM_01524,Fianarantsoa,Ihorombe,Iakora,Kaominina Ambanivohitra Iakora Sector 14,RURAL
+COM_01525,Fianarantsoa,Ihorombe,Ivohibe,Kaominina Ambanivohitra Ivohibe Sector 14,RURAL
+COM_01526,Mahajanga,Boeny,Mahajanga I,Kaominina Ambanivohitra Mahajanga I Sector 14,RURAL
+COM_01527,Mahajanga,Boeny,Mahajanga II,Kaominina Ambanivohitra Mahajanga II Sector 14,RURAL
+COM_01528,Mahajanga,Boeny,Ambato-Boeni,Kaominina Ambanivohitra Ambato-Boeni Sector 14,RURAL
+COM_01529,Mahajanga,Boeny,Marovoay,Kaominina Ambanivohitra Marovoay Sector 14,RURAL
+COM_01530,Mahajanga,Boeny,Mitsinjo,Kaominina Ambanivohitra Mitsinjo Sector 14,RURAL
+COM_01531,Mahajanga,Boeny,Soalala,Kaominina Ambanivohitra Soalala Sector 14,RURAL
+COM_01532,Mahajanga,Sofia,Antsohihy,Kaominina Ambanivohitra Antsohihy Sector 14,RURAL
+COM_01533,Mahajanga,Sofia,Analalava,Kaominina Ambanivohitra Analalava Sector 14,RURAL
+COM_01534,Mahajanga,Sofia,Bealanana,Kaominina Ambanivohitra Bealanana Sector 14,RURAL
+COM_01535,Mahajanga,Sofia,Befandriana Avaratra,Kaominina Ambanivohitra Befandriana Avaratra Sector 14,RURAL
+COM_01536,Mahajanga,Sofia,Boriziny-Vaovao (Port-Bergé),Kaominina Ambanivohitra Boriziny-Vaovao (Port-Bergé) Sector 14,RURAL
+COM_01537,Mahajanga,Sofia,Mampikony,Kaominina Ambanivohitra Mampikony Sector 14,RURAL
+COM_01538,Mahajanga,Sofia,Mandritsara,Kaominina Ambanivohitra Mandritsara Sector 14,RURAL
+COM_01539,Mahajanga,Betsiboka,Maevatanana,Kaominina Ambanivohitra Maevatanana Sector 14,RURAL
+COM_01540,Mahajanga,Betsiboka,Kandreho,Kaominina Ambanivohitra Kandreho Sector 14,RURAL
+COM_01541,Mahajanga,Betsiboka,Tsaratanana,Kaominina Ambanivohitra Tsaratanana Sector 14,RURAL
+COM_01542,Mahajanga,Melaky,Maintirano,Kaominina Ambanivohitra Maintirano Sector 14,RURAL
+COM_01543,Mahajanga,Melaky,Ambatomainty,Kaominina Ambanivohitra Ambatomainty Sector 14,RURAL
+COM_01544,Mahajanga,Melaky,Antsalova,Kaominina Ambanivohitra Antsalova Sector 14,RURAL
+COM_01545,Mahajanga,Melaky,Besalampy,Kaominina Ambanivohitra Besalampy Sector 14,RURAL
+COM_01546,Mahajanga,Melaky,Morafenobe,Kaominina Ambanivohitra Morafenobe Sector 14,RURAL
+COM_01547,Toamasina,Atsinanana,Toamasina I,Kaominina Ambanivohitra Toamasina I Sector 14,RURAL
+COM_01548,Toamasina,Atsinanana,Toamasina II,Kaominina Ambanivohitra Toamasina II Sector 14,RURAL
+COM_01549,Toamasina,Atsinanana,Antanambao Manampotsy,Kaominina Ambanivohitra Antanambao Manampotsy Sector 14,RURAL
+COM_01550,Toamasina,Atsinanana,Brickaville (Vohibinany),Kaominina Ambanivohitra Brickaville (Vohibinany) Sector 14,RURAL
+COM_01551,Toamasina,Atsinanana,Mahanoro,Kaominina Ambanivohitra Mahanoro Sector 14,RURAL
+COM_01552,Toamasina,Atsinanana,Marolambo,Kaominina Ambanivohitra Marolambo Sector 14,RURAL
+COM_01553,Toamasina,Atsinanana,Vatomandry,Kaominina Ambanivohitra Vatomandry Sector 14,RURAL
+COM_01554,Toamasina,Analanjirofo,Fenoarivo Atsinanana,Kaominina Ambanivohitra Fenoarivo Atsinanana Sector 14,RURAL
+COM_01555,Toamasina,Analanjirofo,Mananara Avaratra,Kaominina Ambanivohitra Mananara Avaratra Sector 14,RURAL
+COM_01556,Toamasina,Analanjirofo,Sainte Marie,Kaominina Ambanivohitra Sainte Marie Sector 14,RURAL
+COM_01557,Toamasina,Analanjirofo,Soanierana Ivongo,Kaominina Ambanivohitra Soanierana Ivongo Sector 14,RURAL
+COM_01558,Toamasina,Analanjirofo,Vavatenina,Kaominina Ambanivohitra Vavatenina Sector 14,RURAL
+COM_01559,Toamasina,Ambatosoa,Maroantsetra,Kaominina Ambanivohitra Maroantsetra Sector 14,RURAL
+COM_01560,Toamasina,Alaotra-Mangoro,Ambatondrazaka,Kaominina Ambanivohitra Ambatondrazaka Sector 14,RURAL
+COM_01561,Toamasina,Alaotra-Mangoro,Amparafaravola,Kaominina Ambanivohitra Amparafaravola Sector 14,RURAL
+COM_01562,Toamasina,Alaotra-Mangoro,Andilamena,Kaominina Ambanivohitra Andilamena Sector 14,RURAL
+COM_01563,Toamasina,Alaotra-Mangoro,Anosibe An'ala,Kaominina Ambanivohitra Anosibe An'ala Sector 14,RURAL
+COM_01564,Toamasina,Alaotra-Mangoro,Moramanga,Kaominina Ambanivohitra Moramanga Sector 14,RURAL
+COM_01565,Toliara,Atsimo-Andrefana,Toliara I,Kaominina Ambanivohitra Toliara I Sector 14,RURAL
+COM_01566,Toliara,Atsimo-Andrefana,Toliara II,Kaominina Ambanivohitra Toliara II Sector 14,RURAL
+COM_01567,Toliara,Atsimo-Andrefana,Ampanihy,Kaominina Ambanivohitra Ampanihy Sector 14,RURAL
+COM_01568,Toliara,Atsimo-Andrefana,Ankazoabo,Kaominina Ambanivohitra Ankazoabo Sector 14,RURAL
+COM_01569,Toliara,Atsimo-Andrefana,Benenitra,Kaominina Ambanivohitra Benenitra Sector 14,RURAL
+COM_01570,Toliara,Atsimo-Andrefana,Beroroha,Kaominina Ambanivohitra Beroroha Sector 14,RURAL
+COM_01571,Toliara,Atsimo-Andrefana,Betioky Atsimo,Kaominina Ambanivohitra Betioky Atsimo Sector 14,RURAL
+COM_01572,Toliara,Atsimo-Andrefana,Morombe,Kaominina Ambanivohitra Morombe Sector 14,RURAL
+COM_01573,Toliara,Atsimo-Andrefana,Sakaraha,Kaominina Ambanivohitra Sakaraha Sector 14,RURAL
+COM_01574,Toliara,Menabe,Morondava,Kaominina Ambanivohitra Morondava Sector 14,RURAL
+COM_01575,Toliara,Menabe,Belo sur Tsiribihina,Kaominina Ambanivohitra Belo sur Tsiribihina Sector 14,RURAL
+COM_01576,Toliara,Menabe,Mahabo,Kaominina Ambanivohitra Mahabo Sector 14,RURAL
+COM_01577,Toliara,Menabe,Manja,Kaominina Ambanivohitra Manja Sector 14,RURAL
+COM_01578,Toliara,Menabe,Miandrivazo,Kaominina Ambanivohitra Miandrivazo Sector 14,RURAL
+COM_01579,Toliara,Androy,Ambovombe-Androy,Kaominina Ambanivohitra Ambovombe-Androy Sector 14,RURAL
+COM_01580,Toliara,Androy,Bekily,Kaominina Ambanivohitra Bekily Sector 14,RURAL
+COM_01581,Toliara,Androy,Beloha,Kaominina Ambanivohitra Beloha Sector 14,RURAL
+COM_01582,Toliara,Androy,Tsihombe,Kaominina Ambanivohitra Tsihombe Sector 14,RURAL
+COM_01583,Toliara,Anosy,Taolagnaro,Kaominina Ambanivohitra Taolagnaro Sector 14,RURAL
+COM_01584,Toliara,Anosy,Amboasary Atsimo,Kaominina Ambanivohitra Amboasary Atsimo Sector 14,RURAL
+COM_01585,Toliara,Anosy,Betroka,Kaominina Ambanivohitra Betroka Sector 14,RURAL
+COM_01586,Antananarivo,Analamanga,Antananarivo Renivohitra,Kaominina Ambanivohitra Antananarivo Renivohitra Sector 14,RURAL
+COM_01587,Antananarivo,Analamanga,Antananarivo Atsimondrano,Kaominina Ambanivohitra Antananarivo Atsimondrano Sector 14,RURAL
+COM_01588,Antananarivo,Analamanga,Antananarivo Avaradrano,Kaominina Ambanivohitra Antananarivo Avaradrano Sector 14,RURAL
+COM_01589,Antananarivo,Analamanga,Ambohidratrimo,Kaominina Ambanivohitra Ambohidratrimo Sector 14,RURAL
+COM_01590,Antananarivo,Analamanga,Andramasina,Kaominina Ambanivohitra Andramasina Sector 14,RURAL
+COM_01591,Antananarivo,Analamanga,Anjozorobe,Kaominina Ambanivohitra Anjozorobe Sector 14,RURAL
+COM_01592,Antananarivo,Analamanga,Ankazobe,Kaominina Ambanivohitra Ankazobe Sector 14,RURAL
+COM_01593,Antananarivo,Analamanga,Manjakandriana,Kaominina Ambanivohitra Manjakandriana Sector 14,RURAL
+COM_01594,Antananarivo,Vakinankaratra,Antsirabe I,Kaominina Ambanivohitra Antsirabe I Sector 14,RURAL
+COM_01595,Antananarivo,Vakinankaratra,Antsirabe II,Kaominina Ambanivohitra Antsirabe II Sector 14,RURAL
+COM_01596,Antananarivo,Vakinankaratra,Ambatolampy,Kaominina Ambanivohitra Ambatolampy Sector 14,RURAL
+COM_01597,Antananarivo,Vakinankaratra,Antanifotsy,Kaominina Ambanivohitra Antanifotsy Sector 15,RURAL
+COM_01598,Antananarivo,Vakinankaratra,Betafo,Kaominina Ambanivohitra Betafo Sector 15,RURAL
+COM_01599,Antananarivo,Vakinankaratra,Faratsiho,Kaominina Ambanivohitra Faratsiho Sector 15,RURAL
+COM_01600,Antananarivo,Vakinankaratra,Mandoto,Kaominina Ambanivohitra Mandoto Sector 15,RURAL
+COM_01601,Antananarivo,Itasy,Miarinarivo,Kaominina Ambanivohitra Miarinarivo Sector 15,RURAL
+COM_01602,Antananarivo,Itasy,Arivonimamo,Kaominina Ambanivohitra Arivonimamo Sector 15,RURAL
+COM_01603,Antananarivo,Itasy,Soavinandriana,Kaominina Ambanivohitra Soavinandriana Sector 15,RURAL
+COM_01604,Antananarivo,Bongolava,Tsiroanomandidy,Kaominina Ambanivohitra Tsiroanomandidy Sector 15,RURAL
+COM_01605,Antananarivo,Bongolava,Fenoarivobe,Kaominina Ambanivohitra Fenoarivobe Sector 15,RURAL
+COM_01606,Antsiranana,Diana,Antsiranana I,Kaominina Ambanivohitra Antsiranana I Sector 15,RURAL
+COM_01607,Antsiranana,Diana,Antsiranana II,Kaominina Ambanivohitra Antsiranana II Sector 15,RURAL
+COM_01608,Antsiranana,Diana,Ambanja,Kaominina Ambanivohitra Ambanja Sector 15,RURAL
+COM_01609,Antsiranana,Diana,Ambilobe,Kaominina Ambanivohitra Ambilobe Sector 15,RURAL
+COM_01610,Antsiranana,Diana,Nosy Be,Kaominina Ambanivohitra Nosy Be Sector 15,RURAL
+COM_01611,Antsiranana,Sava,Sambava,Kaominina Ambanivohitra Sambava Sector 15,RURAL
+COM_01612,Antsiranana,Sava,Antalaha,Kaominina Ambanivohitra Antalaha Sector 15,RURAL
+COM_01613,Antsiranana,Sava,Andapa,Kaominina Ambanivohitra Andapa Sector 15,RURAL
+COM_01614,Antsiranana,Sava,Vohemar,Kaominina Ambanivohitra Vohemar Sector 15,RURAL
+COM_01615,Fianarantsoa,Matsiatra Ambony,Fianarantsoa,Kaominina Ambanivohitra Fianarantsoa Sector 15,RURAL
+COM_01616,Fianarantsoa,Matsiatra Ambony,Ambalavao,Kaominina Ambanivohitra Ambalavao Sector 15,RURAL
+COM_01617,Fianarantsoa,Matsiatra Ambony,Ambohimahasoa,Kaominina Ambanivohitra Ambohimahasoa Sector 15,RURAL
+COM_01618,Fianarantsoa,Matsiatra Ambony,Ikalamavony,Kaominina Ambanivohitra Ikalamavony Sector 15,RURAL
+COM_01619,Fianarantsoa,Matsiatra Ambony,Isandra,Kaominina Ambanivohitra Isandra Sector 15,RURAL
+COM_01620,Fianarantsoa,Matsiatra Ambony,Lalangina,Kaominina Ambanivohitra Lalangina Sector 15,RURAL
+COM_01621,Fianarantsoa,Matsiatra Ambony,Vohibato,Kaominina Ambanivohitra Vohibato Sector 15,RURAL
+COM_01622,Fianarantsoa,Amoron'i Mania,Ambositra,Kaominina Ambanivohitra Ambositra Sector 15,RURAL
+COM_01623,Fianarantsoa,Amoron'i Mania,Ambatofinandrahana,Kaominina Ambanivohitra Ambatofinandrahana Sector 15,RURAL
+COM_01624,Fianarantsoa,Amoron'i Mania,Fandriana,Kaominina Ambanivohitra Fandriana Sector 15,RURAL
+COM_01625,Fianarantsoa,Amoron'i Mania,Manandriana,Kaominina Ambanivohitra Manandriana Sector 15,RURAL
+COM_01626,Fianarantsoa,Vatovavy,Mananjary,Kaominina Ambanivohitra Mananjary Sector 15,RURAL
+COM_01627,Fianarantsoa,Vatovavy,Ifanadiana,Kaominina Ambanivohitra Ifanadiana Sector 15,RURAL
+COM_01628,Fianarantsoa,Vatovavy,Nosy Varika,Kaominina Ambanivohitra Nosy Varika Sector 15,RURAL
+COM_01629,Fianarantsoa,Fitovinany,Manakara,Kaominina Ambanivohitra Manakara Sector 15,RURAL
+COM_01630,Fianarantsoa,Fitovinany,Ikongo,Kaominina Ambanivohitra Ikongo Sector 15,RURAL
+COM_01631,Fianarantsoa,Fitovinany,Vohipeno,Kaominina Ambanivohitra Vohipeno Sector 15,RURAL
+COM_01632,Fianarantsoa,Atsimo-Atsinanana,Farafangana,Kaominina Ambanivohitra Farafangana Sector 15,RURAL
+COM_01633,Fianarantsoa,Atsimo-Atsinanana,Befotaka,Kaominina Ambanivohitra Befotaka Sector 15,RURAL
+COM_01634,Fianarantsoa,Atsimo-Atsinanana,Midongy Sud,Kaominina Ambanivohitra Midongy Sud Sector 15,RURAL
+COM_01635,Fianarantsoa,Atsimo-Atsinanana,Vangaindrano,Kaominina Ambanivohitra Vangaindrano Sector 15,RURAL
+COM_01636,Fianarantsoa,Atsimo-Atsinanana,Vondrozo,Kaominina Ambanivohitra Vondrozo Sector 15,RURAL
+COM_01637,Fianarantsoa,Ihorombe,Ihosy,Kaominina Ambanivohitra Ihosy Sector 15,RURAL
+COM_01638,Fianarantsoa,Ihorombe,Iakora,Kaominina Ambanivohitra Iakora Sector 15,RURAL
+COM_01639,Fianarantsoa,Ihorombe,Ivohibe,Kaominina Ambanivohitra Ivohibe Sector 15,RURAL
+COM_01640,Mahajanga,Boeny,Mahajanga I,Kaominina Ambanivohitra Mahajanga I Sector 15,RURAL
+COM_01641,Mahajanga,Boeny,Mahajanga II,Kaominina Ambanivohitra Mahajanga II Sector 15,RURAL
+COM_01642,Mahajanga,Boeny,Ambato-Boeni,Kaominina Ambanivohitra Ambato-Boeni Sector 15,RURAL
+COM_01643,Mahajanga,Boeny,Marovoay,Kaominina Ambanivohitra Marovoay Sector 15,RURAL
+COM_01644,Mahajanga,Boeny,Mitsinjo,Kaominina Ambanivohitra Mitsinjo Sector 15,RURAL
+COM_01645,Mahajanga,Boeny,Soalala,Kaominina Ambanivohitra Soalala Sector 15,RURAL
+COM_01646,Mahajanga,Sofia,Antsohihy,Kaominina Ambanivohitra Antsohihy Sector 15,RURAL
+COM_01647,Mahajanga,Sofia,Analalava,Kaominina Ambanivohitra Analalava Sector 15,RURAL
+COM_01648,Mahajanga,Sofia,Bealanana,Kaominina Ambanivohitra Bealanana Sector 15,RURAL
+COM_01649,Mahajanga,Sofia,Befandriana Avaratra,Kaominina Ambanivohitra Befandriana Avaratra Sector 15,RURAL
+COM_01650,Mahajanga,Sofia,Boriziny-Vaovao (Port-Bergé),Kaominina Ambanivohitra Boriziny-Vaovao (Port-Bergé) Sector 15,RURAL
+COM_01651,Mahajanga,Sofia,Mampikony,Kaominina Ambanivohitra Mampikony Sector 15,RURAL
+COM_01652,Mahajanga,Sofia,Mandritsara,Kaominina Ambanivohitra Mandritsara Sector 15,RURAL
+COM_01653,Mahajanga,Betsiboka,Maevatanana,Kaominina Ambanivohitra Maevatanana Sector 15,RURAL
+COM_01654,Mahajanga,Betsiboka,Kandreho,Kaominina Ambanivohitra Kandreho Sector 15,RURAL
+COM_01655,Mahajanga,Betsiboka,Tsaratanana,Kaominina Ambanivohitra Tsaratanana Sector 15,RURAL
+COM_01656,Mahajanga,Melaky,Maintirano,Kaominina Ambanivohitra Maintirano Sector 15,RURAL
+COM_01657,Mahajanga,Melaky,Ambatomainty,Kaominina Ambanivohitra Ambatomainty Sector 15,RURAL
+COM_01658,Mahajanga,Melaky,Antsalova,Kaominina Ambanivohitra Antsalova Sector 15,RURAL
+COM_01659,Mahajanga,Melaky,Besalampy,Kaominina Ambanivohitra Besalampy Sector 15,RURAL
+COM_01660,Mahajanga,Melaky,Morafenobe,Kaominina Ambanivohitra Morafenobe Sector 15,RURAL
+COM_01661,Toamasina,Atsinanana,Toamasina I,Kaominina Ambanivohitra Toamasina I Sector 15,RURAL
+COM_01662,Toamasina,Atsinanana,Toamasina II,Kaominina Ambanivohitra Toamasina II Sector 15,RURAL
+COM_01663,Toamasina,Atsinanana,Antanambao Manampotsy,Kaominina Ambanivohitra Antanambao Manampotsy Sector 15,RURAL
+COM_01664,Toamasina,Atsinanana,Brickaville (Vohibinany),Kaominina Ambanivohitra Brickaville (Vohibinany) Sector 15,RURAL
+COM_01665,Toamasina,Atsinanana,Mahanoro,Kaominina Ambanivohitra Mahanoro Sector 15,RURAL
+COM_01666,Toamasina,Atsinanana,Marolambo,Kaominina Ambanivohitra Marolambo Sector 15,RURAL
+COM_01667,Toamasina,Atsinanana,Vatomandry,Kaominina Ambanivohitra Vatomandry Sector 15,RURAL
+COM_01668,Toamasina,Analanjirofo,Fenoarivo Atsinanana,Kaominina Ambanivohitra Fenoarivo Atsinanana Sector 15,RURAL
+COM_01669,Toamasina,Analanjirofo,Mananara Avaratra,Kaominina Ambanivohitra Mananara Avaratra Sector 15,RURAL
+COM_01670,Toamasina,Analanjirofo,Sainte Marie,Kaominina Ambanivohitra Sainte Marie Sector 15,RURAL
+COM_01671,Toamasina,Analanjirofo,Soanierana Ivongo,Kaominina Ambanivohitra Soanierana Ivongo Sector 15,RURAL
+COM_01672,Toamasina,Analanjirofo,Vavatenina,Kaominina Ambanivohitra Vavatenina Sector 15,RURAL
+COM_01673,Toamasina,Ambatosoa,Maroantsetra,Kaominina Ambanivohitra Maroantsetra Sector 15,RURAL
+COM_01674,Toamasina,Alaotra-Mangoro,Ambatondrazaka,Kaominina Ambanivohitra Ambatondrazaka Sector 15,RURAL
+COM_01675,Toamasina,Alaotra-Mangoro,Amparafaravola,Kaominina Ambanivohitra Amparafaravola Sector 15,RURAL
+COM_01676,Toamasina,Alaotra-Mangoro,Andilamena,Kaominina Ambanivohitra Andilamena Sector 15,RURAL
+COM_01677,Toamasina,Alaotra-Mangoro,Anosibe An'ala,Kaominina Ambanivohitra Anosibe An'ala Sector 15,RURAL
+COM_01678,Toamasina,Alaotra-Mangoro,Moramanga,Kaominina Ambanivohitra Moramanga Sector 15,RURAL
+COM_01679,Toliara,Atsimo-Andrefana,Toliara I,Kaominina Ambanivohitra Toliara I Sector 15,RURAL
+COM_01680,Toliara,Atsimo-Andrefana,Toliara II,Kaominina Ambanivohitra Toliara II Sector 15,RURAL
+COM_01681,Toliara,Atsimo-Andrefana,Ampanihy,Kaominina Ambanivohitra Ampanihy Sector 15,RURAL
+COM_01682,Toliara,Atsimo-Andrefana,Ankazoabo,Kaominina Ambanivohitra Ankazoabo Sector 15,RURAL
+COM_01683,Toliara,Atsimo-Andrefana,Benenitra,Kaominina Ambanivohitra Benenitra Sector 15,RURAL
+COM_01684,Toliara,Atsimo-Andrefana,Beroroha,Kaominina Ambanivohitra Beroroha Sector 15,RURAL
+COM_01685,Toliara,Atsimo-Andrefana,Betioky Atsimo,Kaominina Ambanivohitra Betioky Atsimo Sector 15,RURAL
+COM_01686,Toliara,Atsimo-Andrefana,Morombe,Kaominina Ambanivohitra Morombe Sector 15,RURAL
+COM_01687,Toliara,Atsimo-Andrefana,Sakaraha,Kaominina Ambanivohitra Sakaraha Sector 15,RURAL
+COM_01688,Toliara,Menabe,Morondava,Kaominina Ambanivohitra Morondava Sector 15,RURAL
+COM_01689,Toliara,Menabe,Belo sur Tsiribihina,Kaominina Ambanivohitra Belo sur Tsiribihina Sector 15,RURAL
+COM_01690,Toliara,Menabe,Mahabo,Kaominina Ambanivohitra Mahabo Sector 15,RURAL
+COM_01691,Toliara,Menabe,Manja,Kaominina Ambanivohitra Manja Sector 15,RURAL
+COM_01692,Toliara,Menabe,Miandrivazo,Kaominina Ambanivohitra Miandrivazo Sector 15,RURAL
+COM_01693,Toliara,Androy,Ambovombe-Androy,Kaominina Ambanivohitra Ambovombe-Androy Sector 15,RURAL
+COM_01694,Toliara,Androy,Bekily,Kaominina Ambanivohitra Bekily Sector 15,RURAL
+COM_01695,Toliara,Androy,Beloha,Kaominina Ambanivohitra Beloha Sector 15,RURAL

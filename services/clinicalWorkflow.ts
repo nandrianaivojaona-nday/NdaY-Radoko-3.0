@@ -115,7 +115,17 @@ export const createMotherRecord = (input: {
   name: string;
   ageYears: number | null;
   village: string;
+  villageAreaId?: string;
+  fokontany?: string;
+  fokontanyAreaId?: string;
+  commune?: string;
+  communeAreaId?: string;
   district: string;
+  districtAreaId?: string;
+  region?: string;
+  regionAreaId?: string;
+  faritany?: string;
+  faritanyAreaId?: string;
   countryId: string;
   reportedNeeds: string[];
   createdBy: string;
@@ -127,7 +137,17 @@ export const createMotherRecord = (input: {
   name: input.name.trim(),
   ageYears: input.ageYears,
   village: input.village.trim(),
+  villageAreaId: input.villageAreaId,
+  fokontany: input.fokontany?.trim(),
+  fokontanyAreaId: input.fokontanyAreaId,
+  commune: input.commune?.trim(),
+  communeAreaId: input.communeAreaId,
   district: input.district.trim(),
+  districtAreaId: input.districtAreaId,
+  region: input.region?.trim(),
+  regionAreaId: input.regionAreaId,
+  faritany: input.faritany?.trim(),
+  faritanyAreaId: input.faritanyAreaId,
   countryId: input.countryId,
   observations: createEmptyMaternalObservations(),
   reportedNeeds: input.reportedNeeds,
@@ -146,7 +166,17 @@ export const createPatientRecord = (input: {
   caregiverName: string;
   caregiverRelationship: string;
   village: string;
+  villageAreaId?: string;
+  fokontany?: string;
+  fokontanyAreaId?: string;
+  commune?: string;
+  communeAreaId?: string;
   district: string;
+  districtAreaId?: string;
+  region?: string;
+  regionAreaId?: string;
+  faritany?: string;
+  faritanyAreaId?: string;
   countryId: string;
   reportedConcerns: string[];
   createdBy: string;
@@ -164,7 +194,17 @@ export const createPatientRecord = (input: {
   caregiverName: input.caregiverName.trim(),
   caregiverRelationship: input.caregiverRelationship,
   village: input.village.trim(),
+  villageAreaId: input.villageAreaId,
+  fokontany: input.fokontany?.trim(),
+  fokontanyAreaId: input.fokontanyAreaId,
+  commune: input.commune?.trim(),
+  communeAreaId: input.communeAreaId,
   district: input.district.trim(),
+  districtAreaId: input.districtAreaId,
+  region: input.region?.trim(),
+  regionAreaId: input.regionAreaId,
+  faritany: input.faritany?.trim(),
+  faritanyAreaId: input.faritanyAreaId,
   countryId: input.countryId,
   reportedConcerns: input.reportedConcerns,
   createdAt: new Date().toISOString(),
@@ -178,6 +218,10 @@ export const createEncounterRecord = (input: {
   patientId: string;
   countryId: string;
   facilityId: string;
+  communeFacilityId?: string;
+  districtReferralFacilityId?: string;
+  regionalReferralFacilityId?: string;
+  provincialReferralFacilityId?: string;
   createdBy: string;
   equipmentMode: Encounter['equipmentMode'];
   observationTemplate: Observation[];
@@ -188,6 +232,10 @@ export const createEncounterRecord = (input: {
   patientId: input.patientId,
   countryId: input.countryId,
   facilityId: input.facilityId,
+  communeFacilityId: input.communeFacilityId,
+  districtReferralFacilityId: input.districtReferralFacilityId,
+  regionalReferralFacilityId: input.regionalReferralFacilityId,
+  provincialReferralFacilityId: input.provincialReferralFacilityId,
   createdBy: input.createdBy,
   createdAt: new Date().toISOString(),
   status: 'Assessment initiated',
@@ -300,6 +348,10 @@ export const requestMoreInformation = (
 
 export interface DecisionInput {
   disposition: Disposition;
+  protocolClassification: string;
+  protocolPlan: string;
+  protocolId?: string | null;
+  protocolVersion?: string | null;
   workingAssessment: string;
   instructionsForCaregiver: string;
   safetyNetting: string;
@@ -328,6 +380,8 @@ export const validateDecision = (
   const errors: string[] = [];
   const incompleteRequired = collectIncompleteRequired(encounter);
 
+  if (!input.protocolClassification.trim()) errors.push('Record the clinician-entered classification after comparing findings with the protocol.');
+  if (!input.protocolPlan.trim()) errors.push('Record the clinician-entered treatment, referral, counselling, or follow-up plan.');
   if (!input.workingAssessment.trim()) errors.push('A working assessment is required.');
   if (!input.instructionsForCaregiver.trim())
     errors.push('Instructions for the caregiver are required.');
@@ -401,6 +455,10 @@ export const signDecision = (
     facilityId: physician.facilityId,
     facilityName,
     disposition: input.disposition,
+    protocolClassification: input.protocolClassification.trim(),
+    protocolPlan: input.protocolPlan.trim(),
+    protocolId: input.protocolId ?? null,
+    protocolVersion: input.protocolVersion ?? null,
     workingAssessment: input.workingAssessment.trim(),
     instructionsForCaregiver: input.instructionsForCaregiver.trim(),
     safetyNetting: input.safetyNetting.trim(),

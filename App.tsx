@@ -6,6 +6,7 @@ import {
   Drone,
   Encounter,
   Facility,
+  Mother,
   Observation,
   Patient,
   Session,
@@ -50,9 +51,16 @@ const App: React.FC = () => {
   const [session, setSession] = useState<Session | null>(() => loadSession());
   const [page, setPage] = useState<Page>('home');
   const [newEncounterOpen, setNewEncounterOpen] = useState(false);
+  const [saveWarning, setSaveWarning] = useState<string | null>(null);
   const [selectedEncounterId, setSelectedEncounterId] = useState<string | null>(null);
 
-  useEffect(() => saveData(data), [data]);
+  useEffect(() => {
+    if (!saveData(data)) {
+      setSaveWarning('This browser could not confirm saving the local demo records. The encounter may not remain after reload. Check browser storage settings and available space.');
+    } else {
+      setSaveWarning(null);
+    }
+  }, [data]);
   useEffect(() => saveSession(session), [session]);
 
   const pilotCountry = useMemo(
@@ -98,9 +106,10 @@ const App: React.FC = () => {
     setPage('home');
   };
 
-  const handleCreateEncounter = (patient: Patient, encounter: Encounter) => {
+  const handleCreateEncounter = (mother: Mother, patient: Patient, encounter: Encounter) => {
     setData((prev) => ({
       ...prev,
+      mothers: [mother, ...prev.mothers],
       patients: [patient, ...prev.patients],
       encounters: [encounter, ...prev.encounters],
     }));
@@ -118,6 +127,7 @@ const App: React.FC = () => {
       if (!encounter || !session) return;
       const patient = data.patients.find((p) => p.id === encounter.patientId);
       if (!patient) throw new Error('Patient record is missing.');
+      const mother = data.mothers.find((m) => m.id === encounter.motherId) ?? null;
       const country = data.countries.find((c) => c.id === encounter.countryId) ?? null;
       const candidate = country?.protocols.find(
         (p) => p.ageProtocol === 'Young Infant',
@@ -130,7 +140,13 @@ const App: React.FC = () => {
         !candidate.approvedBy?.includes('demo control')
           ? candidate
           : null;
-      const draft = await prepareAiDraft(encounter, patient, protocol, pilotCountry?.localLanguage ?? 'en', session.user);
+      const draft = await prepareAiDraft(
+        encounter,
+        patient,
+        mother,
+        protocol,
+        pilotCountry?.localLanguage ?? 'en',
+      );
       updateEncounter(attachDraft(encounter, session.user, draft));
     },
     requestMoreInfo: (encounterId, detail) => {
@@ -331,6 +347,7 @@ const App: React.FC = () => {
             </span>
             <span className="font-semibold text-brand-accent">Not clinically validated</span>
           </header>
+          {saveWarning && <div role="alert" className="mb-4 rounded-lg border border-status-red/40 bg-status-red/10 px-4 py-3 text-sm text-status-red">{saveWarning}</div>}
           {renderPage()}
           <BrandFooter onOpenProgram={() => setPage('program')} onOpenSafety={() => setPage('program')} />
         </div>
@@ -343,6 +360,7 @@ const App: React.FC = () => {
           onCreate={handleCreateEncounter}
           user={session.user}
           facilities={data.facilities}
+          administrativeAreas={data.administrativeAreas}
           countries={data.countries}
         />
       )}
