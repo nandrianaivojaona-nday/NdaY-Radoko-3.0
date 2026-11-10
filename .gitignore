@@ -31,3 +31,11 @@ dist-ssr
 .env
 .env.local
 .env.*.local
+
+# alignment artifacts and local backups — do not commit
+.backup-*/
+.nday-db-phase2-backup-*/
+.nday-refactor-backup-*/
+align-*.sh
+full-align.sh
+cleanup.sh
