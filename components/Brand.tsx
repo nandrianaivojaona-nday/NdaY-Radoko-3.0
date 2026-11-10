@@ -1,8 +1,8 @@
 import React from 'react';
 
-const RADOKO_LOGO = '/assets/images/nday-radoko-logo.png';
-const ENTERPRISE_LOGO = '/assets/images/nday-enterprise-logo.png';
-const RADOKO_ICON = '/assets/images/nday-radoko-icon.png';
+const RADOKO_LOGO = `${import.meta.env.BASE_URL}assets/images/nday-radoko-logo.png`;
+const ENTERPRISE_LOGO = `${import.meta.env.BASE_URL}assets/images/nday-enterprise-logo.png`;
+const RADOKO_ICON = `${import.meta.env.BASE_URL}assets/images/nday-radoko-icon.png`;
 
 // Inline SVG fallbacks used when the PNG asset is missing (403/404).
 const RADOKO_FALLBACK =
