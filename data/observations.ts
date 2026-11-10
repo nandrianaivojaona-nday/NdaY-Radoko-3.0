@@ -1,4 +1,5 @@
 import {
+  AssessmentAcquisitionConfig,
   Observation,
   ObservationCategory,
   ObservationDefinition,
@@ -7,6 +8,49 @@ import {
   ProtocolSource,
 } from '../types';
 import { validateProtocolCitations } from './protocoleSources';
+
+export const defaultAcquisitionFor = (def: Pick<ObservationDefinition, 'id' | 'method' | 'label' | 'category'>): AssessmentAcquisitionConfig => {
+  if (['grunting', 'stridor'].includes(def.id)) {
+    return {
+      action: 'LISTEN',
+      channels: ['microphone', 'speaker', 'camera'],
+      instruction: `Listen carefully for ${def.label.toLowerCase()} using high-sensitivity remote microphone while infant is quiet.`,
+    };
+  }
+  if (def.id === 'skin_pustules') {
+    return {
+      action: 'LOOK',
+      channels: ['camera', 'speaker'],
+      instruction: 'Inspect infant skin under clear lighting. Guide caregiver to gently uncover abdomen, folds, and extremities. Note lesion counts and distribution.',
+    };
+  }
+  if (def.method === 'Caregiver report') {
+    return {
+      action: 'ASK',
+      channels: ['speaker', 'microphone'],
+      instruction: `Ask caregiver via remote two-way audio about ${def.label.toLowerCase()}. Record history faithfully.`,
+    };
+  }
+  if (def.method === 'Remote visual observation') {
+    return {
+      action: 'LOOK',
+      channels: ['camera', 'speaker'],
+      instruction: `Inspect ${def.label.toLowerCase()} visually via camera workspace. Ensure adequate natural or clinical lighting.`,
+    };
+  }
+  if (def.method === 'Device measurement') {
+    return {
+      action: 'MEASURE',
+      channels: ['instrument', 'camera'],
+      instruction: `Record ${def.label.toLowerCase()} using calibrated device or verified counting procedure.`,
+    };
+  }
+  return {
+    action: 'EXAMINE',
+    channels: ['in-person', 'speaker'],
+    instruction: `Trained in-person physical assessment required for ${def.label.toLowerCase()}. Never attempt forceful manipulation remotely.`,
+  };
+};
 
 /**
  * A PROPOSED observation catalogue for young-infant (0–59 days) assessment.
@@ -436,7 +480,14 @@ export const getObservationTraceabilityStatus = (
     : 'Citation entered — review pending';
 };
 
-export const OBSERVATION_BY_ID = new Map(OBSERVATION_CATALOGUE.map((d) => [d.id, d]));
+export const OBSERVATION_BY_ID = new Map(
+  OBSERVATION_CATALOGUE.map((d) => {
+    if (!d.acquisition) {
+      d.acquisition = defaultAcquisitionFor(d);
+    }
+    return [d.id, d];
+  }),
+);
 
 export const OBSERVATION_CATEGORIES: ObservationCategory[] = [
   'Danger signs',
@@ -704,7 +755,10 @@ export const summariseMaternalCompleteness = (observations: Observation[]): Comp
 export const fingerprintObservations = (observations: Observation[]): string => {
   const canonical = observations
     .filter((o) => o.quality !== 'Not assessed')
-    .map((o) => `${o.definitionId}=${o.value}|${o.quality}|${o.source ?? deriveSource(o.quality)}`)
+    .map(
+      (o) =>
+        `${o.definitionId}=${o.value}|${o.quality}|${o.source ?? deriveSource(o.quality)}|${(o.evidenceIds ?? []).slice().sort().join(',')}|${o.evidenceRef ?? ''}|${o.confirmedAt ?? ''}`,
+    )
     .sort()
     .join(';');
   let hash = 2166136261;

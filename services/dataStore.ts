@@ -18,9 +18,23 @@ export const loadData = (): AppData => {
     if (!parsed || parsed.schemaVersion !== DATA_SCHEMA_VERSION) {
       return clone(SEED_DATA);
     }
+    const assessmentSessions = Array.isArray(parsed.assessmentSessions) ? parsed.assessmentSessions : [];
+    const assessmentEvidence = Array.isArray(parsed.assessmentEvidence) ? parsed.assessmentEvidence : [];
+    const encounters = (parsed.encounters || clone(SEED_DATA.encounters)).map((enc) => ({
+      ...enc,
+      consent: {
+        ...enc.consent,
+        audioRecordingAllowed: enc.consent?.audioRecordingAllowed ?? true,
+        videoRecordingAllowed: enc.consent?.videoRecordingAllowed ?? false,
+      },
+    }));
+
     return {
       ...clone(SEED_DATA),
       ...parsed,
+      encounters,
+      assessmentSessions,
+      assessmentEvidence,
       users: parsed.users?.length ? parsed.users : clone(SEED_DATA.users),
       facilities: [...new Map([...(SEED_DATA.facilities ?? []), ...(parsed.facilities ?? [])].map((facility) => [facility.id, facility])).values()],
       administrativeAreas: [...new Map([...(parsed.administrativeAreas ?? []), ...(SEED_DATA.administrativeAreas ?? [])].map((area) => [area.id, area])).values()],

@@ -125,11 +125,60 @@ export type ObservationSource =
     reviewedAt?: string;
   }
 
+export type ChannelType = 'camera' | 'speaker' | 'microphone' | 'instrument' | 'in-person';
+
+export type AssessmentAction = 'ASK' | 'LOOK' | 'LISTEN' | 'MEASURE' | 'EXAMINE';
+
+export interface AssessmentAcquisitionConfig {
+  action: AssessmentAction;
+  channels: ChannelType[];
+  instruction: string;
+}
+
+export interface AssessmentEvidence {
+  id: string;
+  encounterId: string;
+  definitionId: string;
+  sessionId: string;
+  type: 'image' | 'audio' | 'video' | 'measurement_log' | 'notes';
+  mediaUrl?: string;
+  thumbnailUrl?: string;
+  capturedAt: string;
+  capturedBy: string;
+  consentConfirmed: boolean;
+  isSimulated: boolean;
+  metadata?: {
+    durationSeconds?: number;
+    fileSizeBytes?: number;
+    mimeType?: string;
+    resolution?: string;
+    instrumentModel?: string;
+  };
+  notes?: string;
+}
+
+export interface AssessmentSession {
+  id: string;
+  encounterId: string;
+  startedAt: string;
+  endedAt?: string;
+  clinicianId: string;
+  clinicianName: string;
+  channelTypes: ChannelType[];
+  mode: 'live-hardware' | 'simulated';
+  status: 'active' | 'completed' | 'aborted';
+  activeDefinitionId?: string;
+  evidenceIds: string[];
+  notes?: string;
+}
+
 export interface ObservationDefinition {
   id: string;
   label: string;
   category: ObservationCategory;
   method: ObservationMethod;
+  /** Explicit acquisition configuration mapping clinical step and hardware channels. */
+  acquisition?: AssessmentAcquisitionConfig;
   /** Whether the observation can credibly be gathered without a clinician at the household. */
   remoteFeasibility: 'Remote' | 'Remote with trained assistant' | 'In person only';
   /** Required for a complete young-infant assessment package. */
@@ -214,6 +263,16 @@ export interface Observation {
   /** Supporting material reference (image, file, device log) where appropriate and consented. */
   evidenceRef?: string;
   protocolCitations?: ProtocolRuleCitation[];
+
+  /** Linked assessment session during which evidence was gathered. */
+  acquisitionSessionId?: string | null;
+  /** Retained media evidence IDs supporting this observation. */
+  evidenceIds?: string[];
+  /** Clinician confirmation tracking. */
+  confirmedBy?: string | null;
+  confirmedByName?: string | null;
+  confirmedAt?: string | null;
+  isClinicianConfirmed?: boolean;
 }
 
 // ---------------------------------------------------------------------------
@@ -315,6 +374,8 @@ export interface AiDraft {
   /** True when produced by the deterministic local fallback, not a live model. */
   simulated: boolean;
   limitations: string;
+  /** True when observations or supporting evidence have changed since generation. */
+  isStale?: boolean;
 }
 
 export interface DecisionAmendment {
@@ -354,6 +415,8 @@ export interface PhysicianDecision {
    */
   caregiverUnderstandingConfirmed: boolean;
   caregiverUnderstandingNotes?: string;
+  /** True when underlying evidence has changed since signature. */
+  isStale?: boolean;
 }
 
 export interface FollowUp {
@@ -389,6 +452,10 @@ export interface ConsentRecord {
   scope: string;
   /** Caregiver can decline remote image capture while accepting remote assessment. */
   imageCaptureAllowed: boolean;
+  /** Caregiver can decline audio recording while allowing live conversation. */
+  audioRecordingAllowed: boolean;
+  /** Caregiver can decline video recording while allowing live camera view. */
+  videoRecordingAllowed: boolean;
 }
 
 export type EquipmentMode = 'Drone-assisted outreach' | 'Community teleconsultation' | 'Facility visit';
@@ -667,6 +734,8 @@ export interface AppData {
   facilities: Facility[];
   administrativeAreas?: AdministrativeArea[];
   users: UserAccount[];
+  assessmentSessions: AssessmentSession[];
+  assessmentEvidence: AssessmentEvidence[];
 }
 
 /**
@@ -691,4 +760,26 @@ export const LANGUAGES: {
 export interface ProtocolDemoReview {
   recordedBy: string;
   recordedAt: string;
+}
+
+// ---------------------------------------------------------------------------
+// Structured criteria for classification evaluation
+// ---------------------------------------------------------------------------
+export type CriteriaOperator =
+  | 'equals' | 'notEquals' | 'greaterOrEqual' | 'lessOrEqual' | 'greater'
+  | 'less' | 'in' | 'notIn' | 'contains';
+export interface CriteriaCheck {
+  observationId: string;
+  description: string;
+  operator: CriteriaOperator;
+  value: string | number | string[];
+  negate?: boolean;
+}
+export interface CriteriaGroup {
+  match: 'any' | 'all' | 'count';
+  countThreshold?: number;
+  checks: CriteriaCheck[];
+}
+export interface ProtocolClassificationRule {
+  criteria?: CriteriaGroup;
 }

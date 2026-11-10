@@ -80,6 +80,8 @@ const NewEncounterModal: React.FC<NewEncounterModalProps> = ({
     useState<EquipmentMode>('Community teleconsultation');
   const [consent, setConsent] = useState(false);
   const [imageConsent, setImageConsent] = useState(false);
+  const [audioConsent, setAudioConsent] = useState(true);
+  const [videoConsent, setVideoConsent] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
   // Mother / caregiver fields
@@ -193,6 +195,8 @@ const NewEncounterModal: React.FC<NewEncounterModalProps> = ({
       obtainedAt: new Date().toISOString(),
       scope: consentScope,
       imageCaptureAllowed: imageConsent,
+      audioRecordingAllowed: audioConsent,
+      videoRecordingAllowed: videoConsent,
     };
 
     const patient = createPatientRecord({
@@ -576,9 +580,37 @@ const NewEncounterModal: React.FC<NewEncounterModalProps> = ({
                   <span className="font-semibold text-brand-text-primary">
                     Image capture allowed.
                   </span>{' '}
-                  Optional. If declined, the assessment can continue without
-                  images and visual observations must be marked not assessed or
-                  in person only.
+                  Optional. If declined, live video viewing can continue but saving photos is blocked.
+                </span>
+              </label>
+
+              <label className="flex items-start gap-3 text-sm text-brand-text-secondary">
+                <input
+                  type="checkbox"
+                  checked={audioConsent}
+                  onChange={(e) => setAudioConsent(e.target.checked)}
+                  className="mt-1 h-4 w-4 rounded border-brand-secondary/50 bg-brand-background text-brand-primary"
+                />
+                <span>
+                  <span className="font-semibold text-brand-text-primary">
+                    Audio recording allowed.
+                  </span>{' '}
+                  Optional. If declined, live two-way intercom conversation is allowed but retaining audio files is blocked.
+                </span>
+              </label>
+
+              <label className="flex items-start gap-3 text-sm text-brand-text-secondary">
+                <input
+                  type="checkbox"
+                  checked={videoConsent}
+                  onChange={(e) => setVideoConsent(e.target.checked)}
+                  className="mt-1 h-4 w-4 rounded border-brand-secondary/50 bg-brand-background text-brand-primary"
+                />
+                <span>
+                  <span className="font-semibold text-brand-text-primary">
+                    Video recording retention allowed.
+                  </span>{' '}
+                  Optional. Retaining continuous video clips from the stream.
                 </span>
               </label>
             </section>

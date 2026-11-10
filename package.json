@@ -2,30 +2,38 @@
   "name": "nday-radoko",
   "private": true,
   "version": "0.3.0",
-  "description": "NdaY'Radoko — physician-supervised young-infant outreach prototype (NdaY' Enterprise). FemTech readiness demonstration, not a medical device.",
   "license": "Apache-2.0",
   "type": "module",
-  "engines": {
-    "node": ">=20"
-  },
+  "engines": { "node": ">=20" },
   "scripts": {
     "dev": "vite",
+    "server": "tsx server.ts",
+    "dev:all": "concurrently -n web,api -c blue,magenta \"npm:dev\" \"npm:server\"",
     "build": "vite build",
     "typecheck": "tsc --noEmit",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "fixtures:self-check": "tsx scripts/fixtureSelfCheck.ts",
+    "fixtures:list": "tsx scripts/listScenarios.ts",
+    "verify": "npm run typecheck && npm run build && npm run fixtures:self-check"
   },
   "dependencies": {
     "@google/genai": "^1.26.0",
+    "cors": "^2.8.5",
+    "express": "^4.21.2",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
     "recharts": "^3.3.0"
   },
   "devDependencies": {
+    "@types/cors": "^2.8.17",
+    "@types/express": "^4.17.21",
     "@types/node": "^22.14.0",
     "@vitejs/plugin-react": "^5.0.0",
     "autoprefixer": "^10.4.21",
+    "concurrently": "^9.1.0",
     "postcss": "^8.4.49",
     "tailwindcss": "^3.4.17",
+    "tsx": "^4.19.2",
     "typescript": "~5.8.2",
     "vite": "^6.2.0"
   }

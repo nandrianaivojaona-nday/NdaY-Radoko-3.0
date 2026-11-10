@@ -277,16 +277,29 @@ export const saveObservations = (
   const summary = summariseCompleteness(observations);
   const status: EncounterStatus =
     summary.requiredAssessed === 0 ? 'Assessment initiated' : 'Evidence collected';
+
+  const currentFp = fingerprintObservations(observations);
+  const draftStale = encounter.aiDraft ? encounter.aiDraft.evidenceFingerprint !== currentFp : false;
+  const decisionStale = encounter.physicianDecision ? encounter.physicianDecision.evidenceFingerprint !== currentFp : false;
+
   const next: Encounter = {
     ...encounter,
     observations,
     status: encounter.status === 'More information requested' ? 'Evidence collected' : status,
+    aiDraft: encounter.aiDraft
+      ? { ...encounter.aiDraft, isStale: draftStale }
+      : null,
+    physicianDecision: encounter.physicianDecision
+      ? { ...encounter.physicianDecision, isStale: decisionStale }
+      : null,
   };
   return pushEvent(
     next,
     user,
     'Observations recorded',
-    `${summary.requiredAssessed}/${summary.requiredTotal} required observations assessed`,
+    `${summary.requiredAssessed}/${summary.requiredTotal} required observations assessed${
+      draftStale || decisionStale ? ' (previous review/draft marked stale)' : ''
+    }`,
   );
 };
 
@@ -752,3 +765,119 @@ export const updateLogistics = (
     'Logistics mission updated',
     `${logistics.mode} · ${logistics.status} · ${logistics.deliveryOutcome || 'no delivery outcome'}`,
   );
+
+// ---------------------------------------------------------------------------
+// Structured classification evaluation
+// ---------------------------------------------------------------------------
+import type {
+  CriteriaCheck, CriteriaGroup, CriteriaOperator, ProtocolClassificationRule,
+} from '../types';
+
+export type CriteriaMatch = 'matched' | 'not-matched' | 'indeterminate';
+
+export interface RuleEvaluation {
+  ruleId: string;
+  label: string;
+  result: CriteriaMatch;
+  matchedCriteria: string[];
+  unmatchedCriteria: string[];
+  unresolvedCriteria: string[];
+}
+
+const parseNumber = (v: string): number | null => {
+  const n = Number.parseFloat(v);
+  return Number.isFinite(n) ? n : null;
+};
+
+const evaluateOperator = (
+  raw: string, op: CriteriaOperator, expected: string | number | string[],
+): boolean => {
+  const expectedStr = Array.isArray(expected)
+    ? expected.map((v) => String(v).toLowerCase())
+    : String(expected).toLowerCase();
+  const rawLower = raw.toLowerCase();
+  const rawNum = parseNumber(raw);
+  const expectedNum = typeof expected === 'number'
+    ? expected
+    : typeof expected === 'string' ? parseNumber(expected) : null;
+  switch (op) {
+    case 'equals': return rawLower === expectedStr;
+    case 'notEquals': return rawLower !== expectedStr;
+    case 'greaterOrEqual': return rawNum !== null && expectedNum !== null && rawNum >= expectedNum;
+    case 'lessOrEqual': return rawNum !== null && expectedNum !== null && rawNum <= expectedNum;
+    case 'greater': return rawNum !== null && expectedNum !== null && rawNum > expectedNum;
+    case 'less': return rawNum !== null && expectedNum !== null && rawNum < expectedNum;
+    case 'in':
+      return Array.isArray(expected)
+        ? (expected as string[]).map((v) => String(v).toLowerCase()).includes(rawLower)
+        : rawLower === expectedStr;
+    case 'notIn':
+      return Array.isArray(expected)
+        ? !(expected as string[]).map((v) => String(v).toLowerCase()).includes(rawLower)
+        : rawLower !== expectedStr;
+    case 'contains': {
+      const needle = Array.isArray(expectedStr) ? (expectedStr[0] ?? '') : expectedStr;
+      return rawLower.includes(needle);
+    }
+    default: return false;
+  }
+};
+
+export const evaluateCheck = (
+  check: CriteriaCheck, observations: Observation[],
+): CriteriaMatch => {
+  const o = observations.find((x) => x.definitionId === check.observationId);
+  if (!o || !o.value.trim()
+    || o.quality === 'Not assessed'
+    || o.quality === 'Unavailable'
+    || o.quality === 'Unusable') return 'indeterminate';
+  const m = evaluateOperator(o.value, check.operator, check.value);
+  const f = check.negate ? !m : m;
+  return f ? 'matched' : 'not-matched';
+};
+
+export const evaluateCriteriaGroup = (
+  g: CriteriaGroup, observations: Observation[],
+): { result: CriteriaMatch; matched: string[]; unmatched: string[]; unresolved: string[] } => {
+  const matches = g.checks.map((c) => ({
+    description: c.description,
+    result: evaluateCheck(c, observations),
+  }));
+  const matched = matches.filter((m) => m.result === 'matched').map((m) => m.description);
+  const unmatched = matches.filter((m) => m.result === 'not-matched').map((m) => m.description);
+  const unresolved = matches.filter((m) => m.result === 'indeterminate').map((m) => m.description);
+  let result: CriteriaMatch;
+  if (g.match === 'any') {
+    if (matched.length > 0) result = 'matched';
+    else if (unresolved.length > 0) result = 'indeterminate';
+    else result = 'not-matched';
+  } else if (g.match === 'all') {
+    if (unmatched.length > 0) result = 'not-matched';
+    else if (unresolved.length > 0) result = 'indeterminate';
+    else result = 'matched';
+  } else {
+    const t = g.countThreshold ?? 1;
+    if (matched.length >= t) result = 'matched';
+    else if (matched.length + unresolved.length < t) result = 'not-matched';
+    else result = 'indeterminate';
+  }
+  return { result, matched, unmatched, unresolved };
+};
+
+export const evaluateClassificationRules = (
+  rules: ProtocolClassificationRule[], observations: Observation[],
+): RuleEvaluation[] =>
+  rules.map((rule) => {
+    if (!rule.criteria) return {
+      ruleId: rule.id, label: rule.label, result: 'indeterminate',
+      matchedCriteria: [], unmatchedCriteria: [],
+      unresolvedCriteria: ['No structured criteria mapped.'],
+    };
+    const { result, matched, unmatched, unresolved } = evaluateCriteriaGroup(
+      rule.criteria, observations,
+    );
+    return {
+      ruleId: rule.id, label: rule.label, result,
+      matchedCriteria: matched, unmatchedCriteria: unmatched, unresolvedCriteria: unresolved,
+    };
+  });

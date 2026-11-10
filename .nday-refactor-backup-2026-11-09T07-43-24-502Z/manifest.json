@@ -1,0 +1,30 @@
+[
+  {
+    "path": "types.ts",
+    "existed": true
+  },
+  {
+    "path": "data/protocoleSources.ts",
+    "existed": true
+  },
+  {
+    "path": "data/observations.ts",
+    "existed": true
+  },
+  {
+    "path": "services/aiDraft.ts",
+    "existed": true
+  },
+  {
+    "path": "data/seed.ts",
+    "existed": true
+  },
+  {
+    "path": "features/assessment/types.ts",
+    "existed": false
+  },
+  {
+    "path": "docs/REFACTOR_PHASE_1.md",
+    "existed": false
+  }
+]

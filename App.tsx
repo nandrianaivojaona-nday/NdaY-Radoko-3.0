@@ -43,7 +43,7 @@ import {
   updateLogistics as updateLogisticsRecord,
   validateDecision,
 } from './services/clinicalWorkflow';
-import { prepareAiDraft } from './services/aiDraft';
+import { prepareAiDraft, validateDecisionOnServer } from './services/apiClient';
 import { formatDateTime } from './utils/format';
 
 const App: React.FC = () => {
@@ -146,6 +146,7 @@ const App: React.FC = () => {
         mother,
         protocol,
         pilotCountry?.localLanguage ?? 'en',
+        session.user,
       );
       updateEncounter(attachDraft(encounter, session.user, draft));
     },
@@ -154,11 +155,15 @@ const App: React.FC = () => {
       if (!encounter || !session) return;
       updateEncounter(requestMoreInformation(encounter, session.user, detail));
     },
-    signDecision: (encounterId, input: DecisionInput): DecisionValidation => {
+    signDecision: async (encounterId, input: DecisionInput): Promise<DecisionValidation> => {
       const encounter = data.encounters.find((e) => e.id === encounterId);
       if (!encounter || !session) return { valid: false, errors: ['Encounter or session missing.'], incompleteRequired: [] };
       if (!canSignDecision(session.user, encounter)) {
         return { valid: false, errors: ['This account cannot sign this encounter.'], incompleteRequired: [] };
+      }
+      const serverResult = await validateDecisionOnServer(encounter, input, session.user);
+      if (serverResult && !serverResult.valid) {
+        return { ...serverResult, incompleteRequired: serverResult.incompleteRequired ?? [] };
       }
       const validation = validateDecision(encounter, input);
       if (!validation.valid) return validation;
@@ -368,12 +373,38 @@ const App: React.FC = () => {
       {selectedEncounter && selectedPatient && (
         <EncounterDetail
           encounter={selectedEncounter}
+          mother={data.mothers.find((m) => m.id === selectedEncounter.motherId) ?? null}
           patient={selectedPatient}
           country={selectedCountry}
           facilities={data.facilities}
           session={session}
           drone={selectedDrone}
           actions={actions}
+          saveStatus={saveWarning ? 'failed' : 'saved locally'}
+          sessions={data.assessmentSessions || []}
+          evidence={data.assessmentEvidence || []}
+          onSaveSession={(sess) => {
+            setData((prev) => ({
+              ...prev,
+              assessmentSessions: [
+                sess,
+                ...(prev.assessmentSessions || []).filter((s) => s.id !== sess.id),
+              ],
+            }));
+          }}
+          onSaveEvidence={(ev) => {
+            setData((prev) => ({
+              ...prev,
+              assessmentEvidence: [
+                ev,
+                ...(prev.assessmentEvidence || []).filter((e) => e.id !== ev.id),
+              ],
+            }));
+          }}
+          onUpdateConsent={(consent) => {
+            const updated = { ...selectedEncounter, consent };
+            updateEncounter(updated);
+          }}
           onClose={() => setSelectedEncounterId(null)}
         />
       )}

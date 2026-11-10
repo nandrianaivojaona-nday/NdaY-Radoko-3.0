@@ -26,3 +26,8 @@ dist-ssr
 # local tooling caches
 .npm-cache
 .chrome
+
+# full-alignment
+.env
+.env.local
+.env.*.local

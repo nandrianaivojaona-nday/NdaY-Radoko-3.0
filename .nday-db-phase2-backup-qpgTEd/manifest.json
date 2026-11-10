@@ -1,0 +1,62 @@
+[
+  {
+    "path": "components/ObservationPanel.tsx",
+    "existed": true
+  },
+  {
+    "path": "types.ts",
+    "existed": true
+  },
+  {
+    "path": "services/clinicalWorkflow.ts",
+    "existed": true
+  },
+  {
+    "path": "components/EncounterDetail.tsx",
+    "existed": true
+  },
+  {
+    "path": "App.tsx",
+    "existed": true
+  },
+  {
+    "path": "services/dataStore.ts",
+    "existed": true
+  },
+  {
+    "path": "package.json",
+    "existed": true
+  },
+  {
+    "path": "features/protocolReview/core.mjs",
+    "existed": false
+  },
+  {
+    "path": "features/protocolReview/training-pack.json",
+    "existed": false
+  },
+  {
+    "path": "features/protocolReview/database.mjs",
+    "existed": false
+  },
+  {
+    "path": "features/protocolReview/core.d.mts",
+    "existed": false
+  },
+  {
+    "path": "features/protocolReview/database.d.mts",
+    "existed": false
+  },
+  {
+    "path": "features/protocolReview/ClinicianReviewPanel.tsx",
+    "existed": false
+  },
+  {
+    "path": "features/protocolReview/core.test.mjs",
+    "existed": false
+  },
+  {
+    "path": "docs/PHASE2_DB_REVIEW.md",
+    "existed": false
+  }
+]

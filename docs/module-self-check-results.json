@@ -1,0 +1,179 @@
+{
+  "generatedAt": "2026-11-10T01:17:16.170Z",
+  "node": "v24.22.1",
+  "scope": "Standalone fixture-generation helper with a mock in-memory store. These are not application tests, not clinical tests, and not performance measurements.",
+  "summary": {
+    "total": 16,
+    "passed": 16,
+    "failed": 0
+  },
+  "checks": [
+    {
+      "id": "scenarios-build",
+      "name": "All 12 scenarios build without throwing",
+      "status": "passed",
+      "detail": "Built 12 scenarios."
+    },
+    {
+      "id": "scenario-ids-unique",
+      "name": "Scenario IDs match /^SC-\\d{2}$/ and are unique",
+      "status": "passed",
+      "detail": "12 unique IDs."
+    },
+    {
+      "id": "scenario-synthetic-flag",
+      "name": "Every scenario declares synthetic: true",
+      "status": "passed",
+      "detail": "All scenarios flagged synthetic."
+    },
+    {
+      "id": "scenario-shape-valid",
+      "name": "Every scenario passes assertScenarioShape",
+      "status": "passed",
+      "detail": "12 scenarios shape-valid."
+    },
+    {
+      "id": "scenario-clinical-caveat",
+      "name": "Every scenario has a non-empty clinical caveat",
+      "status": "passed",
+      "detail": "All scenarios carry a clinical caveat."
+    },
+    {
+      "id": "mother-patient-link",
+      "name": "Every patient.motherId equals its scenario mother.id",
+      "status": "passed",
+      "detail": "All mother-patient links match."
+    },
+    {
+      "id": "encounter-patient-link",
+      "name": "Every encounter.patientId equals its scenario patient.id",
+      "status": "passed",
+      "detail": "All encounter-patient links match."
+    },
+    {
+      "id": "no-ai-draft",
+      "name": "No scenario carries an AI draft",
+      "status": "passed",
+      "detail": "No AI drafts present in fixtures."
+    },
+    {
+      "id": "no-physician-decision",
+      "name": "No scenario carries a physician decision",
+      "status": "passed",
+      "detail": "No physician decisions present in fixtures."
+    },
+    {
+      "id": "no-drone-equipment-mode",
+      "name": "No scenario uses drone-assisted outreach",
+      "status": "passed",
+      "detail": "No drone-assisted mode referenced in fixtures."
+    },
+    {
+      "id": "fingerprint-deterministic",
+      "name": "Fingerprint is deterministic across rebuilds",
+      "status": "passed",
+      "detail": "Fingerprints stable across two builds."
+    },
+    {
+      "id": "fingerprint-unique",
+      "name": "Fingerprints are unique across all scenarios",
+      "status": "passed",
+      "detail": "12 unique fingerprints."
+    },
+    {
+      "id": "store-put-get",
+      "name": "Mock store put/get returns an equal record",
+      "status": "passed",
+      "detail": "Round-trip equality confirmed."
+    },
+    {
+      "id": "store-list",
+      "name": "Mock store list returns all 12 IDs after insertion",
+      "status": "passed",
+      "detail": "12 IDs listed after insertion."
+    },
+    {
+      "id": "store-clear",
+      "name": "Mock store clear empties the store",
+      "status": "passed",
+      "detail": "Store emptied."
+    },
+    {
+      "id": "safety-boundary-cases",
+      "name": "Safety-boundary fixtures are present and labelled",
+      "status": "passed",
+      "detail": "SC-02 missing evidence; SC-03 urgent-care triggered; SC-04 consent blocked."
+    }
+  ],
+  "disclaimers": [
+    "These checks exercise fixtures/fixtureHelper.ts and fixtures/inMemoryFixtureStore.ts only.",
+    "No React component was rendered.",
+    "No physician signature gate was exercised.",
+    "No clinical classification rule was evaluated against real patient data.",
+    "No AI model was called.",
+    "No aircraft was operated.",
+    "No real patient data is present; all fixtures are synthetic."
+  ],
+  "scenarioCatalogue": [
+    {
+      "id": "SC-01",
+      "name": "Complete evidence — ready for physician review",
+      "category": "complete-evidence"
+    },
+    {
+      "id": "SC-02",
+      "name": "Incomplete evidence — missing required observations",
+      "category": "incomplete-evidence"
+    },
+    {
+      "id": "SC-03",
+      "name": "Danger sign reported — urgent-care pathway",
+      "category": "danger-sign"
+    },
+    {
+      "id": "SC-04",
+      "name": "Consent not recorded — assessment blocked",
+      "category": "consent-blocked"
+    },
+    {
+      "id": "SC-05",
+      "name": "No observations recorded — empty encounter",
+      "category": "no-observations"
+    },
+    {
+      "id": "SC-06",
+      "name": "Unusable evidence — chest-indrawing recording failed",
+      "category": "unusable-quality"
+    },
+    {
+      "id": "SC-07",
+      "name": "Maternal needs recorded — infant observation empty",
+      "category": "maternal-focus"
+    },
+    {
+      "id": "SC-08",
+      "name": "Multi-concern — feeding and breathing",
+      "category": "multi-concern"
+    },
+    {
+      "id": "SC-09",
+      "name": "Grandmother is primary caregiver",
+      "category": "elderly-caregiver"
+    },
+    {
+      "id": "SC-10",
+      "name": "Very young infant — day 0",
+      "category": "very-young-infant"
+    },
+    {
+      "id": "SC-11",
+      "name": "Older infant within band — day 59",
+      "category": "older-infant-within-band"
+    },
+    {
+      "id": "SC-12",
+      "name": "Age outside band — day 90",
+      "category": "age-outside-band"
+    }
+  ]
+}

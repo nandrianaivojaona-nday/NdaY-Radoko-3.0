@@ -59,8 +59,8 @@ This status reflects a synthetic browser walkthrough and the existing TypeScript
 | --- | --- | --- |
 | Infant and encounter registration | Synthetic encounter saved with caregiver consent and separate image-capture choice; location cascade and commune-linked CSB placeholder exercised | Synthetic records only; facility directory must be verified before operational use |
 | Encounter workflow | Local queue, assessment state, evidence tab, draft tab and physician-review path are present | Demo state machine and roles only; no production authentication or facility transmission |
-| Observations | Structured catalogue, concern navigation, evidence-quality controls and completeness counter | Exact protocol citations are pending; no automated protocol comparison/classification or rule-based action list |
-| AI assistance | Current browser build prepares a deterministic local documentation template and labels it simulated | Provider key injection is disabled in Vite; no live model integration in this build |
+| Observations and assessment review | Structured catalogue, evidence-quality controls, completeness counter, and an Assess/Classify review screen using deterministic comparison against a synthetic training pack | Training pack is explicitly non-medical; no approved clinical rule set, Madagascar protocol mapping, or patient-care classification is supplied |
+| AI assistance | Documentation draft uses a deterministic local template and is labelled simulated | Provider key injection is disabled in Vite; no live model integration, sensor interpretation, or drone control in this build |
 | Physician decisions | Demonstration decision, review and outcome controls are present | Not verified professional identity, clinical sign-off, or an external referral network |
 | Referral and follow-up | Outcome recording and urgent-escalation workflow | Not evidence of a functioning external referral network |
 | Data persistence | Browser-local demonstration store | No demonstrated facility sharing or secure offline synchronisation |
@@ -129,8 +129,8 @@ On 8 November 2026, `npm run typecheck` and `npm run build` passed with the prov
 2. Select the Field Officer demonstration account.
 3. Register a synthetic infant. Try Faritany Fianarantsoa → Region Vatovavy → District Ifanadiana → Commune Ifanadiana; note that the CSB is a directory placeholder. Record consent and image permission separately.
 4. Open the new encounter and review the concern prompts and evidence catalogue. Missing observations should remain “not assessed,” not be interpreted as normal.
-5. Prepare the draft. It should identify a deterministic local template, list missing evidence, state that no approved protocol is attached, and say it does not diagnose, classify, score, or recommend treatment.
-6. Observe that the interface does not run protocol comparison or a treatment rule engine. No real-care decision should be made from this prototype.
+5. Open Assess / classify (demo) to inspect the deterministic comparison and clinician-review gates using only the non-medical synthetic training pack. Do not import clinical rules or use real patient information.
+6. Prepare the documentation draft. It should identify a deterministic local template, list missing evidence, and say it is not a diagnosis. The training comparison is not a clinical classification or treatment recommendation.
 7. Use the reset control to restore the seeded synthetic cases. Do not enter real names, dates of birth, contacts, household locations, images, or health records.
 
 Report problems with the build identifier, steps, expected result and actual result. Screenshots must contain synthetic data only.
@@ -172,7 +172,7 @@ Before claiming a working AI integration, document:
 - Timeout, failure and missing-key behaviour.
 - Completed evaluation results and known failure modes.
 
-No diagnostic-accuracy figure, validated retrieval method or onboard inference is claimed. AI text must not invent observations or act as a clinical decision.
+The Assess/Classify screen demonstrates software gates against a synthetic non-medical fixture only. No diagnostic-accuracy figure, validated retrieval method, clinical rule engine, sensor interpretation or onboard inference is claimed. AI text must not invent observations or act as a clinical decision.
 
 ## Clinical reference and governance
 
@@ -285,3 +285,14 @@ Add verified contacts and contributor roles before publication. List clinical ad
 - [ ] Verify the protocol edition and clinical review status.
 - [ ] Add a private security contact.
 - [ ] Make the repository, application text and demo video describe the same current capabilities.
+
+## Prepared scenarios and helper self-check
+
+12 synthetic input fixtures + a fixture-generation helper with 16 isolated
+checks. Run:
+
+```sh
+npm run fixtures:list        # 12-scenario catalogue
+npm run fixtures:self-check  # 16 helper checks + JSON output
+Scope: standalone helper + mock store — not application tests, not clinical
+tests, no AI model called, no physician decision recorded, no drone operation.

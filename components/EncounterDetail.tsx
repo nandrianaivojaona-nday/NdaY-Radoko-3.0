@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from 'react';
+import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import {
   Country,
   DecisionAmendment,
@@ -14,7 +14,10 @@ import {
   Patient,
   Referral,
   Session,
-  Mother
+  Mother,
+  AssessmentEvidence,
+  AssessmentSession,
+  ConsentRecord,
 } from '../types';
 import {
   advanceDeliveryState,
@@ -31,9 +34,11 @@ import {
   updateLogistics,
   validateDecision,
 } from '../services/clinicalWorkflow';
-import { OBSERVATION_CATALOGUE, summariseCompleteness } from '../data/observations';
+import { OBSERVATION_CATALOGUE, summariseCompleteness, fingerprintObservations } from '../data/observations';
 import { EncounterStatusBadge, EvidenceBadge, Notice, QualityBadge } from './Badges';
 import ObservationPanel from './ObservationPanel';
+import { evaluateClassificationRules } from '../services/clinicalWorkflow';
+import ClinicianReviewPanel from '../features/protocolReview/ClinicianReviewPanel';
 import { getConcernRecommendations } from '../data/reportedConcerns';
 import { daysFromNow, formatDateTime, toDateTimeLocal } from '../utils/format';
 
@@ -41,7 +46,7 @@ export interface EncounterActions {
   saveObservations: (encounterId: string, observations: Observation[]) => void;
   prepareDraft: (encounterId: string) => Promise<void>;
   requestMoreInfo: (encounterId: string, detail: string) => void;
-  signDecision: (encounterId: string, input: DecisionInput) => DecisionValidation;
+  signDecision: (encounterId: string, input: DecisionInput) => Promise<DecisionValidation>;
   amendDecision: (encounterId: string, disposition: Disposition, reason: string) => void;
   escalate: (encounterId: string, reason: string, facility: string) => void;
   completeFollowUp: (encounterId: string, outcome: string) => void;
@@ -62,9 +67,15 @@ interface EncounterDetailProps {
   drone: Drone | null;
   actions: EncounterActions;
   onClose: () => void;
+  sessions?: AssessmentSession[];
+  evidence?: AssessmentEvidence[];
+  onSaveSession?: (session: AssessmentSession) => void;
+  onSaveEvidence?: (evidence: AssessmentEvidence) => void;
+  onUpdateConsent?: (consent: ConsentRecord) => void;
+  saveStatus: 'pending' | 'saved locally' | 'failed';
 }
 
-type Tab = 'overview' | 'evidence' | 'draft' | 'decision' | 'outcome' | 'history';
+type Tab = 'overview' | 'evidence' | 'assessClassify' | 'draft' | 'decision' | 'outcome' | 'history';
 
 const DEFAULT_SAFETY =
   'Seek care immediately if the baby stops feeding, has convulsions, vomits everything, becomes very sleepy or difficult to wake, breathes fast or with chest indrawing, or develops yellow palms or soles. Do not wait for another call.';
@@ -85,8 +96,20 @@ const EncounterDetail: React.FC<EncounterDetailProps> = ({
   drone,
   actions,
   onClose,
+  sessions = [],
+  evidence = [],
+  onSaveSession = () => {},
+  onSaveEvidence = () => {},
+  onUpdateConsent,
+  saveStatus,
 }) => {
   const [tab, setTab] = useState<Tab>('overview');
+  const [assessmentDirty, setAssessmentDirty] = useState(false);
+  const handleAssessmentDirty = useCallback((dirty: boolean) => setAssessmentDirty(dirty), []);
+  const handleClose = () => {
+    if (assessmentDirty && !window.confirm('Discard unsaved assessment edits?')) return;
+    onClose();
+  };
   const [draftObservations, setDraftObservations] = useState<Observation[]>(encounter.observations);
   const [busy, setBusy] = useState(false);
   const [message, setMessage] = useState<string | null>(null);
@@ -148,6 +171,18 @@ const EncounterDetail: React.FC<EncounterDetailProps> = ({
   const canAsk = canRequestMoreInformation(session.user, encounter);
   const facility = facilities.find((f) => f.id === encounter.facilityId);
 
+  const classificationEvaluations = useMemo(
+    () => evaluateClassificationRules(
+      assessmentProtocol?.classificationRules ?? [],
+      encounter.observations,
+    ),
+    [assessmentProtocol, encounter.observations],
+  );
+  const evaluationById = useMemo(
+    () => new Map(classificationEvaluations.map((e) => [e.ruleId, e])),
+    [classificationEvaluations],
+  );
+
   const handleSaveObservations = () => {
     setError(null);
     if (!encounter.consent.obtained) {
@@ -173,25 +208,20 @@ const EncounterDetail: React.FC<EncounterDetailProps> = ({
     }
   };
 
-  const handleSign = () => {
+  const handleSign = async () => {
     setError(null);
-    const validation = validateDecision(encounter, decision);
-    if (!validation.valid) {
-      setDecisionErrors(validation.errors);
-      return;
-    }
-    const result = actions.signDecision(encounter.id, {
-      ...decision,
-      protocolId: assessmentProtocol?.id ?? null,
-      protocolVersion: assessmentProtocol?.version ?? null,
-    });
-    if (!result.valid) {
-      setDecisionErrors(result.errors);
-      return;
-    }
-    setDecisionErrors([]);
-    setMessage('Decision signed. The encounter is now in the disposition pathway.');
-    setTab('outcome');
+    setBusy(true);
+    try {
+      const result = await actions.signDecision(encounter.id, {
+        ...decision,
+        protocolId: assessmentProtocol?.id ?? null,
+        protocolVersion: assessmentProtocol?.version ?? null,
+      });
+      if (!result.valid) { setDecisionErrors(result.errors); return; }
+      setDecisionErrors([]);
+      setMessage('Decision signed. The encounter is now in the disposition pathway.');
+      setTab('outcome');
+    } finally { setBusy(false); }
   };
 
   const handleEscalate = () => {
@@ -207,6 +237,7 @@ const EncounterDetail: React.FC<EncounterDetailProps> = ({
   const tabs: { id: Tab; label: string }[] = [
     { id: 'overview', label: 'Overview' },
     { id: 'evidence', label: `Evidence (${summary.requiredAssessed}/${summary.requiredTotal})` },
+    { id: 'assessClassify', label: 'Assess / classify (demo)' },
     { id: 'draft', label: 'AI draft' },
     { id: 'decision', label: 'Physician decision' },
     { id: 'outcome', label: 'Outcome' },
@@ -243,7 +274,7 @@ const EncounterDetail: React.FC<EncounterDetailProps> = ({
                 {drone ? ` · Equipment: ${drone.name} (${drone.status})` : ''}
               </p>
             </div>
-            <button type="button" onClick={onClose} className="btn-ghost px-2 py-1 text-xs">
+            <button type="button" onClick={handleClose} className="btn-ghost px-2 py-1 text-xs">
               Close ✕
             </button>
           </div>
@@ -294,11 +325,82 @@ const EncounterDetail: React.FC<EncounterDetailProps> = ({
                 </Notice>
               )}
 
-              {encounter.consent.obtained && encounter.consent.obtainedAt && (
-                <div className="grid gap-3 md:grid-cols-3">
-                  <InfoCard label="Consent recorded" value={formatDateTime(encounter.consent.obtainedAt)} />
-                  <InfoCard label="Image capture" value={encounter.consent.imageCaptureAllowed ? 'Allowed' : 'Not allowed'} />
-                  <InfoCard label="Data classification" value={patient.dataClassification} />
+              {encounter.consent.obtained && (
+                <div className="surface-muted p-4">
+                  <div className="flex flex-wrap items-center justify-between gap-2">
+                    <div>
+                      <h4 className="text-sm font-bold text-brand-text-primary">Informed Caregiver Consent</h4>
+                      <p className="text-xs text-brand-text-secondary">
+                        Recorded: {formatDateTime(encounter.consent.obtainedAt || encounter.createdAt)} by {encounter.consent.obtainedBy || encounter.createdBy}
+                      </p>
+                    </div>
+                    <span className="badge bg-brand-mint/15 text-xs text-brand-mint">✓ Consent Recorded</span>
+                  </div>
+
+                  <div className="mt-3 grid gap-3 sm:grid-cols-3">
+                    <div className="rounded-lg border border-brand-secondary/20 bg-brand-surface p-3 text-xs">
+                      <p className="font-semibold text-brand-text-primary">Remote Image Capture</p>
+                      <p className="mt-1 text-brand-text-secondary">
+                        {encounter.consent.imageCaptureAllowed ? '✓ Allowed' : '✗ Declined (live view only)'}
+                      </p>
+                      {onUpdateConsent && (
+                        <button
+                          type="button"
+                          className="mt-2 text-[11px] font-semibold text-brand-primary underline"
+                          onClick={() =>
+                            onUpdateConsent({
+                              ...encounter.consent,
+                              imageCaptureAllowed: !encounter.consent.imageCaptureAllowed,
+                            })
+                          }
+                        >
+                          Toggle: {encounter.consent.imageCaptureAllowed ? 'Decline' : 'Allow'}
+                        </button>
+                      )}
+                    </div>
+
+                    <div className="rounded-lg border border-brand-secondary/20 bg-brand-surface p-3 text-xs">
+                      <p className="font-semibold text-brand-text-primary">Audio Recording</p>
+                      <p className="mt-1 text-brand-text-secondary">
+                        {encounter.consent.audioRecordingAllowed ? '✓ Allowed' : '✗ Declined (live intercom only)'}
+                      </p>
+                      {onUpdateConsent && (
+                        <button
+                          type="button"
+                          className="mt-2 text-[11px] font-semibold text-brand-primary underline"
+                          onClick={() =>
+                            onUpdateConsent({
+                              ...encounter.consent,
+                              audioRecordingAllowed: !encounter.consent.audioRecordingAllowed,
+                            })
+                          }
+                        >
+                          Toggle: {encounter.consent.audioRecordingAllowed ? 'Decline' : 'Allow'}
+                        </button>
+                      )}
+                    </div>
+
+                    <div className="rounded-lg border border-brand-secondary/20 bg-brand-surface p-3 text-xs">
+                      <p className="font-semibold text-brand-text-primary">Video Recording</p>
+                      <p className="mt-1 text-brand-text-secondary">
+                        {encounter.consent.videoRecordingAllowed ? '✓ Allowed' : '✗ Declined'}
+                      </p>
+                      {onUpdateConsent && (
+                        <button
+                          type="button"
+                          className="mt-2 text-[11px] font-semibold text-brand-primary underline"
+                          onClick={() =>
+                            onUpdateConsent({
+                              ...encounter.consent,
+                              videoRecordingAllowed: !encounter.consent.videoRecordingAllowed,
+                            })
+                          }
+                        >
+                          Toggle: {encounter.consent.videoRecordingAllowed ? 'Decline' : 'Allow'}
+                        </button>
+                      )}
+                    </div>
+                  </div>
                 </div>
               )}
 
@@ -447,6 +549,11 @@ const EncounterDetail: React.FC<EncounterDetailProps> = ({
                 reportedConcerns={patient.reportedConcerns}
                 onUrgentPathway={() => setTab('outcome')}
                 disabled={!canRecord || !encounter.consent.obtained}
+                encounter={encounter}
+                sessions={sessions}
+                evidence={evidence}
+                onSaveSession={onSaveSession}
+                onSaveEvidence={onSaveEvidence}
               />
 
               <section className="surface-muted p-4">
@@ -495,6 +602,20 @@ const EncounterDetail: React.FC<EncounterDetailProps> = ({
             </div>
           )}
 
+          {tab === 'assessClassify' && (
+            <ClinicianReviewPanel
+              encounter={encounter}
+              patient={patient}
+              country={country}
+              session={session}
+              facilities={facilities}
+              actions={actions}
+              onUrgent={handleEscalate}
+              onDirty={handleAssessmentDirty}
+              saveStatus={saveStatus}
+            />
+          )}
+
           {tab === 'draft' && (
             <div className="space-y-4">
               <div className="flex flex-wrap items-start justify-between gap-3">
@@ -509,6 +630,15 @@ const EncounterDetail: React.FC<EncounterDetailProps> = ({
 
               {encounter.aiDraft ? (
                 <>
+                  {(encounter.aiDraft.isStale ||
+                    encounter.aiDraft.evidenceFingerprint !== fingerprintObservations(encounter.observations)) && (
+                    <Notice tone="warning" title="Draft is STALE — Recorded evidence has changed">
+                      Underlying clinical observations, confirmed findings, or supporting evidence have changed since
+                      this documentation draft was generated. The previous draft (fingerprint{' '}
+                      {encounter.aiDraft.evidenceFingerprint}) does not match current evidence (fingerprint{' '}
+                      {fingerprintObservations(encounter.observations)}). Please regenerate the draft.
+                    </Notice>
+                  )}
                   <div className="grid gap-3 md:grid-cols-4">
                     <InfoCard label="Model" value={encounter.aiDraft.model} />
                     <InfoCard label="Generated" value={formatDateTime(encounter.aiDraft.generatedAt)} />
@@ -686,6 +816,14 @@ const EncounterDetail: React.FC<EncounterDetailProps> = ({
                         {assessmentProtocol.classificationRules.map((rule) => {
                           const selected = decision.protocolClassification.split(/\n+/).filter(Boolean).includes(rule.label);
                           const hasColourSwatch = Boolean(rule.chartColourHex && /^#[0-9A-Fa-f]{6}$/.test(rule.chartColourHex));
+                          const evaluation = evaluationById.get(rule.id);
+                          const evaluationBadge = evaluation
+                            ? ({
+                                matched: { label: 'Observations suggest match', cls: 'bg-brand-mint/15 text-brand-mint' },
+                                'not-matched': { label: 'Observations suggest no match', cls: 'bg-brand-text-secondary/10 text-brand-text-secondary' },
+                                indeterminate: { label: 'Insufficient evidence', cls: 'bg-brand-accent/15 text-brand-accent' },
+                              }[evaluation.result])
+                            : null;
                           return (
                             <div key={rule.id} className={`overflow-hidden rounded-xl border bg-white/60 ${selected ? 'ring-2 ring-brand-primary/50' : 'border-brand-secondary/20'}`}>
                               <div className="flex items-start gap-3 p-3">
@@ -694,6 +832,11 @@ const EncounterDetail: React.FC<EncounterDetailProps> = ({
                                   <button type="button" className="text-left text-sm font-bold text-brand-text-primary underline-offset-2 hover:underline" aria-pressed={selected} disabled={!canSign} onClick={() => setDecision((prev) => { const current = prev.protocolClassification.split(/\n+/).filter(Boolean); const removing = current.includes(rule.label); const next = removing ? current.filter((label) => label !== rule.label) : [...current, rule.label]; const linkedActionLines = rule.actions.map((action) => `${action.category}: ${action.label}${action.detail ? ` — ${action.detail}` : ''}`); const nextPlan = removing ? prev.protocolPlan.split(/\n+/).filter((line) => !linkedActionLines.includes(line)).join('\n') : prev.protocolPlan; return { ...prev, protocolClassification: next.join('\n'), protocolPlan: nextPlan }; })}>
                                     {rule.label}
                                   </button>
+                                  {evaluationBadge && (
+                                    <span className={`badge ml-2 text-[10px] ${evaluationBadge.cls}`}>
+                                      {evaluationBadge.label}
+                                    </span>
+                                  )}
                                   <p className="text-[11px] text-brand-text-secondary">Chart colour family: {hasColourSwatch ? rule.chartColourLabel : 'swatch unavailable'} · {rule.criteriaSummary}</p>
                                   {rule.actions.length > 0 && <div className="mt-2 grid gap-2 sm:grid-cols-2">{rule.actions.map((action) => { const actionText = `${action.category}: ${action.label}${action.detail ? ` — ${action.detail}` : ''}`; const selectedAction = decision.protocolPlan.split(/\n+/).includes(actionText); return <button key={action.id} type="button" aria-pressed={selectedAction} disabled={!canSign} onClick={() => setDecision((prev) => { const currentActions = prev.protocolPlan.split(/\n+/).filter(Boolean); const nextActions = currentActions.includes(actionText) ? currentActions.filter((item) => item !== actionText) : [...currentActions, actionText]; const currentClasses = prev.protocolClassification.split(/\n+/).filter(Boolean); const nextClasses = currentClasses.includes(rule.label) ? currentClasses : [...currentClasses, rule.label]; return { ...prev, protocolClassification: nextClasses.join('\n'), protocolPlan: nextActions.join('\n') }; })} className={`rounded-lg border-l-4 bg-brand-background/70 p-2 text-left text-xs hover:bg-brand-background ${selectedAction ? 'ring-2 ring-brand-primary/50' : ''}`} style={{ borderLeftColor: hasColourSwatch ? rule.chartColourHex : '#9ca3af' }}><span className="font-semibold">{action.category}: {action.label}</span>{action.detail && <span className="mt-0.5 block text-brand-text-secondary">{action.detail}</span>}</button>; })}</div>}
                                   {rule.citations.map((citation) => { const source = assessmentProtocol?.sources?.find((item) => item.id === citation.sourceId); return <p key={`${citation.sourceId}-${citation.ruleId}`} className="mt-2 text-[10px] text-brand-text-secondary">Source: {source?.url ? <a href={source.url} target="_blank" rel="noreferrer" className="underline">{source.title}</a> : source?.title ?? citation.sourceId}, p. {citation.page} — {citation.section}</p>; })}
@@ -905,8 +1048,8 @@ const EncounterDetail: React.FC<EncounterDetailProps> = ({
                       Signature: {session.user.name} · {session.user.professionalRegistration ?? 'no registration recorded'} ·{' '}
                       {session.user.facilityId === encounter.facilityId ? 'facility matches' : 'facility mismatch'}
                     </p>
-                    <button type="button" className="btn-primary" onClick={handleSign} disabled={!canSign}>
-                      Sign physician decision
+                    <button type="button" className="btn-primary" onClick={handleSign} disabled={!canSign || busy}>
+                      {busy ? 'Validating and signing…' : 'Sign physician decision'}
                     </button>
                   </div>
                 </>
@@ -1164,8 +1307,17 @@ const InfoCard: React.FC<{ label: string; value: string }> = ({ label, value }) 
 const SignedDecision: React.FC<{ encounter: Encounter }> = ({ encounter }) => {
   const decision = encounter.physicianDecision;
   if (!decision) return null;
+  const currentFp = fingerprintObservations(encounter.observations);
+  const isStale = decision.isStale || decision.evidenceFingerprint !== currentFp;
   return (
     <div className="space-y-4">
+      {isStale && (
+        <Notice tone="critical" title="Signed physician decision is STALE">
+          Underlying assessment observations or supporting evidence have changed since Dr. {decision.physicianName} signed
+          this decision. Signed evidence fingerprint: {decision.evidenceFingerprint}. Current evidence fingerprint:{' '}
+          {currentFp}. The decision must be amended or re-evaluated before clinical action.
+        </Notice>
+      )}
       <div className="flex flex-wrap items-center justify-between gap-2">
         <div>
           <h3 className="text-lg font-bold text-brand-text-primary">Signed physician decision</h3>

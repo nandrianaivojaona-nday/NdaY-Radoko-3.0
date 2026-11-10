@@ -1,0 +1,55 @@
+{
+  "schemaVersion": 1,
+  "id": "NDAY-SOFTWARE-TRAINING",
+  "version": "1",
+  "release": "synthetic-only",
+  "title": "Software training fixture \u2014 NOT IMCI / PCIMNE",
+  "rules": [
+    {
+      "id": "TRAINING-A",
+      "label": "Training pattern A \u2014 not a clinical classification",
+      "module": "training-A",
+      "priority": 1,
+      "when": {
+        "field": "obs:other_problem",
+        "op": "contains",
+        "value": "DEMO-A"
+      },
+      "citation": {
+        "sourceId": "SOFTWARE-TEST-FIXTURE",
+        "section": "Non-medical gate demonstration",
+        "page": 1
+      },
+      "actions": [
+        {
+          "id": "TRAINING-ACTION-A",
+          "kind": "Training placeholder",
+          "text": "Demonstration action A. No medical treatment, counselling or referral instruction is supplied."
+        }
+      ]
+    },
+    {
+      "id": "TRAINING-B",
+      "label": "Training pattern B \u2014 not a clinical classification",
+      "module": "training-B",
+      "priority": 1,
+      "when": {
+        "field": "obs:other_problem",
+        "op": "contains",
+        "value": "DEMO-B"
+      },
+      "citation": {
+        "sourceId": "SOFTWARE-TEST-FIXTURE",
+        "section": "Non-medical gate demonstration",
+        "page": 1
+      },
+      "actions": [
+        {
+          "id": "TRAINING-ACTION-B",
+          "kind": "Training placeholder",
+          "text": "Demonstration action B. No medical treatment, counselling or referral instruction is supplied."
+        }
+      ]
+    }
+  ]
+}
