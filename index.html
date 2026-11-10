@@ -23,6 +23,15 @@
     <link rel="manifest" href="/site.webmanifest" />
     <link rel="stylesheet" href="/index.css" />
   </head>
+  <script>
+    (function(){
+      var redirect = sessionStorage.redirect;
+      delete sessionStorage.redirect;
+      if (redirect && redirect !== location.href) {
+        history.replaceState(null, null, redirect);
+      }
+    })();
+  </script>
   <body>
     <div id="root"></div>
     <script type="module" src="/index.tsx"></script>
