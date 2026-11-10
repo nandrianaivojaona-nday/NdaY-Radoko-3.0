@@ -69,7 +69,7 @@ export const isUsableObservation = (observation: Observation): boolean =>
       observation.quality !== 'Unusable',
   );
 
-export const OBSERVATION_CATALOGUE: ObservationDefinition[] = [
+const _RAW_OBSERVATION_CATALOGUE: ObservationDefinition[] = [
   // Danger signs -----------------------------------------------------------
   {
     id: 'convulsions',
@@ -334,6 +334,15 @@ export const OBSERVATION_CATALOGUE: ObservationDefinition[] = [
     options: ['Not assessed', 'Goes back immediately', 'Goes back slowly', 'Goes back very slowly'],
     guidance: 'Must be performed by a trained person. Do not ask an untrained caregiver to interpret a skin pinch for remote classification.',
     protocolReference: 'IMCI young infant: dehydration',
+    proposedSubstitute: {
+      pathway: 'Caregiver-mediated camera review',
+      description:
+        'A caregiver performs the pinch under camera supervision while a trained clinician reviews the recording. ' +
+        'Bench-tested for inter-rater agreement in the 12-month programme. ' +
+        'A parallel bench study evaluates whether a consumer wearable (PPG) can substitute for trained manual pulse measurement. ' +
+        'Neither substitute is validated today.',
+      status: 'Proposed for bench testing',
+    },
   },
 
   // Skin, umbilicus and ear -----------------------------------------------
@@ -450,6 +459,430 @@ export const OBSERVATION_CATALOGUE: ObservationDefinition[] = [
     
   },
 ];
+
+// ---------------------------------------------------------------------------
+// Drone capture requirements per observation
+// A proposed sensor-to-airframe requirements matrix. NOT validated. NOT a
+// current capability. Every field here is what the 12-month bench study
+// intends to test. The app renders these requirements in "Drone capture view"
+// and refuses to present any of them as a validated observation.
+// ---------------------------------------------------------------------------
+const DRONE_REQUIREMENTS: Record<string, import('../types').DroneCaptureRequirements> = {
+  // ---- Feasible via a stabilised camera on a bench ----------------------
+  lethargy: {
+    feasible: true,
+    minimumStandoffMetres: 0.8, maximumStandoffMetres: 2.0,
+    minimumResolution: '1080p', minimumFrameRate: 30,
+    lightingRequirement: 'Daylight',
+    requiresColourCalibration: false, requiresAudio: false,
+    minimumObservationSeconds: 60,
+    validityConditions: [
+      'Full infant body visible in frame',
+      'Continuous 60-second capture',
+      'Camera stationary (gimbal locked)',
+      'Lighting at least 200 lux',
+    ],
+    invalidityConditions: [
+      'Infant partially out of frame',
+      'Camera movement greater than 2 cm per second',
+      'Intermittent capture',
+      'Lighting below 200 lux',
+    ],
+  },
+  movement_only_when_stimulated: {
+    feasible: true,
+    minimumStandoffMetres: 0.8, maximumStandoffMetres: 2.0,
+    minimumResolution: '1080p', minimumFrameRate: 30,
+    lightingRequirement: 'Daylight',
+    requiresColourCalibration: false, requiresAudio: false,
+    minimumObservationSeconds: 60,
+    validityConditions: [
+      'Full infant body visible',
+      'Continuous 60-second capture',
+      'Camera stationary',
+    ],
+    invalidityConditions: [
+      'Partial body occlusion',
+      'Camera movement',
+      'Capture shorter than 60 seconds',
+    ],
+  },
+  chest_indrawing: {
+    feasible: true,
+    minimumStandoffMetres: 0.5, maximumStandoffMetres: 1.5,
+    minimumResolution: '1080p', minimumFrameRate: 30,
+    lightingRequirement: 'Daylight',
+    requiresColourCalibration: false, requiresAudio: false,
+    minimumObservationSeconds: 30,
+    validityConditions: [
+      'Chest fully visible, sternum to umbilicus',
+      'Adequate lighting on lower chest',
+      'Camera stationary',
+    ],
+    invalidityConditions: [
+      'Partial chest occlusion by clothing or arm',
+      'Shadow on lower chest',
+      'Camera movement greater than 2 cm per second',
+    ],
+  },
+  grunting: {
+    feasible: true,
+    minimumStandoffMetres: 0.5, maximumStandoffMetres: 1.5,
+    minimumResolution: '1080p', minimumFrameRate: 30,
+    lightingRequirement: 'Daylight',
+    requiresColourCalibration: false, requiresAudio: true,
+    minimumObservationSeconds: 30,
+    validityConditions: [
+      'External microphone captured, not rotor noise',
+      'Ambient noise below 45 dB',
+      'Face and chest visible in frame',
+    ],
+    invalidityConditions: [
+      'Rotor noise obscures the audio',
+      'Ambient noise above 45 dB',
+      'No face or chest in frame',
+    ],
+  },
+  stridor: {
+    feasible: true,
+    minimumStandoffMetres: 0.5, maximumStandoffMetres: 1.5,
+    minimumResolution: '1080p', minimumFrameRate: 30,
+    lightingRequirement: 'Daylight',
+    requiresColourCalibration: false, requiresAudio: true,
+    minimumObservationSeconds: 30,
+    validityConditions: [
+      'External microphone captured',
+      'Ambient noise below 45 dB',
+      'Infant calm during capture',
+    ],
+    invalidityConditions: [
+      'Rotor or ambient noise above 45 dB',
+      'Infant crying throughout',
+    ],
+  },
+  jaundice_present: {
+    feasible: true,
+    minimumStandoffMetres: 0.5, maximumStandoffMetres: 1.0,
+    minimumResolution: '4K', minimumFrameRate: 30,
+    lightingRequirement: 'Daylight',
+    requiresColourCalibration: true, requiresAudio: false,
+    minimumObservationSeconds: 30,
+    validityConditions: [
+      'Face and chest in frame',
+      'Natural or daylight-approximated lighting',
+      'Colour reference card visible in frame',
+    ],
+    invalidityConditions: [
+      'Tinted artificial light source',
+      'No colour reference visible',
+      'Camera movement greater than 2 cm per second',
+    ],
+  },
+  jaundice_palms_soles: {
+    feasible: true,
+    minimumStandoffMetres: 0.3, maximumStandoffMetres: 0.5,
+    minimumResolution: '4K', minimumFrameRate: 30,
+    lightingRequirement: 'Daylight',
+    requiresColourCalibration: true, requiresAudio: false,
+    minimumObservationSeconds: 20,
+    validityConditions: [
+      'Palm or sole clearly in frame',
+      'Colour reference visible',
+      'No shadow on target area',
+    ],
+    invalidityConditions: [
+      'Shadow on target area',
+      'Palm or sole not visible',
+      'No colour reference',
+    ],
+  },
+  sunken_eyes: {
+    feasible: true,
+    minimumStandoffMetres: 0.3, maximumStandoffMetres: 0.8,
+    minimumResolution: '1080p', minimumFrameRate: 30,
+    lightingRequirement: 'Daylight',
+    requiresColourCalibration: false, requiresAudio: false,
+    minimumObservationSeconds: 20,
+    validityConditions: [
+      'Face visible, eyes in frame',
+      'Adequate lighting on eye area',
+    ],
+    invalidityConditions: [
+      'Eyes closed or obscured',
+      'Shadow on eye area',
+    ],
+  },
+  umbilical_infection: {
+    feasible: true,
+    minimumStandoffMetres: 0.3, maximumStandoffMetres: 0.6,
+    minimumResolution: '4K', minimumFrameRate: 30,
+    lightingRequirement: 'Daylight',
+    requiresColourCalibration: false, requiresAudio: false,
+    minimumObservationSeconds: 20,
+    validityConditions: [
+      'Umbilicus fully visible',
+      'Adequate lighting on abdomen',
+    ],
+    invalidityConditions: [
+      'Umbilicus occluded by clothing or cord',
+      'Shadow on umbilicus',
+    ],
+  },
+  skin_pustules: {
+    feasible: true,
+    minimumStandoffMetres: 0.5, maximumStandoffMetres: 1.0,
+    minimumResolution: '4K', minimumFrameRate: 30,
+    lightingRequirement: 'Daylight',
+    requiresColourCalibration: false, requiresAudio: false,
+    minimumObservationSeconds: 60,
+    validityConditions: [
+      'Slow body sweep from head to feet',
+      'Adequate lighting throughout',
+      'No occlusion by clothing',
+    ],
+    invalidityConditions: [
+      'Partial body coverage',
+      'Shadows',
+      'Sweep faster than one body length per 10 seconds',
+    ],
+  },
+  ear_discharge: {
+    feasible: true,
+    minimumStandoffMetres: 0.2, maximumStandoffMetres: 0.4,
+    minimumResolution: '4K', minimumFrameRate: 30,
+    lightingRequirement: 'Controlled indoor',
+    requiresColourCalibration: false, requiresAudio: false,
+    minimumObservationSeconds: 15,
+    validityConditions: [
+      'External ear and visible canal in frame',
+      'No occlusion by hair',
+      'Adequate lighting',
+    ],
+    invalidityConditions: [
+      'Ear obscured',
+      'Poor lighting',
+      'Camera closer than 0.2 m (out of focus)',
+    ],
+  },
+  oral_thrush: {
+    feasible: true,
+    minimumStandoffMetres: 0.2, maximumStandoffMetres: 0.4,
+    minimumResolution: '4K', minimumFrameRate: 30,
+    lightingRequirement: 'Controlled indoor',
+    requiresColourCalibration: false, requiresAudio: false,
+    minimumObservationSeconds: 15,
+    validityConditions: [
+      'Mouth open, tongue and oral mucosa visible',
+      'Adequate lighting',
+      'No occlusion',
+    ],
+    invalidityConditions: [
+      'Mouth closed throughout',
+      'Poor lighting',
+      'Tongue obscures mucosa',
+    ],
+  },
+
+  // ---- NOT feasible via a drone camera -----------------------------------
+  convulsions: {
+    feasible: false,
+    minimumStandoffMetres: 0, maximumStandoffMetres: 0,
+    minimumResolution: '1080p', minimumFrameRate: 0,
+    lightingRequirement: 'Any',
+    requiresColourCalibration: false, requiresAudio: false,
+    minimumObservationSeconds: 0,
+    validityConditions: [], invalidityConditions: [],
+    notFeasibleReason:
+      'Caregiver-reported history. A drone audio prompt can relay the question, ' +
+      'but the answer is a caregiver report, not a drone-observed sign.',
+  },
+  feeding_poorly: {
+    feasible: false,
+    minimumStandoffMetres: 0, maximumStandoffMetres: 0,
+    minimumResolution: '1080p', minimumFrameRate: 0,
+    lightingRequirement: 'Any',
+    requiresColourCalibration: false, requiresAudio: false,
+    minimumObservationSeconds: 0,
+    validityConditions: [], invalidityConditions: [],
+    notFeasibleReason: 'Caregiver-reported history. Audio prompt only.',
+  },
+  vomits_everything: {
+    feasible: false,
+    minimumStandoffMetres: 0, maximumStandoffMetres: 0,
+    minimumResolution: '1080p', minimumFrameRate: 0,
+    lightingRequirement: 'Any',
+    requiresColourCalibration: false, requiresAudio: false,
+    minimumObservationSeconds: 0,
+    validityConditions: [], invalidityConditions: [],
+    notFeasibleReason: 'Caregiver-reported history. Audio prompt only.',
+  },
+  respiratory_rate: {
+    feasible: false,
+    minimumStandoffMetres: 0, maximumStandoffMetres: 0,
+    minimumResolution: '1080p', minimumFrameRate: 0,
+    lightingRequirement: 'Any',
+    requiresColourCalibration: false, requiresAudio: false,
+    minimumObservationSeconds: 0,
+    validityConditions: [], invalidityConditions: [],
+    notFeasibleReason:
+      'Requires a 60-second manual count or a dedicated respiratory-rate sensor. ' +
+      'The proposed bench kit evaluates whether a sensor can substitute; a camera alone cannot provide a reliable count.',
+  },
+  axillary_temperature: {
+    feasible: false,
+    minimumStandoffMetres: 0, maximumStandoffMetres: 0,
+    minimumResolution: '1080p', minimumFrameRate: 0,
+    lightingRequirement: 'Any',
+    requiresColourCalibration: false, requiresAudio: false,
+    minimumObservationSeconds: 0,
+    validityConditions: [], invalidityConditions: [],
+    notFeasibleReason: 'Requires a contact thermometer. The proposed bench kit evaluates a sensor substitute.',
+  },
+  weight: {
+    feasible: false,
+    minimumStandoffMetres: 0, maximumStandoffMetres: 0,
+    minimumResolution: '1080p', minimumFrameRate: 0,
+    lightingRequirement: 'Any',
+    requiresColourCalibration: false, requiresAudio: false,
+    minimumObservationSeconds: 0,
+    validityConditions: [], invalidityConditions: [],
+    notFeasibleReason: 'Requires a calibrated infant scale.',
+  },
+  breastfeeding_status: {
+    feasible: false,
+    minimumStandoffMetres: 0, maximumStandoffMetres: 0,
+    minimumResolution: '1080p', minimumFrameRate: 0,
+    lightingRequirement: 'Any',
+    requiresColourCalibration: false, requiresAudio: false,
+    minimumObservationSeconds: 0,
+    validityConditions: [], invalidityConditions: [],
+    notFeasibleReason: 'Caregiver-reported history. Audio prompt only.',
+  },
+  feeding_change: {
+    feasible: false,
+    minimumStandoffMetres: 0, maximumStandoffMetres: 0,
+    minimumResolution: '1080p', minimumFrameRate: 0,
+    lightingRequirement: 'Any',
+    requiresColourCalibration: false, requiresAudio: false,
+    minimumObservationSeconds: 0,
+    validityConditions: [], invalidityConditions: [],
+    notFeasibleReason: 'Caregiver-reported history. Audio prompt only.',
+  },
+  jaundice_onset_day: {
+    feasible: false,
+    minimumStandoffMetres: 0, maximumStandoffMetres: 0,
+    minimumResolution: '1080p', minimumFrameRate: 0,
+    lightingRequirement: 'Any',
+    requiresColourCalibration: false, requiresAudio: false,
+    minimumObservationSeconds: 0,
+    validityConditions: [], invalidityConditions: [],
+    notFeasibleReason:
+      'Caregiver-reported onset history. Related visual observation (jaundice_present) is drone-feasible; the onset day is not.',
+  },
+  diarrhoea_present: {
+    feasible: false,
+    minimumStandoffMetres: 0, maximumStandoffMetres: 0,
+    minimumResolution: '1080p', minimumFrameRate: 0,
+    lightingRequirement: 'Any',
+    requiresColourCalibration: false, requiresAudio: false,
+    minimumObservationSeconds: 0,
+    validityConditions: [], invalidityConditions: [],
+    notFeasibleReason: 'Caregiver-reported history. Audio prompt only.',
+  },
+  diarrhoea_duration: {
+    feasible: false,
+    minimumStandoffMetres: 0, maximumStandoffMetres: 0,
+    minimumResolution: '1080p', minimumFrameRate: 0,
+    lightingRequirement: 'Any',
+    requiresColourCalibration: false, requiresAudio: false,
+    minimumObservationSeconds: 0,
+    validityConditions: [], invalidityConditions: [],
+    notFeasibleReason: 'Caregiver-reported history. Audio prompt only.',
+  },
+  blood_in_stool: {
+    feasible: false,
+    minimumStandoffMetres: 0, maximumStandoffMetres: 0,
+    minimumResolution: '1080p', minimumFrameRate: 0,
+    lightingRequirement: 'Any',
+    requiresColourCalibration: false, requiresAudio: false,
+    minimumObservationSeconds: 0,
+    validityConditions: [], invalidityConditions: [],
+    notFeasibleReason: 'Caregiver-reported history. Audio prompt only.',
+  },
+  skin_pinch: {
+    feasible: false,
+    minimumStandoffMetres: 0, maximumStandoffMetres: 0,
+    minimumResolution: '1080p', minimumFrameRate: 0,
+    lightingRequirement: 'Any',
+    requiresColourCalibration: false, requiresAudio: false,
+    minimumObservationSeconds: 0,
+    validityConditions: [], invalidityConditions: [],
+    notFeasibleReason:
+      'Requires physical palpation. A drone cannot perform or observe a skin pinch. ' +
+      'The caregiver-mediated camera-supervised substitute is proposed for study.',
+  },
+  bulging_fontanelle: {
+    feasible: false,
+    minimumStandoffMetres: 0, maximumStandoffMetres: 0,
+    minimumResolution: '1080p', minimumFrameRate: 0,
+    lightingRequirement: 'Any',
+    requiresColourCalibration: false, requiresAudio: false,
+    minimumObservationSeconds: 0,
+    validityConditions: [], invalidityConditions: [],
+    notFeasibleReason: 'Requires physical palpation of the fontanelle.',
+  },
+  maternal_hiv_status: {
+    feasible: false,
+    minimumStandoffMetres: 0, maximumStandoffMetres: 0,
+    minimumResolution: '1080p', minimumFrameRate: 0,
+    lightingRequirement: 'Any',
+    requiresColourCalibration: false, requiresAudio: false,
+    minimumObservationSeconds: 0,
+    validityConditions: [], invalidityConditions: [],
+    notFeasibleReason: 'Sensitive caregiver report. Audio prompt only, in a confidential setting.',
+  },
+  infant_hiv_test: {
+    feasible: false,
+    minimumStandoffMetres: 0, maximumStandoffMetres: 0,
+    minimumResolution: '1080p', minimumFrameRate: 0,
+    lightingRequirement: 'Any',
+    requiresColourCalibration: false, requiresAudio: false,
+    minimumObservationSeconds: 0,
+    validityConditions: [], invalidityConditions: [],
+    notFeasibleReason: 'Caregiver report of test status. Audio prompt only.',
+  },
+  immunisation_status: {
+    feasible: false,
+    minimumStandoffMetres: 0, maximumStandoffMetres: 0,
+    minimumResolution: '1080p', minimumFrameRate: 0,
+    lightingRequirement: 'Any',
+    requiresColourCalibration: false, requiresAudio: false,
+    minimumObservationSeconds: 0,
+    validityConditions: [], invalidityConditions: [],
+    notFeasibleReason: 'Caregiver report or record review. Audio prompt only.',
+  },
+  other_problem: {
+    feasible: false,
+    minimumStandoffMetres: 0, maximumStandoffMetres: 0,
+    minimumResolution: '1080p', minimumFrameRate: 0,
+    lightingRequirement: 'Any',
+    requiresColourCalibration: false, requiresAudio: false,
+    minimumObservationSeconds: 0,
+    validityConditions: [], invalidityConditions: [],
+    notFeasibleReason: 'Free-text caregiver report. Audio prompt only.',
+  },
+};
+
+// Merge requirements into the observation catalogue at load time.
+// Every observation definition carries its drone capture requirements so the
+// UI can render a dedicated view without duplicating requirement data.
+export const OBSERVATION_CATALOGUE: ObservationDefinition[] = _RAW_OBSERVATION_CATALOGUE.map(
+  (definition) => {
+    const requirements = DRONE_REQUIREMENTS[definition.id];
+    if (!requirements) return definition;
+    return { ...definition, droneCaptureRequirements: requirements };
+  },
+);
 
 export type ObservationTraceabilityStatus =
   | 'Exact chart citation pending'

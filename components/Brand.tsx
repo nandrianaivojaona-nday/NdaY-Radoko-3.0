@@ -4,6 +4,25 @@ const RADOKO_LOGO = '/assets/images/nday-radoko-logo.png';
 const ENTERPRISE_LOGO = '/assets/images/nday-enterprise-logo.png';
 const RADOKO_ICON = '/assets/images/nday-radoko-icon.png';
 
+// Inline SVG fallbacks used when the PNG asset is missing (403/404).
+const RADOKO_FALLBACK =
+  'data:image/svg+xml;utf8,' +
+  encodeURIComponent(
+    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">' +
+    '<rect width="200" height="200" rx="24" fill="#2563EB"/>' +
+    '<text x="100" y="130" font-family="Helvetica,Arial,sans-serif" font-size="72" font-weight="bold" text-anchor="middle" fill="white">NR</text>' +
+    '</svg>'
+  );
+const ENTERPRISE_FALLBACK =
+  'data:image/svg+xml;utf8,' +
+  encodeURIComponent(
+    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">' +
+    '<rect width="200" height="200" rx="20" fill="#1D4ED8"/>' +
+    '<text x="100" y="126" font-family="Helvetica,Arial,sans-serif" font-size="64" font-weight="bold" text-anchor="middle" fill="white">NE</text>' +
+    '</svg>'
+  );
+
+
 export const RadokoLogo: React.FC<{ size?: number; className?: string; iconOnly?: boolean }> = ({
   size = 48,
   className = '',
@@ -15,6 +34,7 @@ export const RadokoLogo: React.FC<{ size?: number; className?: string; iconOnly?
   >
     <img
       src={iconOnly ? RADOKO_ICON : RADOKO_LOGO}
+      onError={(e) => { (e.currentTarget as HTMLImageElement).src = RADOKO_FALLBACK; }}
       alt="NdaY'Radoko project logo"
       width={size}
       height={size}
@@ -32,6 +52,7 @@ export const EnterpriseLogo: React.FC<{ size?: number; className?: string }> = (
   >
     <img
       src={ENTERPRISE_LOGO}
+      onError={(e) => { (e.currentTarget as HTMLImageElement).src = ENTERPRISE_FALLBACK; }}
       alt="NdaY' Enterprise logo"
       width={size}
       height={size}

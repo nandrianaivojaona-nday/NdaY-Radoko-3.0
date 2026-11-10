@@ -253,7 +253,7 @@ const EncounterDetail: React.FC<EncounterDetailProps> = ({
               <div className="flex flex-wrap items-center gap-2">
                 <p className="text-xs font-semibold text-brand-primary">{encounter.id}</p>
                 <EncounterStatusBadge status={encounter.status} />
-                {encounter.safetyEscalation.triggered && (
+                {encounter.safetyEscalation?.triggered && (
                   <span className="badge bg-status-red/15 text-status-red">Urgent care triggered</span>
                 )}
                 {!encounter.consent.obtained && (
@@ -1093,13 +1093,13 @@ const EncounterDetail: React.FC<EncounterDetailProps> = ({
                   If a danger sign is present, arrange same-day in-person care now. This action does not require an AI
                   draft, a physician signature, or a flight. Record the reason and receiving facility for audit.
                 </p>
-                {encounter.safetyEscalation.triggered ? (
+                {encounter.safetyEscalation?.triggered ? (
                   <div className="mt-3 rounded-lg border border-status-red/30 bg-brand-background/40 p-3 text-xs">
                     <p className="font-semibold text-brand-text-primary">Urgent escalation recorded</p>
                     <p className="mt-1 text-brand-text-secondary">{encounter.safetyEscalation.reason}</p>
                     <p className="mt-1 text-brand-text-secondary">
-                      Triggered {formatDateTime(encounter.safetyEscalation.triggeredAt)} by{' '}
-                      {encounter.safetyEscalation.triggeredBy}
+                      Triggered {formatDateTime(encounter.safetyEscalation?.triggeredAt)} by{' '}
+                      {encounter.safetyEscalation?.triggeredBy}
                     </p>
                   </div>
                 ) : (

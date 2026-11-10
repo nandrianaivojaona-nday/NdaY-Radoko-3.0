@@ -112,6 +112,7 @@ export type ObservationSource =
   | 'Device measurement'
   | 'Remote observation'
   | 'In-person observation'
+  | 'Caregiver-mediated (supervised)'
   | 'Unavailable';
 
   export interface ProtocolRuleCitation {
@@ -189,6 +190,38 @@ export interface ObservationDefinition {
   guidance: string;
   protocolReference: string;
   protocolCitations?: ProtocolRuleCitation[];
+  /**
+   * A proposed research pathway for obtaining this observation when
+   * `remoteFeasibility` is 'In person only'. Not validated.
+   *
+   * The 12-month programme evaluates whether the proposal works: bench
+   * testing, inter-rater agreement measurement, and a clinical validation
+   * protocol submission. Nothing here is a current capability.
+   *
+   * Omit this field when no substitute is proposed for the observation.
+   */
+  proposedSubstitute?: {
+    pathway: 'Caregiver-mediated camera review' | 'Wearable PPG' | 'Contact force sensor';
+    description: string;
+    status: 'Proposed for bench testing' | 'Under bench testing' | 'Awaiting ethics approval';
+  };
+  /** Proposed drone-camera capture requirements. Not a validated capability. */
+  droneCaptureRequirements?: DroneCaptureRequirements;
+}
+
+export interface DroneCaptureRequirements {
+  feasible: boolean;
+  minimumStandoffMetres: number;
+  maximumStandoffMetres: number;
+  minimumResolution: '1080p' | '4K';
+  minimumFrameRate: number;
+  lightingRequirement: 'Controlled indoor' | 'Daylight' | 'Any';
+  requiresColourCalibration: boolean;
+  requiresAudio: boolean;
+  minimumObservationSeconds: number;
+  validityConditions: string[];
+  invalidityConditions: string[];
+  notFeasibleReason?: string;
 }
 
 export interface ProtocolRuleCitation {

@@ -35,7 +35,7 @@ const HomePage: React.FC<HomePageProps> = ({
   const awaiting = encounters.filter((e) =>
     ['Awaiting physician review', 'AI draft ready', 'More information requested'].includes(e.status),
   ).length;
-  const urgentOpen = encounters.filter((e) => e.safetyEscalation.triggered && e.status !== 'Closed').length;
+  const urgentOpen = encounters.filter((e) => e.safetyEscalation?.triggered && e.status !== 'Closed').length;
   const signed = encounters.filter((e) => Boolean(e.physicianDecision)).length;
   const pilot = countries.find((c) => c.isImplemented);
   const evidenceCounts = EVIDENCE_REGISTER.reduce(
@@ -261,9 +261,18 @@ const HomePage: React.FC<HomePageProps> = ({
         </div>
       </section>
 
-      <p className="text-center text-[11px] text-brand-text-secondary/70">
-        Facilities in this demo: {facilities.map((f) => f.name).join(' · ')}
-      </p>
+      {(() => {
+        const demoFacilities = facilities.filter(
+          (f) => !f.contactNote?.startsWith('Administrative directory'),
+        );
+        if (demoFacilities.length === 0) return null;
+        return (
+          <p className="text-center text-[11px] text-brand-text-secondary/70">
+            <span className="font-semibold">Demonstration facilities:</span>{' '}
+            {demoFacilities.map((f) => f.name).join(' · ')}
+          </p>
+        );
+      })()}
     </div>
   );
 };

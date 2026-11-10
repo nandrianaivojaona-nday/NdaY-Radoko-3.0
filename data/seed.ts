@@ -199,7 +199,7 @@ export const USERS: UserAccount[] = [
     name: 'Lova Randrianasolo',
     role: 'Field Officer',
     facilityId: 'FAC-CSB2-IFANADIANA-DEMO',
-    title: 'Field operations lead (demo role)',
+    title: 'Community Health Agent and Field Operations Lead (demo role)',
     demoCredential: 'demo-field-1',
     isDemo: true,
   },
@@ -1122,7 +1122,7 @@ export const DRONES: Drone[] = [
 
 
 export const SEED_DATA: AppData = {
-  schemaVersion: 3,
+  schemaVersion: 4,
   patients: PATIENTS,
   encounters: ENCOUNTERS,
   countries: COUNTRIES,

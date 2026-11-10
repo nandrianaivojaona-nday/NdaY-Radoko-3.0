@@ -87,6 +87,7 @@ const ObservationRow: React.FC<{
   isFocused: boolean;
   onOpenWorkspace: () => void;
   isWorkspaceOpen: boolean;
+  showDroneView?: boolean;
 }> = ({
   definition,
   observation,
@@ -96,6 +97,7 @@ const ObservationRow: React.FC<{
   isFocused,
   onOpenWorkspace,
   isWorkspaceOpen,
+  showDroneView = false,
 }) => {
   const [showNotes, setShowNotes] = useState(Boolean(observation.notes));
 
@@ -341,6 +343,54 @@ const ObservationRow: React.FC<{
       </div>
 
       <p className="mt-2 text-[11px] leading-relaxed text-brand-text-secondary/80">{definition.guidance}</p>
+      {showDroneView && definition.droneCaptureRequirements?.feasible && (
+        <div className="mt-2 rounded-lg border border-brand-primary/25 bg-brand-primary/5 p-2.5">
+          <p className="text-[10px] font-bold uppercase tracking-wide text-brand-primary">
+            Drone capture requirements · Proposed for bench validation
+          </p>
+          <ul className="mt-1 space-y-0.5 text-[10px] text-brand-text-secondary">
+            <li>Standoff: {definition.droneCaptureRequirements.minimumStandoffMetres}–{definition.droneCaptureRequirements.maximumStandoffMetres} m</li>
+            <li>Resolution: ≥ {definition.droneCaptureRequirements.minimumResolution} at ≥ {definition.droneCaptureRequirements.minimumFrameRate} fps</li>
+            <li>Lighting: {definition.droneCaptureRequirements.lightingRequirement}</li>
+            {definition.droneCaptureRequirements.requiresAudio && <li>Audio capture required</li>}
+            {definition.droneCaptureRequirements.requiresColourCalibration && <li>Colour calibration required (reference card in frame)</li>}
+            <li>Minimum duration: {definition.droneCaptureRequirements.minimumObservationSeconds} s</li>
+          </ul>
+          {definition.droneCaptureRequirements.validityConditions.length > 0 && (
+            <>
+              <p className="mt-1.5 text-[10px] font-semibold text-brand-text-primary">Valid only when:</p>
+              <ul className="mt-0.5 list-disc pl-4 text-[10px] text-brand-text-secondary">
+                {definition.droneCaptureRequirements.validityConditions.map((v) => <li key={v}>{v}</li>)}
+              </ul>
+            </>
+          )}
+          {definition.droneCaptureRequirements.invalidityConditions.length > 0 && (
+            <>
+              <p className="mt-1.5 text-[10px] font-semibold text-status-red">Unusable when:</p>
+              <ul className="mt-0.5 list-disc pl-4 text-[10px] text-brand-text-secondary">
+                {definition.droneCaptureRequirements.invalidityConditions.map((v) => <li key={v}>{v}</li>)}
+              </ul>
+            </>
+          )}
+        </div>
+      )}
+
+      {definition.proposedSubstitute && (
+        <div className="mt-2 rounded-lg border border-brand-accent/30 bg-brand-accent/5 p-2.5">
+          <p className="text-[10px] font-bold uppercase tracking-wide text-brand-accent">
+            Proposed substitute · {definition.proposedSubstitute.status}
+          </p>
+          <p className="mt-1 text-[11px] leading-relaxed text-brand-text-secondary">
+            <span className="font-semibold text-brand-text-primary">
+              {definition.proposedSubstitute.pathway}:
+            </span>{' '}
+            {definition.proposedSubstitute.description}
+          </p>
+          <p className="mt-1 text-[10px] italic text-brand-text-secondary/70">
+            Research question, not a current capability. The 12-month programme tests whether the substitute works.
+          </p>
+        </div>
+      )}
 
       {showNotes && (
         <div className="mt-2 space-y-2">
@@ -384,6 +434,7 @@ const ObservationPanel: React.FC<ObservationPanelProps> = ({
   const [step, setStep] = useState<AssessmentSequenceStep>('ALL');
   const [showAll, setShowAll] = useState(false);
   const [showMissingOnly, setShowMissingOnly] = useState(false);
+  const [showDroneView, setShowDroneView] = useState(false);
   const [activeWorkspaceDefId, setActiveWorkspaceDefId] = useState<string | null>(null);
   const [internalFocusedId, setInternalFocusedId] = useState<string | null>(focusedObservationId ?? null);
 
@@ -441,6 +492,9 @@ const ObservationPanel: React.FC<ObservationPanelProps> = ({
 
   // Filter definitions while ensuring focused / active observation is NEVER hidden
   const visibleDefinitions = OBSERVATION_CATALOGUE.filter((definition) => {
+    if (showDroneView) {
+      return definition.droneCaptureRequirements?.feasible === true;
+    }
     // If explicitly requested/focused or active workspace, ALWAYS show it!
     if (internalFocusedId === definition.id || activeWorkspaceDefId === definition.id) {
       return true;
@@ -451,6 +505,11 @@ const ObservationPanel: React.FC<ObservationPanelProps> = ({
       return false;
     }
 
+    // Always show in-person-only observations. These mark the boundary of
+    // what a remote encounter can and cannot capture. The FEEL / TOUCH step
+    // in the assessment sequence above is meaningless if its corresponding
+    // rows are hidden by default.
+    if (definition.remoteFeasibility === 'In person only') return true;
     if (!showAll && !definition.requiredForReview && !byId.get(definition.id)?.value) return false;
     if (showMissingOnly) {
       const observation = byId.get(definition.id);
@@ -748,6 +807,13 @@ const ObservationPanel: React.FC<ObservationPanelProps> = ({
           >
             {showMissingOnly ? 'Showing missing only' : 'Show missing only'}
           </button>
+        <button
+          type="button"
+          className={`btn-ghost px-3 py-1.5 text-xs ${showDroneView ? 'text-brand-primary font-semibold' : ''}`}
+          onClick={() => setShowDroneView((s) => !s)}
+        >
+          {showDroneView ? '← Standard view' : 'Drone capture view'}
+        </button>
         </div>
       </div>
 
@@ -798,12 +864,34 @@ const ObservationPanel: React.FC<ObservationPanelProps> = ({
                       setInternalFocusedId(definition.id);
                     }
                   }}
+                  showDroneView={showDroneView}
                 />
               );
             })}
           </section>
         );
       })}
+
+      {showDroneView && (
+        <section className="rounded-xl border border-status-red/30 bg-status-red/5 p-4">
+          <h4 className="text-sm font-bold text-brand-text-primary">Not feasible via drone</h4>
+          <p className="mt-1 text-xs text-brand-text-secondary">
+            These observations require contact, physical examination, or a dedicated sensor.
+            The drone camera alone cannot produce them. The 12-month programme does not
+            attempt to substitute the drone for these.
+          </p>
+          <ul className="mt-3 space-y-2">
+            {OBSERVATION_CATALOGUE.filter((d) => d.droneCaptureRequirements?.feasible === false).map((d) => (
+              <li key={d.id} className="rounded-lg border border-brand-secondary/20 bg-brand-surface/40 p-2.5">
+                <p className="text-xs font-semibold text-brand-text-primary">{d.label}</p>
+                <p className="mt-1 text-[11px] leading-relaxed text-brand-text-secondary">
+                  {d.droneCaptureRequirements?.notFeasibleReason ?? 'Not feasible via drone.'}
+                </p>
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
 
       {!disabled && (
         <div className="flex flex-wrap items-center justify-between gap-3 border-t border-brand-secondary/20 pt-4">

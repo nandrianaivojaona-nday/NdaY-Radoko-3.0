@@ -37,7 +37,7 @@ const CareQueuePage: React.FC<CareQueuePageProps> = ({
       all: encounters.length,
       review: encounters.filter((e) => e.status === 'Awaiting physician review' || e.status === 'AI draft ready' || e.status === 'More information requested').length,
       active: encounters.filter((e) => !['Closed'].includes(e.status) && e.status !== 'Awaiting physician review').length,
-      urgent: encounters.filter((e) => e.safetyEscalation.triggered && e.status !== 'Closed').length,
+      urgent: encounters.filter((e) => e.safetyEscalation?.triggered && e.status !== 'Closed').length,
       closed: encounters.filter((e) => e.status === 'Closed').length,
     }),
     [encounters],
@@ -53,7 +53,7 @@ const CareQueuePage: React.FC<CareQueuePageProps> = ({
         if (filter === 'active') {
           if (encounter.status === 'Closed' || encounter.status === 'Awaiting physician review') return false;
         }
-        if (filter === 'urgent' && !(encounter.safetyEscalation.triggered && encounter.status !== 'Closed')) return false;
+        if (filter === 'urgent' && !(encounter.safetyEscalation?.triggered && encounter.status !== 'Closed')) return false;
         if (filter === 'closed' && encounter.status !== 'Closed') return false;
         if (!term) return true;
         const patient = patientById.get(encounter.patientId);
@@ -62,8 +62,8 @@ const CareQueuePage: React.FC<CareQueuePageProps> = ({
           .some((value) => String(value).toLowerCase().includes(term));
       })
       .sort((a, b) => {
-        const aUrgent = a.safetyEscalation.triggered ? 1 : 0;
-        const bUrgent = b.safetyEscalation.triggered ? 1 : 0;
+        const aUrgent = a.safetyEscalation?.triggered ? 1 : 0;
+        const bUrgent = b.safetyEscalation?.triggered ? 1 : 0;
         if (aUrgent !== bUrgent) return bUrgent - aUrgent;
         return new Date(b.history[0]?.at ?? b.createdAt).getTime() - new Date(a.history[0]?.at ?? a.createdAt).getTime();
       });
@@ -161,7 +161,7 @@ const CareQueuePage: React.FC<CareQueuePageProps> = ({
                       </td>
                       <td className="px-4 py-3">
                         <EncounterStatusBadge status={encounter.status} />
-                        {encounter.safetyEscalation.triggered && (
+                        {encounter.safetyEscalation?.triggered && (
                           <p className="mt-1 text-[10px] font-semibold text-status-red">Urgent pathway</p>
                         )}
                       </td>

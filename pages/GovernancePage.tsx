@@ -199,7 +199,9 @@ const GovernancePage: React.FC<GovernancePageProps> = ({
             ))}
           </div>
           <div className="grid gap-3 md:grid-cols-2">
-            {facilities.map((facility) => (
+            {facilities
+              .filter((f) => !f.contactNote?.startsWith('Administrative directory'))
+              .map((facility) => (
               <div key={facility.id} className="surface-muted p-4">
                 <p className="text-sm font-bold text-brand-text-primary">{facility.name}</p>
                 <p className="text-xs text-brand-text-secondary">{facility.level} · {facility.district}</p>

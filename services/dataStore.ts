@@ -1,9 +1,9 @@
 import { AppData, Session } from '../types';
 import { SEED_DATA } from '../data/seed';
 
-export const DATA_KEY = 'nday-radoko.demo.v3';
+export const DATA_KEY = 'nday-radoko.demo.v4';
 export const SESSION_KEY = 'nday-radoko.demo.session.v1';
-export const DATA_SCHEMA_VERSION = 3;
+export const DATA_SCHEMA_VERSION = 4;
 
 const isBrowser = typeof window !== 'undefined';
 
@@ -29,10 +29,14 @@ export const loadData = (): AppData => {
       },
     }));
 
+    // Defensive filter: drop any encounter that lacks required fields
+    const safeEncounters = (parsed.encounters ?? []).filter((e) =>
+      e && typeof e.id === 'string' && e.safetyEscalation && typeof e.safetyEscalation.triggered === 'boolean'
+    );
     return {
       ...clone(SEED_DATA),
       ...parsed,
-      encounters,
+      encounters: safeEncounters.length ? safeEncounters : clone(SEED_DATA.encounters),
       assessmentSessions,
       assessmentEvidence,
       users: parsed.users?.length ? parsed.users : clone(SEED_DATA.users),
