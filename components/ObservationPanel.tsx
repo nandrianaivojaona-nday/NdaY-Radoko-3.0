@@ -21,6 +21,7 @@ import {
 import { Notice, QualityBadge } from './Badges';
 import { MADAGASCAR_YOUNG_INFANT_SOURCES } from '@/data/protocoleSources';
 import { getConcernRecommendations } from '../data/reportedConcerns';
+import { DroneFeed } from './DroneFeed';
 import { AcquisitionWorkspace } from './AcquisitionWorkspace';
 
 export type AssessmentSequenceStep = 'ALL' | 'ASK' | 'LOOK' | 'FEEL' | 'MEASURE';
@@ -871,6 +872,10 @@ const ObservationPanel: React.FC<ObservationPanelProps> = ({
           </section>
         );
       })}
+
+      {showDroneView && (
+        <div className="mb-4"><DroneFeed /></div>
+      )}
 
       {showDroneView && (
         <section className="rounded-xl border border-status-red/30 bg-status-red/5 p-4">
